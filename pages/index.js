@@ -1,11 +1,17 @@
 import React from 'react'
 import Head from 'next/head'
+import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
+import '../public/css/global.css'
 import {
     Page,
     Intro,
     Header, 
+    Vignette,
     HeaderImage,
     Welcome,
     Work,
@@ -32,6 +38,8 @@ import {
     LinksListItem
 } from '../components/styled/page.js'
 
+library.add(fab)
+
 const Home = props => (
   <>
     <Head>
@@ -39,93 +47,124 @@ const Home = props => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
     <Page>
-      <Intro className="order-0"> 
-        <Header>
-          <HeaderImage src="" />
+      <Intro className="order-0"> <Header>
+          <Vignette />
+          <HeaderImage src="images/jason-cheek-photo.jpg" />
         </Header>
         <Welcome>
-          Welcome. My name is Jason Cheek. I design and build web applications in New Orleans, LA. This is my website. It has work, photos, words, and music.
+          <p className="f3 mt0 mb3">Hello. I'm Jason.</p>
+          <p className="mv3 pr4 pr4-m pr0-l">I'm a designer &amp; developer based in <span className="b">New Orleans</span> with almost 9 years of experience building for the web.</p>
+          <p className="mv3 pr3 f5">Currently, I'm working on UI and APIs for admin tools, e-commerce websites, and other things at Donovan Marine.</p>
         </Welcome>
       </Intro>
-
-      <Work className="order-1">
+      <Links className="order-1">
+        <LinksList>
+          <LinksListItem>
+            <FontAwesomeIcon icon={['fab', 'linkedin']} style={{height: "1.5rem"}} />
+          </LinksListItem>
+          <LinksListItem>
+            <FontAwesomeIcon icon={['fab', 'github']} style={{height: "1.5rem"}} />
+          </LinksListItem>
+          {/* <LinksListItem>
+            <FontAwesomeIcon icon={['fab', 'codepen']} style={{height: "1.5rem"}} />
+          </LinksListItem> */}
+          <LinksListItem>
+            <FontAwesomeIcon icon={['fab', 'facebook']} style={{height: "1.5rem"}} />
+          </LinksListItem>
+          <LinksListItem>
+            <FontAwesomeIcon icon={['fab', 'instagram']} style={{height: "1.5rem"}} />
+          </LinksListItem>
+          <LinksListItem>
+            <FontAwesomeIcon icon={['fab', 'twitter']} style={{height: "1.5rem"}} />
+          </LinksListItem>
+          {/* <LinksListItem>
+            <FontAwesomeIcon icon={['fab', 'tumblr']} style={{height: "1.5rem"}} />
+          </LinksListItem>
+          <LinksListItem>
+            <FontAwesomeIcon icon={['fab', 'pinterest']} style={{height: "1.5rem"}} />
+          </LinksListItem>
+          <LinksListItem>
+            <FontAwesomeIcon icon={['fab', 'soundcloud']} style={{height: "1.5rem"}} />
+          </LinksListItem> */}
+        </LinksList>
+      </Links>
+      <Work className="order-1 order-2-l">
         <ProjectHeader>
-          <Heading>Recent Work</Heading>
+          {/* <Heading>Donovan Marine</Heading> */}
+          <div className="mv1">Donovan Marine</div>
+          <div className="mv1">Events Application<span className="white-50 pl2">2017-2019</span></div>
+          <div className="mv1">UI, Auth, REST API</div>
         </ProjectHeader>
-        <Project>
-          <ProjectWrap>
-            <ProjectTitle>Events Management Application</ProjectTitle>
-            <ProjectList>
-              <ProjectListItem>Registration</ProjectListItem>
-              <ProjectListItem>Check In</ProjectListItem>
-              <ProjectListItem>Ordering</ProjectListItem>
-              <ProjectListItem>Stats</ProjectListItem>
-              <ProjectListItem>API</ProjectListItem>
-            </ProjectList>
-          </ProjectWrap>
+        <Project className="pointer">
+          <Link href="/work">
+            <ProjectWrap>
+              {/* <ProjectTitle>Events Management Application</ProjectTitle> */}
+              <ProjectList>
+                <ProjectListItem>Registration</ProjectListItem>
+                <ProjectListItem>Check In</ProjectListItem>
+                <ProjectListItem>Ordering</ProjectListItem>
+                <ProjectListItem>Stats</ProjectListItem>
+                <ProjectListItem>API</ProjectListItem>
+              </ProjectList>
+            </ProjectWrap>
+          </Link>
         </Project>    
       </Work>
 
-      <Activity className="order-2">
-        <ActivityImage src={props.ig_imageURL} />
-        <ActivityInfo>Posted on Instagram</ActivityInfo>
-        <ActivityTime>30 minutes ago</ActivityTime>
-      </Activity>
-
-
-      <Posts className="order-3">
+      {/* <Posts className="order-3 order-4-l">
         <PostsHeader>
           <PostsHeading>Writing</PostsHeading>
         </PostsHeader>
         <PostsList>
-          <PostsListItem className="bg-washed-blue">
+          <PostsListItem>
             <PostsListItemTitle>
-              CSS Grid for ya mamma and them
+              CSS Grid for ya mamma
             </PostsListItemTitle>
           </PostsListItem>
-          <PostsListItem className="bg-washed-red">
+          <PostsListItem>
               <PostsListItemTitle>
                 Inline styles is a habit
               </PostsListItemTitle>
           </PostsListItem>
-          <PostsListItem className="bg-washed-yellow">
+          <PostsListItem>
               <PostsListItemTitle>
                 Filters in SVG and beyond
               </PostsListItemTitle>
           </PostsListItem>
         </PostsList>
-      </Posts>
+      </Posts> */}
 
-      <Activity className="order-4 order-5-l bg-near-white">
+      <Activity style={{color: "#e9e9e9"}} className="br3-l br--bottom-l br--right-l center-ns center-m center-none-l bg-black-70 white-50 br-l b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
         <ActivityCaption>{props.tweet}</ActivityCaption>
         <ActivityInfo>Posted on Twitter</ActivityInfo>
         <ActivityTime>4 days ago</ActivityTime>
       </Activity>
 
-      <Activity className="order-5 order-4-l">
-        <ActivityImage src={props.spotify_data.items[0].track.album.images[0].url} />
-        <ActivityInfo>Listened to on Spotify</ActivityInfo>
-        <ActivityTime>2 days ago</ActivityTime>
-      </Activity>
-
-      <Links className="order-6 bg-near-white">
-        <LinksList>
-          <LinksListItem>Linked In</LinksListItem>
-          <LinksListItem>GitHub</LinksListItem>
-          <LinksListItem>Facebook</LinksListItem>
-          <LinksListItem>CodePen</LinksListItem>
-          <LinksListItem>Tumblr</LinksListItem>
-          <LinksListItem>Pinterest</LinksListItem>
-          <LinksListItem>SoundCloud</LinksListItem>
-        </LinksList>
-      </Links>
+      <div className="br3-l br--right-l br--bottom-l white-50 bt b--black-90 order-5 flex flex-row flex-column-l mw6 center-ns center-m center-none-l">
+        <Activity className="bg-black-80 br bb-l b--black-90 w-50 w5-l pa3 pa4-l pr2">
+          <ActivityImage src={props.ig_imageURL} />
+          <ActivityInfo>Posted on Instagram</ActivityInfo>
+          <ActivityTime>30 minutes ago</ActivityTime>
+        </Activity>
+        <Activity className="br3-ns br--right-m br--bottom-m br--right-l br--bottom-l bg-black-80 br b--black-90 w-50 w5-l pa3 pa4-l pb4 pl2 pt0-l">
+          <ActivityImage src={props.spotify_data.items[0].track.album.images[0].url} />
+          <ActivityInfo>Listened to on Spotify</ActivityInfo>
+          <ActivityTime>2 days ago</ActivityTime>
+        </Activity>
+      </div>
 
     </Page>
   </>
 )
 
-Home.getInitialProps = async function() {
-
+Home.getInitialProps = async ({req}) => {
+  // if (req) {
+  //   const posts = await API.getPosts()
+  //   return {posts}
+  // } else {
+  //   API.getPosts().then( posts => this.setState({posts}) )
+  //   return {}
+  // }
   /* Instagram */
   const ig_access_token = process.env.NEXT_SERVER_IG_ACCESS_TOKEN;
   let ig_imageURL;

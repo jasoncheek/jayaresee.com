@@ -1,0 +1,13 @@
+body {
+    background: #4c6c73;
+}
+
+@media screen and (min-width: 60em) {
+    .app-height-l {
+        max-height: 900px;
+    }
+    .center-none-l {
+        margin-left: initial;
+        margin-right: initial;
+    }
+}
