@@ -109,7 +109,7 @@ const Home = (props) => {
           </ProjectHeader>
           <Project className="pointer" onClick={()=>{setWorkOverlay(true);window.scrollTo(0, 0);}}>
             <ProjectWrap>
-              <img src="images/work.jpg" alt="Work" title="Work" />
+              <img className="fl" src="images/work.jpg" alt="Work" title="Work" />
               {/* <ProjectTitle>Events Management Application</ProjectTitle> */}
               <ProjectList>
                 <ProjectListItem>Registration</ProjectListItem>

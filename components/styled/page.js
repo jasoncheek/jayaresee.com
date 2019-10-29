@@ -50,7 +50,7 @@ const Work = styled.div.attrs({
     className: "bg-near-black dim",
   })``
   const ProjectWrap = styled.div.attrs({
-    className: "h5",
+    className: "",
   })``
   const ProjectTitle = styled.h3.attrs({
     className: "mv0 pv3 ph4 w4 lh-title",
