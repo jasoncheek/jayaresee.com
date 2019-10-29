@@ -55,7 +55,7 @@ const Home = (props) => {
           <Header>
             <Vignette />
             <HeaderImage src="images/jason-cheek-photo.jpg" />
-            <div className="center" style={{width: "10rem", height: "10rem", background: "url(images/jason-cheek.jpg)", backgroundSize: "contain"}}>
+            <div className="center ba b--gray" style={{width: "10rem", height: "10rem", background: "url(images/jason-cheek.jpg)", backgroundSize: "contain"}}>
 
             </div>
           </Header>
