@@ -14,6 +14,7 @@ const Intro = styled.div.attrs({
     className: "h5 relative tc bb white-90",
   })`
     background-color: #9bd8e6;
+    padding-top: 2.875rem
   `
   const Welcome = styled.div.attrs({
     className: "ph4 ph5-ns pv4 pv5-l center f4 lh-copy mt0",
@@ -37,20 +38,19 @@ const Intro = styled.div.attrs({
     filter: grayscale(38%);
   `
 const Work = styled.div.attrs({
-  className: "bt bb br-l b--black-90 center-ns center-m w-100 h-100 w-40-l mw6 bg-black-70 white-90",
-})`
-`
+  className: "bt b--black center-ns center-m w-100 h-100 w-40-l mw6 bg-white-10 white-90",
+})``
   const Heading = styled.h2.attrs({
     className: "f4 mv0 pt4 pb3 ttl",
   })``
   const ProjectHeader = styled.div.attrs({
-    className: "ph4 pv3 lh-title f6",
+    className: "cf ph4 pv3 lh-title f6",
   })``
   const Project = styled.div.attrs({
-    className: "bg-near-black",
+    className: "bg-near-black dim",
   })``
   const ProjectWrap = styled.div.attrs({
-    className: "ph4 h5",
+    className: "h5",
   })``
   const ProjectTitle = styled.h3.attrs({
     className: "mv0 pv3 ph4 w4 lh-title",
@@ -68,7 +68,7 @@ const Activity = styled.div.attrs({
     className: "mv0 pb4 f5 lh-copy",
   })``
   const ActivityImage = styled.img.attrs({
-    className: "w-100 mb3 o-80",
+    className: "w-100 mb3 o-90",
   })``
   const ActivityInfo = styled.div.attrs({
     className: "pb1 f6 white-50",
@@ -95,7 +95,7 @@ const Posts = styled.div.attrs({
     className: ""
   })``
 const Links = styled.div.attrs({
-  className: "br3-l br--bottom-l br--right-l tc br-l b--black-90 bg-black-80 white-90 br-l center-ns center-m w-100 w-40-l mw6 ph3 pv3",
+  className: "br2-l br--bottom-l br--right-l tc br-l b--black-90 bg-black-80 white-90 br-l center-ns center-m w-100 w-40-l mw6 ph3 pv3",
 })`
   color: #e9e9e9
 `

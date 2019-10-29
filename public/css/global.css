@@ -1,5 +1,6 @@
 body {
-    background: #4c6c73;
+    position: relative;
+    background: #222;
 }
 
 @media screen and (min-width: 60em) {

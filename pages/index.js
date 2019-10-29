@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
-import Link from 'next/link';
+// import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
+import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { faTimes, faPhotoVideo } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
 import '../public/css/global.css'
@@ -38,66 +40,76 @@ import {
     LinksListItem
 } from '../components/styled/page.js'
 
-library.add(fab)
+library.add(fab, faTimes)
 
-const Home = props => (
-  <>
-    <Head>
-      <title>Jason Cheek</title>
-      <link rel='icon' href='/favicon.ico' />
-    </Head>
-    <Page>
-      <Intro className="order-0"> <Header>
-          <Vignette />
-          <HeaderImage src="images/jason-cheek-photo.jpg" />
-        </Header>
-        <Welcome>
-          <p className="f3 mt0 mb3">Hello. I'm Jason.</p>
-          <p className="mv3 pr4 pr4-m pr0-l">I'm a designer &amp; developer based in <span className="b">New Orleans</span> with almost 9 years of experience building for the web.</p>
-          <p className="mv3 pr3 f5">Currently, I'm working on UI and APIs for admin tools, e-commerce websites, and other things at Donovan Marine.</p>
-        </Welcome>
-      </Intro>
-      <Links className="order-1">
-        <LinksList>
-          <LinksListItem>
-            <FontAwesomeIcon icon={['fab', 'linkedin']} style={{height: "1.5rem"}} />
-          </LinksListItem>
-          <LinksListItem>
-            <FontAwesomeIcon icon={['fab', 'github']} style={{height: "1.5rem"}} />
-          </LinksListItem>
-          {/* <LinksListItem>
-            <FontAwesomeIcon icon={['fab', 'codepen']} style={{height: "1.5rem"}} />
-          </LinksListItem> */}
-          <LinksListItem>
-            <FontAwesomeIcon icon={['fab', 'facebook']} style={{height: "1.5rem"}} />
-          </LinksListItem>
-          <LinksListItem>
-            <FontAwesomeIcon icon={['fab', 'instagram']} style={{height: "1.5rem"}} />
-          </LinksListItem>
-          <LinksListItem>
-            <FontAwesomeIcon icon={['fab', 'twitter']} style={{height: "1.5rem"}} />
-          </LinksListItem>
-          {/* <LinksListItem>
-            <FontAwesomeIcon icon={['fab', 'tumblr']} style={{height: "1.5rem"}} />
-          </LinksListItem>
-          <LinksListItem>
-            <FontAwesomeIcon icon={['fab', 'pinterest']} style={{height: "1.5rem"}} />
-          </LinksListItem>
-          <LinksListItem>
-            <FontAwesomeIcon icon={['fab', 'soundcloud']} style={{height: "1.5rem"}} />
-          </LinksListItem> */}
-        </LinksList>
-      </Links>
-      <Work className="order-1 order-2-l">
-        <ProjectHeader>
-          {/* <Heading>Donovan Marine</Heading> */}
-          <div className="mv1">Donovan Marine</div>
-          <div className="mv1">Events Application<span className="white-50 pl2">2017-2019</span></div>
-          <div className="mv1">UI, Auth, REST API</div>
-        </ProjectHeader>
-        <Project className="pointer">
-          <Link href="/work">
+const Home = (props) => {
+  const [workOverlay, setWorkOverlay] = useState(false);
+  return (
+    <>
+      <Head>
+        <title>Jason Cheek</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      <Page>
+        <Intro className="order-0"> 
+          <Header>
+            <Vignette />
+            <HeaderImage src="images/jason-cheek-photo.jpg" />
+            <div className="center br-100 ba b--black-90" style={{width: "10rem", height: "10rem", background: "url(images/jason-cheek.jpg)", backgroundSize: "contain"}}>
+
+            </div>
+          </Header>
+          <Welcome>
+            <p className="f3 mt0 mb3">Hello. I'm Jason.</p>
+            <p className="mv3 pr4 pr4-m pr0-l">I'm a designer &amp; developer based in <span className="b">New Orleans</span> with almost 9 years of experience building for the web.</p>
+            <p className="mv3 pr3 f5">Currently, I'm working on UI and APIs for admin tools, e-commerce websites, and other things at <a href="https://donovanmarine.com" style={{color: "#32322e"}} className="link b bb dim" target="_blank" title="Donovan Marine">Donovan Marine</a>.</p>
+          </Welcome>
+        </Intro>
+        <Links className="order-1">
+          <LinksList>
+            <LinksListItem>
+              <a title="LinkedIn" className="white-90 dim" href="https://www.linkedin.com/in/jason-cheek/" target="_blank"><FontAwesomeIcon icon={['fab', 'linkedin']} style={{height: "1.5rem"}} /></a>
+            </LinksListItem>
+            <LinksListItem>
+              <a title="GitHub" className="white-90 dim" href="https://github.com/jasoncheek" target="_blank"><FontAwesomeIcon icon={['fab', 'github']} style={{height: "1.5rem"}} /></a>
+            </LinksListItem>
+            {/* <LinksListItem>
+              <FontAwesomeIcon icon={['fab', 'codepen']} style={{height: "1.5rem"}} />
+            </LinksListItem> */}
+            <LinksListItem>
+              <a title="Facebook" className="white-90 dim" href="https://www.facebook.com/jasoncheeek" target="_blank"><FontAwesomeIcon icon={['fab', 'facebook']} style={{height: "1.5rem"}} /></a>
+            </LinksListItem>
+            <LinksListItem>
+              <a title="Instagram" className="white-90 dim" href="https://www.instagram.com/jasoncheek" target="_blank"><FontAwesomeIcon icon={['fab', 'instagram']} style={{height: "1.5rem"}} /></a>
+            </LinksListItem>
+            <LinksListItem>
+              <a title="Twitter" className="white-90 dim" href="https://twitter.com/cheekisme" target="_blank"><FontAwesomeIcon icon={['fab', 'twitter']} style={{height: "1.5rem"}} /></a>
+            </LinksListItem>
+            {/* <LinksListItem>
+              <FontAwesomeIcon icon={['fab', 'tumblr']} style={{height: "1.5rem"}} />
+            </LinksListItem>
+            <LinksListItem>
+              <FontAwesomeIcon icon={['fab', 'pinterest']} style={{height: "1.5rem"}} />
+            </LinksListItem>
+            <LinksListItem>
+              <FontAwesomeIcon icon={['fab', 'soundcloud']} style={{height: "1.5rem"}} />
+            </LinksListItem> */}
+          </LinksList>
+        </Links>
+        <Work className="order-1 order-2-l">
+          <ProjectHeader>
+            <div className="fl">
+              <div className="mv1">Donovan Marine</div>
+              <div className="mv1">Events Application</div>
+            </div>
+            <div className="fr tr white-50 ">
+              <div className="mv1">UI, Auth, REST API</div>
+              <div className="mv1">2017-2019</div>
+            </div>
+          </ProjectHeader>
+          <Project className="pointer" onClick={()=>{setWorkOverlay(true);window.scrollTo(0, 0);}}>
             <ProjectWrap>
+              <img src="images/work.jpg" alt="Work" title="Work" />
               {/* <ProjectTitle>Events Management Application</ProjectTitle> */}
               <ProjectList>
                 <ProjectListItem>Registration</ProjectListItem>
@@ -107,55 +119,98 @@ const Home = props => (
                 <ProjectListItem>API</ProjectListItem>
               </ProjectList>
             </ProjectWrap>
-          </Link>
-        </Project>    
-      </Work>
+          </Project>    
+        </Work>
 
-      {/* <Posts className="order-3 order-4-l">
-        <PostsHeader>
-          <PostsHeading>Writing</PostsHeading>
-        </PostsHeader>
-        <PostsList>
-          <PostsListItem>
-            <PostsListItemTitle>
-              CSS Grid for ya mamma
-            </PostsListItemTitle>
-          </PostsListItem>
-          <PostsListItem>
+        {workOverlay ? 
+
+          <div style={{background: "#333"}} className="fixed overflow-auto z-1 left-0 top-0 w-100 h-100">
+            <div style={{maxWidth: "64rem"}} className="sans-serif center w-100 pb4 white-80 bg-black-20">
+            <ProjectHeader className="bg-white-10 white-80 mb2">
+              <div className="fl">
+                <div className="mv1">Donovan Marine</div>
+                <div className="mv1">Events Application</div>
+              </div>
+
+              <div className="fr white-80">
+                <div className="pointer tc pt1" onClick={()=>{setWorkOverlay(false)}}>
+                  <FontAwesomeIcon icon={faTimes} style={{height: "1.25rem"}} />
+                  <div className="b" style={{marginTop: "-.125rem"}}>close</div>
+                </div>
+              </div>
+              <div className="fr tr white-50 mr4">
+                <div className="mv1">UI, Auth, REST API</div>
+                <div className="mv1">2017-2019</div>
+              </div>
+            </ProjectHeader>
+
+            <div className="pb4 bb b--white-10">
+              <div className="fl f4 ph4 white-90 pt4 pb3">Event Registration</div>
+              <div className="fr f6 ph4 pt4 pb3">Design, HTML, CSS, Javascript</div>
+              <img src="images/registration.jpg" alt="Event Registration" title="Event Registration" />
+            </div>
+            <div className="pb4 bb b--white-10">
+              <div className="fl f4 ph4 white-90 pt4 pb3">Events Admin</div>
+              <div className="fr f6 ph4 pt4 pb3">Design, HTML, CSS, Javascript, React</div>
+              <img src="images/admin.jpg" alt="Event Admin" title="Event Admin" />
+            </div>
+            <div className="pb4 bb b--white-10">
+              <div className="fl f4 ph4 white-90 pt4 pb3">Events Data API</div>
+              <div className="fr f6 ph4 pt4 pb3">C#, SQL, REST, JSON</div>
+              <img src="images/api.jpg" alt="Event Data API" title="Events Data API" />
+            </div>
+              <div className="white-80 pointer pa2 b mv3 tc ba db center w3 br1 bg-animate hover-bg-white-80 hover-black-90 " onClick={()=>{setWorkOverlay(false)}}>close</div>
+            </div>
+          </div>          
+
+        : null}
+
+        {/* <Posts className="order-3 order-4-l">
+          <PostsHeader>
+            <PostsHeading>Writing</PostsHeading>
+          </PostsHeader>
+          <PostsList>
+            <PostsListItem>
               <PostsListItemTitle>
-                Inline styles is a habit
+                CSS Grid for ya mamma
               </PostsListItemTitle>
-          </PostsListItem>
-          <PostsListItem>
-              <PostsListItemTitle>
-                Filters in SVG and beyond
-              </PostsListItemTitle>
-          </PostsListItem>
-        </PostsList>
-      </Posts> */}
+            </PostsListItem>
+            <PostsListItem>
+                <PostsListItemTitle>
+                  Inline styles is a habit
+                </PostsListItemTitle>
+            </PostsListItem>
+            <PostsListItem>
+                <PostsListItemTitle>
+                  Filters in SVG and beyond
+                </PostsListItemTitle>
+            </PostsListItem>
+          </PostsList>
+        </Posts> */}
 
-      <Activity style={{color: "#e9e9e9"}} className="br3-l br--bottom-l br--right-l center-ns center-m center-none-l bg-black-70 white-50 br-l b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
-        <ActivityCaption>{props.tweet}</ActivityCaption>
-        <ActivityInfo>Posted on Twitter</ActivityInfo>
-        <ActivityTime>4 days ago</ActivityTime>
-      </Activity>
-
-      <div className="br3-l br--right-l br--bottom-l white-50 bt b--black-90 order-5 flex flex-row flex-column-l mw6 center-ns center-m center-none-l">
-        <Activity className="bg-black-80 br bb-l b--black-90 w-50 w5-l pa3 pa4-l pr2">
-          <ActivityImage src={props.ig_imageURL} />
-          <ActivityInfo>Posted on Instagram</ActivityInfo>
-          <ActivityTime>30 minutes ago</ActivityTime>
+        <Activity style={{color: "#e9e9e9"}} className="center-ns center-m center-none-l bg-white-10 white-50 b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
+          <ActivityCaption><a href="https://twitter.com/cheekisme" className="link white-90" target="_blank">{props.tweet.text}</a></ActivityCaption>
+          <ActivityInfo>Posted on Twitter</ActivityInfo>
+          <ActivityTime>{moment(props.tweet.created_at).fromNow()}</ActivityTime>
         </Activity>
-        <Activity className="br3-ns br--right-m br--bottom-m br--right-l br--bottom-l bg-black-80 br b--black-90 w-50 w5-l pa3 pa4-l pb4 pl2 pt0-l">
-          <ActivityImage src={props.spotify_data.items[0].track.album.images[0].url} />
-          <ActivityInfo>Listened to on Spotify</ActivityInfo>
-          <ActivityTime>2 days ago</ActivityTime>
-        </Activity>
-      </div>
 
-    </Page>
-  </>
-)
+        <div className="br2-l br--right-l br--bottom-l white-50 bt b--black-90 order-5 flex flex-row flex-column-l mw6 center-ns center-m center-none-l">
+          <Activity className="bg-black-80 br bb-l b--white-10 w-50 w5-l pa3 pa4-l pr2">
+            <a href={props.ig_post.link} className="link white-90 dim" target="_blank"><ActivityImage src={props.ig_post.images.standard_resolution.url} /></a>
+            <ActivityInfo>Posted on Instagram</ActivityInfo>
+            <ActivityTime>{moment.unix(props.ig_post.created_time).fromNow()}</ActivityTime>
+          </Activity>
+          <Activity className="br2-ns br--right-m br--bottom-m br--right-l br--bottom-l br bg-black-80 b--white-10 w-50 w5-l pa3 pa4-l pb4 pl2">
+            <a href={props.spotify_data.items[0].context.external_urls.spotify} className="link white-90 dim" target="_blank"><ActivityImage src={props.spotify_data.items[0].track.album.images[0].url} /></a>
+            <ActivityInfo>Listened to on Spotify</ActivityInfo>
+            <ActivityTime>{moment(props.spotify_data.items[0].played_at).fromNow()}</ActivityTime>
+          </Activity>
+        </div>
+
+      </Page>
+    </>
+  ) 
+}
 
 Home.getInitialProps = async ({req}) => {
   // if (req) {
@@ -167,7 +222,7 @@ Home.getInitialProps = async ({req}) => {
   // }
   /* Instagram */
   const ig_access_token = process.env.NEXT_SERVER_IG_ACCESS_TOKEN;
-  let ig_imageURL;
+  let ig_post;
 
   await fetch(`https://api.instagram.com/v1/users/self/media/recent?access_token=${ig_access_token}&count=1`, {
     method: 'GET',
@@ -177,7 +232,7 @@ Home.getInitialProps = async ({req}) => {
   })
   .then(async (response) => {
     const ig_res = await response.json();
-    ig_imageURL = ig_res.data[0].images.standard_resolution.url;
+    ig_post = ig_res.data[0];
   })
 
 /* Twitter */
@@ -192,7 +247,7 @@ Home.getInitialProps = async ({req}) => {
   })
   .then(async (data) => {
     const tweet_data = await data.json();
-    tweet = tweet_data[0].text;
+    tweet = tweet_data[0];
   });
 
 /* Spotify */
@@ -223,7 +278,7 @@ Home.getInitialProps = async ({req}) => {
 
   return {
     spotify_data: spotify_data,
-    ig_imageURL: ig_imageURL,
+    ig_post: ig_post,
     tweet: tweet,
   };
 };
