@@ -9,6 +9,16 @@ const nextConfig = {
   // Your Next.js config.
 };
  
+exports.default = {
+  env: {
+      NEXT_SERVER_IG_ACCESS_TOKEN: process.env.NEXT_SERVER_IG_ACCESS_TOKEN,
+      NEXT_SERVER_TWITTER_ACCESS_TOKEN: process.env.NEXT_SERVER_TWITTER_ACCESS_TOKEN,
+      NEXT_SERVER_SPOTIFY_CLIENT_ID: process.env.NEXT_SERVER_SPOTIFY_CLIENT_ID,
+      NEXT_SERVER_SPOTIFY_CLIENT_SECRET: process.env.NEXT_SERVER_SPOTIFY_CLIENT_SECRET,
+      NEXT_SERVER_SPOTIFY_REFRESH_TOKEN: process.env.NEXT_SERVER_SPOTIFY_REFRESH_TOKEN
+  }
+};
+
 module.exports = withPlugins([
   nextEnv(),
   nextCSS()
