@@ -55,14 +55,14 @@ const Home = (props) => {
           <Header>
             <Vignette />
             <HeaderImage src="images/jason-cheek-photo.jpg" />
-            <div className="center br-100 ba b--black-10" style={{width: "10rem", height: "10rem", background: "url(images/jason-cheek.jpg)", backgroundSize: "contain"}}>
+            <div className="center" style={{width: "10rem", height: "10rem", background: "url(images/jason-cheek.jpg)", backgroundSize: "contain"}}>
 
             </div>
           </Header>
           <Welcome>
-            <p className="f3 mt0 mb3">Hello. I'm Jason.</p>
-            <p className="mv3 pr4 pr4-m pr0-l">I'm a designer &amp; developer based in <span className="b">New Orleans</span> with almost 9 years of experience building for the web.</p>
-            <p className="mv3 pr3 f5">Currently, I'm working on UI and APIs for admin tools, e-commerce websites, and other things at <a href="https://donovanmarine.com" style={{color: "#32322e"}} className="link b bb dim" target="_blank" title="Donovan Marine">Donovan Marine</a>.</p>
+            <p className="f3 mt0 mb3">Hey, I'm Jason.</p>
+            <p className="mv3 pr4 pr4-m pr0-l">I'm a designer &amp; developer based in <span className="b">New Orleans</span> with 9 years professional experience building for the web.</p>
+            <p className="mv3 pr3 f5">Currently, I'm working on UIs and APIs for admin tools, e-commerce websites, and other things at <a href="https://donovanmarine.com" style={{color: "#32322e"}} className="link b bb dim" target="_blank" title="Donovan Marine">Donovan Marine</a>.</p>
           </Welcome>
         </Intro>
         <Links className="order-1">
