@@ -138,7 +138,7 @@ const Home = (props) => {
                   <div className="b" style={{marginTop: "-.125rem"}}>close</div>
                 </div>
               </div>
-              <div className="fr tr white-50 mr4">
+              <div className="fr tr white-50 mr3 mr4-l">
                 <div className="mv1">UI, Auth, REST API</div>
                 <div className="mv1">2017-2019</div>
               </div>
@@ -146,18 +146,24 @@ const Home = (props) => {
 
             <div className="pb4 bb b--white-10">
               <div className="fl f4 ph4 white-90 pt4 pb3">Event Registration</div>
-              <div className="fr f6 ph4 pt4 pb3">Design, HTML, CSS, Javascript</div>
-              <img src="images/registration.jpg" alt="Event Registration" title="Event Registration" />
+              <div className="fr-l lh-title f6 ph4 pt4 pb3 tr">Design, HTML, CSS, Javascript</div>
+              <div className="cl overflow-x-auto">
+                <img className="mw-none mw-100-l" src="images/registration.jpg" alt="Event Registration" title="Event Registration" />
+              </div>
             </div>
             <div className="pb4 bb b--white-10">
               <div className="fl f4 ph4 white-90 pt4 pb3">Events Admin</div>
-              <div className="fr f6 ph4 pt4 pb3">Design, HTML, CSS, Javascript, React</div>
-              <img src="images/admin.jpg" alt="Event Admin" title="Event Admin" />
+              <div className="fr-l lh-title f6 ph4 pt4 pb3 tr">Design, HTML, CSS, Javascript, React</div>
+              <div className="cl overflow-x-auto">
+                <img className="mw-none mw-100-l" src="images/admin.jpg" alt="Event Admin" title="Event Admin" />
+              </div>
             </div>
             <div className="pb4 bb b--white-10">
               <div className="fl f4 ph4 white-90 pt4 pb3">Events Data API</div>
-              <div className="fr f6 ph4 pt4 pb3">C#, SQL, REST, JSON</div>
-              <img src="images/api.jpg" alt="Event Data API" title="Events Data API" />
+              <div className="fr-l lh-title f6 ph4 pt4 pb3 tr">C#, SQL, REST, JSON</div>
+              <div className="cl overflow-x-auto">
+                <img className="mw-none mw-100-l" src="images/api.jpg" alt="Event Data API" title="Events Data API" />
+              </div>
             </div>
               <div className="white-80 pointer pa2 b mv3 tc ba db center w3 br1 bg-animate hover-bg-white-80 hover-black-90 " onClick={()=>{setWorkOverlay(false)}}>close</div>
             </div>
