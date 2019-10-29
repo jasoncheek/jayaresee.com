@@ -5,7 +5,7 @@ import fetch from 'isomorphic-unfetch';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTimes, faPhotoVideo } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
 import '../public/css/global.css'
@@ -40,7 +40,7 @@ import {
     LinksListItem
 } from '../components/styled/page.js'
 
-library.add(fab, faTimes)
+library.add(fab, faTimes, faEnvelope)
 
 const Home = (props) => {
   const [workOverlay, setWorkOverlay] = useState(false);
@@ -67,6 +67,9 @@ const Home = (props) => {
         </Intro>
         <Links className="order-1">
           <LinksList>
+            <LinksListItem>
+              <a title="E-mail" className="white-90 dim" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{height: "1.5rem"}} /></a>
+            </LinksListItem>
             <LinksListItem>
               <a title="LinkedIn" className="white-90 dim" href="https://www.linkedin.com/in/jason-cheek/" target="_blank"><FontAwesomeIcon icon={['fab', 'linkedin']} style={{height: "1.5rem"}} /></a>
             </LinksListItem>
