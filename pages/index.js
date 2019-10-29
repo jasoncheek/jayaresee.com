@@ -124,7 +124,7 @@ const Home = (props) => {
 
         {workOverlay ? 
 
-          <div style={{background: "#333"}} className="absolute overflow-auto z-1 left-0 top-0 w-100 h-100">
+          <div style={{background: "#333"}} className="absolute z-1 left-0 top-0 w-100 h-100">
             <div style={{maxWidth: "64rem"}} className="sans-serif center w-100 pb4 white-80 bg-black-20">
             <ProjectHeader className="bg-white-10 white-80 mb2">
               <div className="fl">
@@ -147,14 +147,14 @@ const Home = (props) => {
             <div className="pb4 bb b--white-10">
               <div className="fl f4 ph4 white-90 pt4 pb3">Event Registration</div>
               <div className="fr-l lh-title f6 ph4 pt4 pb3 tr">Design, HTML, CSS, Javascript</div>
-              <div className="cl overflow-x-auto">
+              <div className="cl overflow-hidden">
                 <img className="mw-none mw-100-l" src="images/registration.jpg" alt="Event Registration" title="Event Registration" />
               </div>
             </div>
             <div className="pb4 bb b--white-10">
               <div className="fl f4 ph4 white-90 pt4 pb3">Events Admin</div>
               <div className="fr-l lh-title f6 ph4 pt4 pb3 tr">Design, HTML, CSS, Javascript, React</div>
-              <div className="cl overflow-x-auto">
+              <div className="cl overflow-hidden">
                 <img className="mw-none mw-100-l" src="images/admin.jpg" alt="Event Admin" title="Event Admin" />
               </div>
             </div>
