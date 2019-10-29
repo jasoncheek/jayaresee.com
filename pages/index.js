@@ -124,7 +124,7 @@ const Home = (props) => {
 
         {workOverlay ? 
 
-          <div style={{background: "#333"}} className="fixed overflow-auto z-1 left-0 top-0 w-100 h-100">
+          <div style={{background: "#333"}} className="absolute overflow-auto z-1 left-0 top-0 w-100 h-100">
             <div style={{maxWidth: "64rem"}} className="sans-serif center w-100 pb4 white-80 bg-black-20">
             <ProjectHeader className="bg-white-10 white-80 mb2">
               <div className="fl">
