@@ -6,10 +6,6 @@ const dotenvLoad = require('dotenv-load');
 dotenvLoad();
  
 const nextConfig = {
-  // Your Next.js config.
-};
- 
-exports.default = {
   env: {
       NEXT_SERVER_IG_ACCESS_TOKEN: process.env.NEXT_SERVER_IG_ACCESS_TOKEN,
       NEXT_SERVER_TWITTER_ACCESS_TOKEN: process.env.NEXT_SERVER_TWITTER_ACCESS_TOKEN,
