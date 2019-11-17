@@ -9,6 +9,7 @@ import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
 import '../public/css/global.css'
+import GhostContentAPI from "@tryghost/content-api"
 import {
     Page,
     Intro,
@@ -63,10 +64,10 @@ const Home = (props) => {
         <Intro className="order-0"> 
           <Header>
             <Vignette />
-            <HeaderImage src="images/jason-cheek-photo.jpg" />
-            <div className="center ba b--gray" style={{width: "10rem", height: "10rem", background: "url(images/jason-cheek.jpg)", backgroundSize: "contain"}}>
+            <HeaderImage src="images/jason-cheek-photo-bw.jpg" />
+            {/* <div className="center ba b--gray" style={{width: "10rem", height: "10rem", background: "url(images/jason-cheek.jpg)", backgroundSize: "contain"}}>
 
-            </div>
+            </div> */}
           </Header>
           <Welcome>
             <p className="f3 mt0 mb3">Hey, I'm Jason.</p>
@@ -183,28 +184,28 @@ const Home = (props) => {
 
         : null}
 
-        {/* <Posts className="order-3 order-4-l">
+        <Posts className="order-3 order-4-l">
           <PostsHeader>
             <PostsHeading>Writing</PostsHeading>
           </PostsHeader>
           <PostsList>
             <PostsListItem>
               <PostsListItemTitle>
-                CSS Grid for ya mamma
+                {props.posts[0].title}
               </PostsListItemTitle>
             </PostsListItem>
             <PostsListItem>
-                <PostsListItemTitle>
-                  Inline styles is a habit
-                </PostsListItemTitle>
+              <PostsListItemTitle>
+                {props.posts[1].title}
+              </PostsListItemTitle>
             </PostsListItem>
             <PostsListItem>
-                <PostsListItemTitle>
-                  Filters in SVG and beyond
-                </PostsListItemTitle>
+              <PostsListItemTitle>
+                {props.posts[2].title}
+              </PostsListItemTitle>
             </PostsListItem>
           </PostsList>
-        </Posts> */}
+        </Posts>
 
         <Activity style={{color: "#e9e9e9"}} className="center-ns center-m center-none-l bg-white-10 white-50 b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
           <ActivityCaption><a href="https://twitter.com/cheekisme" className="link white-90" target="_blank">{props.tweet.text}</a></ActivityCaption>
@@ -238,6 +239,24 @@ Home.getInitialProps = async ({req}) => {
   //   API.getPosts().then( posts => this.setState({posts}) )
   //   return {}
   // }
+  
+  /* Get posts from Ghost CMS at writing.jasoncheek.me */
+  const api = new GhostContentAPI({
+    url: 'http://167.71.251.241',
+    key: '5b0c893a385565627d450f05ef',
+    version: "v3"
+  });
+  const getPosts = async function() {
+    return await api.posts
+      .browse({
+        limit: "all"
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+  const posts = await getPosts();
+
   /* Instagram */
   const ig_access_token = process.env.NEXT_SERVER_IG_ACCESS_TOKEN;
   let ig_post;
@@ -298,6 +317,7 @@ Home.getInitialProps = async ({req}) => {
     spotify_data: spotify_data,
     ig_post: ig_post,
     tweet: tweet,
+    posts: posts
   };
 };
 

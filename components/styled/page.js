@@ -11,10 +11,9 @@ const Intro = styled.div.attrs({
   background: #e9e9e9;
 `
   const Header = styled.div.attrs({
-    className: "h5 relative tc bb white-90",
+    className: "h5 relative tc bb white-90 overflow-hidden",
   })`
-    background-color: #9bd8e6;
-    padding-top: 2.875rem
+    background-color: #2CB6D3
   `
   const Welcome = styled.div.attrs({
     className: "ph4 ph5-ns pv4 pv5-l center f4 lh-copy mt0",
@@ -33,9 +32,10 @@ const Intro = styled.div.attrs({
     box-shadow: 0 0 75px rgba(0,0,0,0.5) inset;
   `
   const HeaderImage = styled.img.attrs({
-    className: "dn",
+    className: "o-90",
   })`
-    filter: grayscale(38%);
+    // filter: grayscale(100%);
+    //mix-blend-mode: multiply
   `
 const Work = styled.div.attrs({
   className: "bt b--black center-ns center-m w-100 h-100 w-40-l mw6 bg-white-10 white-90",
