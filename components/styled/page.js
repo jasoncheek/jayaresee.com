@@ -13,7 +13,7 @@ const Intro = styled.div.attrs({
   const Header = styled.div.attrs({
     className: "h5 relative tc bb white-90 overflow-hidden",
   })`
-    background-color: #2CB6D3
+    // background-color: #2CB6D3
   `
   const Welcome = styled.div.attrs({
     className: "ph4 ph5-ns pv4 pv5-l center f4 lh-copy mt0",
