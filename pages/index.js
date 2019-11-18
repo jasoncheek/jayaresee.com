@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
-// import Link from 'next/link';
+import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -184,28 +184,34 @@ const Home = (props) => {
 
         : null}
 
-        <Posts className="order-3 order-4-l">
+        {/* <Posts className="order-3 order-4-l">
           <PostsHeader>
             <PostsHeading>Writing</PostsHeading>
           </PostsHeader>
           <PostsList>
             <PostsListItem>
               <PostsListItemTitle>
-                {props.posts[0].title}
+                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
+                  <a>{props.posts[0].title}</a>
+                </Link>
               </PostsListItemTitle>
             </PostsListItem>
             <PostsListItem>
               <PostsListItemTitle>
-                {props.posts[1].title}
+                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
+                  <a>{props.posts[1].title}</a>
+                </Link>
               </PostsListItemTitle>
             </PostsListItem>
             <PostsListItem>
               <PostsListItemTitle>
-                {props.posts[2].title}
+                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
+                  <a>{props.posts[2].title}</a>
+                </Link>
               </PostsListItemTitle>
             </PostsListItem>
           </PostsList>
-        </Posts>
+        </Posts> */}
 
         <Activity style={{color: "#e9e9e9"}} className="center-ns center-m center-none-l bg-white-10 white-50 b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
           <ActivityCaption><a href="https://twitter.com/cheekisme" className="link white-90" target="_blank">{props.tweet.text}</a></ActivityCaption>
