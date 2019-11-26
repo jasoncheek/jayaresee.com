@@ -38,22 +38,22 @@ const Intro = styled.div.attrs({
     //mix-blend-mode: multiply
   `
 const Work = styled.div.attrs({
-  className: "bt b--black center-ns center-m w-100 h-100 w-40-l mw6 bg-white-10 white-90",
+  className: "bt b--black center-ns center-m w-100 h-100 w-40-l mw6 bg-black-60 white-90",
 })``
   const Heading = styled.h2.attrs({
     className: "f4 mv0 pt4 pb3 ttl",
   })``
   const ProjectHeader = styled.div.attrs({
-    className: "cf ph4 pv3 lh-title f6",
+    className: "cf ph4 pv3 lh-title f6 bg-white-90 w-100 black-80",
   })``
   const Project = styled.div.attrs({
-    className: "bg-near-black dim",
+    className: "relative bg-black-80 dim",
   })``
   const ProjectWrap = styled.div.attrs({
     className: "",
   })``
   const ProjectTitle = styled.h3.attrs({
-    className: "mv0 pv3 ph4 w4 lh-title",
+    className: "f5 mv0 pv3 ph4 ttu fw4",
   })``
   const ProjectList = styled.ul.attrs({
     className: "dn ph3 ph5-ns",
@@ -77,25 +77,26 @@ const Activity = styled.div.attrs({
     className: "f6 white-50",
   })``
 const Posts = styled.div.attrs({
-  className: "bt bb br-l b--black-90 center-ns center-m w-100 h-100 w-40-l mw6 bg-black-50 white-90",
+  className: "bt bb b--black-90 center-ns center-m w-100 h-100 w-40-l mw6 bg-black-60 white-90",
 })``
   const PostsHeader = styled.div.attrs({
     className: "ph4",
   })``
   const PostsHeading = styled.h4.attrs({
-    className: "f3 mv0 pv3",
+    className: "f5 mv0 pv3 ttu fw4",
   })``
   const PostsList = styled.ul.attrs({
     className: "pl0 mv0 list",
   })``
   const PostsListItem = styled.li.attrs({
-    className: "bb bg-washed-blue ph4 black-90 pv3 f4",
+    className: "bb black-90 f4",
   })``
   const PostsListItemTitle = styled.div.attrs({
     className: ""
   })``
 const Links = styled.div.attrs({
-  className: "br2-l br--bottom-l br--right-l tc br-l b--black-90 bg-black-80 white-90 br-l center-ns center-m w-100 w-40-l mw6 ph3 pv3",
+  //className: "br2-l br--bottom-l br--right-l tc br-l b--black-90 bg-black-80 white-90 br-l center-ns center-m w-100 w-40-l mw6 ph3 pv3",
+  className: "tc b--black-90 bg-black-80 white-90 br-l center-ns center-m w-100 w-40-l mw6 ph3 pv3",
 })`
   color: #e9e9e9
 `

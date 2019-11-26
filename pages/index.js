@@ -110,17 +110,18 @@ const Home = (props) => {
           </LinksList>
         </Links>
         <Work className="order-1 order-2-l">
-          <ProjectHeader>
-            <div className="fl">
-              <div className="mv1">Donovan Marine</div>
-              <div className="mv1">Events Application</div>
-            </div>
-            <div className="fr tr white-50 ">
-              <div className="mv1">UI, Auth, REST API</div>
-              <div className="mv1">2017-2019</div>
-            </div>
-          </ProjectHeader>
+          <ProjectTitle>Recent Work</ProjectTitle>
           <Project className="pointer" onClick={()=>{setWorkOverlay(true);window.scrollTo(0, 0);}}>
+            <ProjectHeader className="absolute">
+              <div className="fl">
+                <div className="mv1">Donovan Marine</div>
+                <div className="mv1">Events Application</div>
+              </div>
+              <div className="fr tr">
+                <div className="mv1">UI, Auth, REST API</div>
+                <div className="mv1">2017-2019</div>
+              </div>
+            </ProjectHeader>
             <ProjectWrap>
               <img className="fl" src="images/work.jpg" alt="Work" title="Work" />
               {/* <ProjectTitle>Events Management Application</ProjectTitle> */}
@@ -138,8 +139,9 @@ const Home = (props) => {
         {workOverlay ? 
 
           <div style={{background: "#333"}} className="absolute z-1 left-0 top-0 w-100 h-100">
+            <ProjectTitle className="bg-black-80 white-90">Recent Work</ProjectTitle>
             <div style={{maxWidth: "64rem"}} className="sans-serif center w-100 pb4 white-80 bg-black-20">
-            <ProjectHeader className="bg-white-10 white-80 mb2">
+            <ProjectHeader className={"bg-white-10 white-80 mb2"}>
               <div className="fl">
                 <div className="mv1">Donovan Marine</div>
                 <div className="mv1">Events Application</div>
@@ -184,37 +186,37 @@ const Home = (props) => {
 
         : null}
 
-        {/* <Posts className="order-3 order-4-l">
+        <Posts className="order-3 order-4-l">
           <PostsHeader>
             <PostsHeading>Writing</PostsHeading>
           </PostsHeader>
           <PostsList>
-            <PostsListItem>
+            <PostsListItem className="bg-light-blue">
               <PostsListItemTitle>
                 <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
-                  <a>{props.posts[0].title}</a>
+                  <a className="db pv3 ph4 link near-black">{props.posts[0].title}</a>
                 </Link>
               </PostsListItemTitle>
             </PostsListItem>
-            <PostsListItem>
+            <PostsListItem className="bg-light-green">
               <PostsListItemTitle>
                 <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
-                  <a>{props.posts[1].title}</a>
+                  <a className="db pv3 ph4 link near-black">{props.posts[1].title}</a>
                 </Link>
               </PostsListItemTitle>
             </PostsListItem>
-            <PostsListItem>
+            <PostsListItem className="bg-light-red">
               <PostsListItemTitle>
                 <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
-                  <a>{props.posts[2].title}</a>
+                  <a className="db pv3 ph4 link near-black">{props.posts[2].title}</a>
                 </Link>
               </PostsListItemTitle>
             </PostsListItem>
           </PostsList>
-        </Posts> */}
+        </Posts>
 
-        <Activity style={{color: "#e9e9e9"}} className="center-ns center-m center-none-l bg-white-10 white-50 b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
-          <ActivityCaption><a href="https://twitter.com/cheekisme" className="link white-90" target="_blank">{props.tweet.text}</a></ActivityCaption>
+        <Activity className="center-ns center-m center-none-l bg-white-40 black-70 b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
+          <ActivityCaption><a href="https://twitter.com/cheekisme" className="link black-80" target="_blank">{props.tweet.text}</a></ActivityCaption>
           <ActivityInfo>Posted on Twitter</ActivityInfo>
           <ActivityTime>{moment(props.tweet.created_at).fromNow()}</ActivityTime>
         </Activity>
@@ -226,7 +228,7 @@ const Home = (props) => {
             <ActivityTime>{moment.unix(props.ig_post.created_time).fromNow()}</ActivityTime>
           </Activity>
           <Activity className="br2-ns br--right-m br--bottom-m br--right-l br--bottom-l br bg-black-80 b--white-10 w-50 w5-l pa3 pa4-l pb4 pl2">
-            <a href={props.spotify_data.items[0].context.external_urls.spotify} className="link white-90 dim" target="_blank"><ActivityImage src={props.spotify_data.items[0].track.album.images[0].url} /></a>
+            <a href={props.spotify_data.items[0].track.external_urls.spotify ? props.spotify_data.items[0].track.external_urls.spotify : null } className="link white-90 dim" target="_blank"><ActivityImage src={props.spotify_data.items[0].track.album.images[0].url} /></a>
             <ActivityInfo>Listened to on Spotify</ActivityInfo>
             <ActivityTime>{moment(props.spotify_data.items[0].played_at).fromNow()}</ActivityTime>
           </Activity>
