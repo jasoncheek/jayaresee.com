@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
-import moment from 'moment';
+import { formatDistanceToNow, fromUnixTime } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -186,7 +186,7 @@ const Home = (props) => {
 
         : null}
 
-        {/* <Posts className="order-3 order-4-l">
+        <Posts className="order-3 order-4-l">
           <PostsHeader>
             <PostsHeading>Writing</PostsHeading>
           </PostsHeader>
@@ -196,41 +196,44 @@ const Home = (props) => {
                 <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
                   <a className="db pv3 ph4 link near-black">{props.posts[0].title}</a>
                 </Link>
+                {/* <a href={`/writing/${props.posts[0].slug}`} className="db pv3 ph4 link near-black">
+                  {props.posts[0].title}
+                </a> */}
               </PostsListItemTitle>
             </PostsListItem>
             <PostsListItem className="bg-light-green">
               <PostsListItemTitle>
-                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
-                  <a className="db pv3 ph4 link near-black">{props.posts[1].title}</a>
-                </Link>
+                <a href={`/writing/${props.posts[1].slug}`} className="db pv3 ph4 link near-black">
+                  {props.posts[1].title}
+                </a>
               </PostsListItemTitle>
             </PostsListItem>
             <PostsListItem className="bg-light-red">
               <PostsListItemTitle>
-                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
-                  <a className="db pv3 ph4 link near-black">{props.posts[2].title}</a>
-                </Link>
+                <a href={`/writing/${props.posts[2].slug}`} className="db pv3 ph4 link near-black">
+                  {props.posts[2].title}
+                </a>
               </PostsListItemTitle>
             </PostsListItem>
           </PostsList>
-        </Posts> */}
+        </Posts>
 
         <Activity className="center-ns center-m center-none-l bg-white-40 black-70 b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
           <ActivityCaption><a href="https://twitter.com/cheekisme" className="link black-80" target="_blank">{props.tweet.text}</a></ActivityCaption>
           <ActivityInfo>Posted on Twitter</ActivityInfo>
-          <ActivityTime>{moment(props.tweet.created_at).fromNow()}</ActivityTime>
+          <ActivityTime>{formatDistanceToNow(new Date(props.tweet.created_at))} ago</ActivityTime>
         </Activity>
 
         <div className="br2-l br--right-l br--bottom-l white-50 bt b--black-90 order-5 flex flex-row flex-column-l mw6 center-ns center-m center-none-l">
           <Activity className="bg-black-80 br bb-l b--white-10 w-50 w5-l pa3 pa4-l pr2">
             <a href={props.ig_post.link} className="link white-90 dim" target="_blank"><ActivityImage src={props.ig_post.images.standard_resolution.url} /></a>
             <ActivityInfo>Posted on Instagram</ActivityInfo>
-            <ActivityTime>{moment.unix(props.ig_post.created_time).fromNow()}</ActivityTime>
+            {/* <ActivityTime>{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</ActivityTime> */}
           </Activity>
           <Activity className="br2-ns br--right-m br--bottom-m br--right-l br--bottom-l br bg-black-80 b--white-10 w-50 w5-l pa3 pa4-l pb4 pl2">
             <a href={props.spotify_data.items[0].track.external_urls.spotify ? props.spotify_data.items[0].track.external_urls.spotify : null } className="link white-90 dim" target="_blank"><ActivityImage src={props.spotify_data.items[0].track.album.images[0].url} /></a>
             <ActivityInfo>Listened to on Spotify</ActivityInfo>
-            <ActivityTime>{moment(props.spotify_data.items[0].played_at).fromNow()}</ActivityTime>
+            <ActivityTime>{formatDistanceToNow(new Date(props.spotify_data.items[0].played_at))} ago</ActivityTime>
           </Activity>
         </div>
 
@@ -239,7 +242,7 @@ const Home = (props) => {
   ) 
 }
 
-Home.getInitialProps = async ({req}) => {
+Home.getInitialProps = async () => {
   // if (req) {
   //   const posts = await API.getPosts()
   //   return {posts}
@@ -267,18 +270,27 @@ Home.getInitialProps = async ({req}) => {
 
   /* Instagram */
   const ig_access_token = process.env.NEXT_SERVER_IG_ACCESS_TOKEN;
-  let ig_post;
+  //let ig_post;
 
-  await fetch(`https://api.instagram.com/v1/users/self/media/recent?access_token=${ig_access_token}&count=1`, {
+  // const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+  //const data = await res.json();
+  // const ig_post = await res.json();
+
+//  console.log(ig_post[0].show);
+
+  const ig_res = await fetch(`https://api.instagram.com/v1/users/self/media/recent?access_token=${ig_access_token}&count=1`, {
     method: 'GET',
     headers: {
       'Authorization': 'Bearer ',
     },
-  })
-  .then(async (response) => {
-    const ig_res = await response.json();
-    ig_post = ig_res.data[0];
-  })
+  });
+
+  const ig_resArray = await ig_res.json();
+  const ig_post = ig_resArray.data[0];
+  // .then(async (response) => {
+  //   const ig_res = await response.json();
+  //   ig_post = ig_res.data[0];
+  // })
 
 /* Twitter */
   const twitter_access_token = process.env.NEXT_SERVER_TWITTER_ACCESS_TOKEN;

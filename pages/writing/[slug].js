@@ -90,7 +90,7 @@ export default function Post(props) {
                                 <section className="post-full-byline-meta">
                                     <h4 className="author-name"><a href="/author/ghost/">Ghost</a></h4>
                                     <div className="byline-meta-content">
-                                        <time className="byline-meta-date" datetime="2019-11-16">16 Nov 2019</time>
+                                        <time className="byline-meta-date" dateTime="2019-11-16">16 Nov 2019</time>
                                         <span className="byline-reading-time"><span className="bull">•</span> 1 min read</span>
                                     </div>
                                 </section>
@@ -102,7 +102,7 @@ export default function Post(props) {
                     </header>
 
                     <figure className="post-full-image">
-                        <img srcset="https://static.ghost.org/v3.0.0/images/welcome-to-ghost.png 300w,
+                        <img srcSet="https://static.ghost.org/v3.0.0/images/welcome-to-ghost.png 300w,
                                     https://static.ghost.org/v3.0.0/images/welcome-to-ghost.png 600w,
                                     https://static.ghost.org/v3.0.0/images/welcome-to-ghost.png 1000w,
                                     https://static.ghost.org/v3.0.0/images/welcome-to-ghost.png 2000w" sizes="(max-width: 800px) 400px,
@@ -134,21 +134,21 @@ export default function Post(props) {
                                     <li>
                                         <h4><a href="/the-editor/">Writing posts with Ghost ✍️</a></h4>
                                         <div className="read-next-card-meta">
-                                            <p><time datetime="2019-11-16">16 Nov 2019</time> –
+                                            <p><time dateTime="2019-11-16">16 Nov 2019</time> –
                                                3 min read</p>
                                         </div>
                                     </li>
                                     <li>
                                         <h4><a href="/publishing-options/">Publishing options</a></h4>
                                         <div className="read-next-card-meta">
-                                            <p><time datetime="2019-11-16">16 Nov 2019</time> –
+                                            <p><time dateTime="2019-11-16">16 Nov 2019</time> –
                                                 2 min read</p>
                                         </div>
                                     </li>
                                     <li>
                                         <h4><a href="/admin-settings/">Managing admin settings</a></h4>
                                         <div className="read-next-card-meta">
-                                            <p><time datetime="2019-11-16">16 Nov 2019</time> –
+                                            <p><time dateTime="2019-11-16">16 Nov 2019</time> –
                                                 2 min read</p>
                                         </div>
                                     </li>
@@ -164,7 +164,7 @@ export default function Post(props) {
                         <article className="post-card post tag-getting-started ">
 
             <a className="post-card-image-link" href="/the-editor/">
-                <img className="post-card-image" srcset="https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png 300w,
+                <img className="post-card-image" srcSet="https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png 300w,
                             https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png 600w,
                             https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png 1000w,
                             https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png" alt="Writing posts with Ghost ✍️" />
@@ -200,7 +200,7 @@ export default function Post(props) {
                     </ul>
                     <div className="post-card-byline-content">
                         <span><a href="/author/ghost/">Ghost</a></span>
-                        <span className="post-card-byline-date"><time datetime="2019-11-16">16 Nov 2019</time> <span className="bull">•</span> 3 min read</span>
+                        <span className="post-card-byline-date"><time dateTime="2019-11-16">16 Nov 2019</time> <span className="bull">•</span> 3 min read</span>
                     </div>
                 </footer>
 
@@ -3734,7 +3734,8 @@ Post.getInitialProps = async (req) => {
   }
   const posts = await getPosts()
       .then((res)=>{
-        post = res
+        post = res;
+        console.log(res);
       })
       .catch(err => {
         console.error(err);
