@@ -13,5 +13,5 @@ export default async(req, res) => {
 
   res.setHeader('Content-Type', 'application/json')
   res.statusCode = 200
-  res.end(JSON.stringify(ig_post))
+  res.json(JSON.stringify(ig_post))
 }
