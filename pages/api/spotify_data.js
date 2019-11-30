@@ -23,5 +23,6 @@ export default async(req, res) => {
 
   // res.setHeader('Content-Type', 'application/json')
   // res.statusCode = 200
-  res.json(JSON.stringify(spotify_data))
+  //res.json(JSON.stringify(spotify_data))
+  res.status(200).json(spotify_data)
 }

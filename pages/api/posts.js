@@ -20,6 +20,6 @@ export default async(req, res) => {
 
 //   res.setHeader('Content-Type', 'application/json')
 //   res.statusCode = 200
-  res.json(JSON.stringify(posts))
-
+//   res.json(JSON.stringify(posts))
+  res.status(200).json(posts)
 }

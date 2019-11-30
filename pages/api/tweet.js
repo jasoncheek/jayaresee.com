@@ -15,5 +15,6 @@ export default async(req, res) => {
   // res.setHeader('Content-Type', 'application/json')
   // res.statusCode = 200
   // res.end(JSON.stringify(tweet))
-  res.json(JSON.stringify(tweet))
+  //res.json(JSON.stringify(tweet))
+  res.status(200).json(tweet)
 }

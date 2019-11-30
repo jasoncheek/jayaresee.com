@@ -13,7 +13,8 @@ export default async(req, res) => {
 
   //res.setHeader('Content-Type', 'application/json')
   //res.statusCode = 200
-  res.json(JSON.stringify(ig_post))
+  // res.json(JSON.stringify(ig_post))
+  res.status(200).json(ig_post)
 }
 
 // module.exports = (req, res) => {
