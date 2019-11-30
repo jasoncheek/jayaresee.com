@@ -12,7 +12,8 @@ export default async(req, res) => {
   const tweet_data = await tweet_res.json();
   const tweet = tweet_data[0];
 
-  res.setHeader('Content-Type', 'application/json')
-  res.statusCode = 200
-  res.end(JSON.stringify(tweet))
+  // res.setHeader('Content-Type', 'application/json')
+  // res.statusCode = 200
+  // res.end(JSON.stringify(tweet))
+  res.json(JSON.stringify(tweet))
 }

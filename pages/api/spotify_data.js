@@ -21,7 +21,7 @@ export default async(req, res) => {
   });
   const spotify_data = await spotify_res.json();
 
-  res.setHeader('Content-Type', 'application/json')
-  res.statusCode = 200
-  res.end(JSON.stringify(spotify_data))
+  // res.setHeader('Content-Type', 'application/json')
+  // res.statusCode = 200
+  res.json(JSON.stringify(spotify_data))
 }

@@ -11,7 +11,15 @@ export default async(req, res) => {
   const ig_resArray = await ig_res.json();
   const ig_post = ig_resArray.data[0];
 
-  res.setHeader('Content-Type', 'application/json')
-  res.statusCode = 200
+  //res.setHeader('Content-Type', 'application/json')
+  //res.statusCode = 200
   res.json(JSON.stringify(ig_post))
 }
+
+// module.exports = (req, res) => {
+//   res.json({
+//     body: req.body,
+//     query: req.query,
+//     cookies: req.cookies
+//   })
+// }

@@ -18,8 +18,8 @@ export default async(req, res) => {
   }
   const posts = await getPosts();
 
-  res.setHeader('Content-Type', 'application/json')
-  res.statusCode = 200
-  res.end(JSON.stringify(posts))
+//   res.setHeader('Content-Type', 'application/json')
+//   res.statusCode = 200
+  res.json(JSON.stringify(posts))
 
 }
