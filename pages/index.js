@@ -255,8 +255,7 @@ Home.getInitialProps = async ({req}) => {
   //   API.getPosts().then( posts => this.setState({posts}) )
   //   return {}
   // }
-  
-  const baseUrl = 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_SERVER_URL;
   const posts_res = await fetch(`${baseUrl}/api/posts`); 
   const posts = await posts_res.json()
   const ig_post_res = await fetch(`${baseUrl}/api/ig_post`);
