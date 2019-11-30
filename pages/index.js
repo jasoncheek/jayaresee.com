@@ -185,7 +185,7 @@ const Home = (props) => {
 
         : null}
 
-        <Posts className="order-3 order-4-l">
+        {/* <Posts className="order-3 order-4-l">
           <PostsHeader>
             <PostsHeading>Writing</PostsHeading>
           </PostsHeader>
@@ -195,9 +195,6 @@ const Home = (props) => {
                 <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
                   <a className="db pv3 ph4 link near-black">{props.posts[0].title}</a>
                 </Link>
-                {/* <a href={`/writing/${props.posts[0].slug}`} className="db pv3 ph4 link near-black">
-                  {props.posts[0].title}
-                </a> */}
               </PostsListItemTitle>
             </PostsListItem>
             <PostsListItem className="bg-light-green">
@@ -205,9 +202,6 @@ const Home = (props) => {
                 <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
                   <a className="db pv3 ph4 link near-black">{props.posts[1].title}</a>
                 </Link>
-                {/* <a href={`/writing/${props.posts[1].slug}`} className="db pv3 ph4 link near-black">
-                  {props.posts[1].title}
-                </a> */}
               </PostsListItemTitle>
             </PostsListItem>
             <PostsListItem className="bg-light-red">
@@ -215,13 +209,10 @@ const Home = (props) => {
                 <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
                   <a className="db pv3 ph4 link near-black">{props.posts[2].title}</a>
                 </Link>
-                {/* <a href={`/writing/${props.posts[2].slug}`} className="db pv3 ph4 link near-black">
-                  {props.posts[2].title}
-                </a> */}
               </PostsListItemTitle>
             </PostsListItem>
           </PostsList>
-        </Posts>
+        </Posts> */}
 
         <Activity className="center-ns center-m center-none-l bg-white-40 black-70 b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
           <ActivityCaption><a href="https://twitter.com/cheekisme" className="link black-80" target="_blank">{props.tweet.text}</a></ActivityCaption>
