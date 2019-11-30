@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-unfetch';
 export default async(req, res) => {
   /* Spotify */
   const spotify_client_id = process.env.NEXT_SERVER_SPOTIFY_CLIENT_ID;

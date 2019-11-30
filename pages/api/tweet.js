@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-unfetch';
 export default async(req, res) => {
   /* Twitter */
   const twitter_access_token = process.env.NEXT_SERVER_TWITTER_ACCESS_TOKEN;

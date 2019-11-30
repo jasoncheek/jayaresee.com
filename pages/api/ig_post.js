@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-unfetch';
 export default async(req, res) => {
   /* Instagram */ 
   const ig_access_token = process.env.NEXT_SERVER_IG_ACCESS_TOKEN;

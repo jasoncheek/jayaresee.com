@@ -1,5 +1,4 @@
 import GhostContentAPI from "@tryghost/content-api"
-
 export default async(req, res) => {
   /* Get posts from Ghost CMS at writing.jasoncheek.me */
   const api = new GhostContentAPI({
