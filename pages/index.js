@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
-import { formatDistanceToNow, fromUnixTime } from 'date-fns';
+import { formatDistanceToNow, fromUnixTime, formatISO } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
 import '../public/css/global.css'
-import GhostContentAPI from "@tryghost/content-api"
 import {
     Page,
     Intro,
@@ -203,16 +202,22 @@ const Home = (props) => {
             </PostsListItem>
             <PostsListItem className="bg-light-green">
               <PostsListItemTitle>
-                <a href={`/writing/${props.posts[1].slug}`} className="db pv3 ph4 link near-black">
+                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
+                  <a className="db pv3 ph4 link near-black">{props.posts[1].title}</a>
+                </Link>
+                {/* <a href={`/writing/${props.posts[1].slug}`} className="db pv3 ph4 link near-black">
                   {props.posts[1].title}
-                </a>
+                </a> */}
               </PostsListItemTitle>
             </PostsListItem>
             <PostsListItem className="bg-light-red">
               <PostsListItemTitle>
-                <a href={`/writing/${props.posts[2].slug}`} className="db pv3 ph4 link near-black">
+                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
+                  <a className="db pv3 ph4 link near-black">{props.posts[2].title}</a>
+                </Link>
+                {/* <a href={`/writing/${props.posts[2].slug}`} className="db pv3 ph4 link near-black">
                   {props.posts[2].title}
-                </a>
+                </a> */}
               </PostsListItemTitle>
             </PostsListItem>
           </PostsList>
@@ -228,7 +233,7 @@ const Home = (props) => {
           <Activity className="bg-black-80 br bb-l b--white-10 w-50 w5-l pa3 pa4-l pr2">
             <a href={props.ig_post.link} className="link white-90 dim" target="_blank"><ActivityImage src={props.ig_post.images.standard_resolution.url} /></a>
             <ActivityInfo>Posted on Instagram</ActivityInfo>
-            {/* <ActivityTime>{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</ActivityTime> */}
+            <ActivityTime>{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</ActivityTime> 
           </Activity>
           <Activity className="br2-ns br--right-m br--bottom-m br--right-l br--bottom-l br bg-black-80 b--white-10 w-50 w5-l pa3 pa4-l pb4 pl2">
             <a href={props.spotify_data.items[0].track.external_urls.spotify ? props.spotify_data.items[0].track.external_urls.spotify : null } className="link white-90 dim" target="_blank"><ActivityImage src={props.spotify_data.items[0].track.album.images[0].url} /></a>
@@ -242,7 +247,7 @@ const Home = (props) => {
   ) 
 }
 
-Home.getInitialProps = async () => {
+Home.getInitialProps = async ({req}) => {
   // if (req) {
   //   const posts = await API.getPosts()
   //   return {posts}
@@ -251,87 +256,15 @@ Home.getInitialProps = async () => {
   //   return {}
   // }
   
-  /* Get posts from Ghost CMS at writing.jasoncheek.me */
-  const api = new GhostContentAPI({
-    url: 'http://167.71.251.241',
-    key: '5b0c893a385565627d450f05ef',
-    version: "v3"
-  });
-  const getPosts = async function() {
-    return await api.posts
-      .browse({
-        limit: "all"
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }
-  const posts = await getPosts();
-
-  /* Instagram */
-  const ig_access_token = process.env.NEXT_SERVER_IG_ACCESS_TOKEN;
-  //let ig_post;
-
-  // const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  //const data = await res.json();
-  // const ig_post = await res.json();
-
-//  console.log(ig_post[0].show);
-
-  const ig_res = await fetch(`https://api.instagram.com/v1/users/self/media/recent?access_token=${ig_access_token}&count=1`, {
-    method: 'GET',
-    headers: {
-      'Authorization': 'Bearer ',
-    },
-  });
-
-  const ig_resArray = await ig_res.json();
-  const ig_post = ig_resArray.data[0];
-  // .then(async (response) => {
-  //   const ig_res = await response.json();
-  //   ig_post = ig_res.data[0];
-  // })
-
-/* Twitter */
-  const twitter_access_token = process.env.NEXT_SERVER_TWITTER_ACCESS_TOKEN;
-  let tweet;
-
-  await fetch('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=cheekisme&count=1', {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${twitter_access_token}`
-    },
-  })
-  .then(async (data) => {
-    const tweet_data = await data.json();
-    tweet = tweet_data[0];
-  });
-
-/* Spotify */
-  const spotify_client_id = process.env.NEXT_SERVER_SPOTIFY_CLIENT_ID;
-  const spotify_client_secret = process.env.NEXT_SERVER_SPOTIFY_CLIENT_SECRET;
-  const spotify_refresh_token = process.env.NEXT_SERVER_SPOTIFY_REFRESH_TOKEN;
-  let spotify_data = {}; 
-  
-  await fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: `grant_type=refresh_token&refresh_token=${spotify_refresh_token}&client_id=${spotify_client_id}&client_secret=${spotify_client_secret}`
-  })
-  .then(async (response) => {
-    const spotify_res = await response.json();
-    await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=1', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${spotify_res.access_token}`
-      },
-    })
-    .then(async (data) => {
-      spotify_data = await data.json();
-    });
-  })
+  const baseUrl = 'http://localhost:3000';
+  const posts_res = await fetch(`${baseUrl}/api/posts`); 
+  const posts = await posts_res.json()
+  const ig_post_res = await fetch(`${baseUrl}/api/ig_post`);
+  const ig_post = await ig_post_res.json()
+  const spotify_data_res = await fetch(`${baseUrl}/api/spotify_data`);
+  const spotify_data = await spotify_data_res.json()
+  const tweet_res = await fetch(`${baseUrl}/api/tweet`);
+  const tweet = await tweet_res.json()
 
   return {
     spotify_data: spotify_data,
