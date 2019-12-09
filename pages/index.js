@@ -38,7 +38,7 @@ import {
     Links,
     LinksList,
     LinksListItem
-} from '../components/styled/page.js'
+} from '../components/styled/pageStyles.js'
 
 library.add(fab, faTimes, faEnvelope)
 
@@ -247,8 +247,8 @@ Home.getInitialProps = async ({req}) => {
   //   return {}
   // }
   const baseUrl = process.env.NEXT_SERVER_URL;
-  //const posts_res = await fetch(`${baseUrl}/api/posts`); 
-  //const posts = await posts_res.json()
+  const posts_res = await fetch(`${baseUrl}/api/posts`); 
+  const posts = await posts_res.json()
   const ig_post_res = await fetch(`${baseUrl}/api/ig_post`);
   const ig_post = await ig_post_res.json()
   const spotify_data_res = await fetch(`${baseUrl}/api/spotify_data`);
@@ -260,7 +260,7 @@ Home.getInitialProps = async ({req}) => {
     spotify_data: spotify_data,
     ig_post: ig_post,
     tweet: tweet,
-    //posts: posts
+    posts: posts
   };
 };
 

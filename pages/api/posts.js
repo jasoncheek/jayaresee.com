@@ -1,9 +1,10 @@
 import GhostContentAPI from "@tryghost/content-api"
 export default async(req, res) => {
-  /* Get posts from Ghost CMS at writing.jasoncheek.me */
   const api = new GhostContentAPI({
-    url: 'http://167.71.251.241',
-    key: '5b0c893a385565627d450f05ef',
+    // url: 'https://writing.jasoncheek.me',
+    // key: '110c8d1baabde7315705747482',
+    url: process.env.NEXT_SERVER_BLOG_URL,
+    key: process.env.NEXT_SERVER_BLOG_KEY,
     version: "v3"
   });
   const getPosts = async function() {
@@ -16,9 +17,5 @@ export default async(req, res) => {
       });
   }
   const posts = await getPosts();
-
-//   res.setHeader('Content-Type', 'application/json')
-//   res.statusCode = 200
-//   res.json(JSON.stringify(posts))
   res.status(200).json(posts)
 }
