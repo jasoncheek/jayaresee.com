@@ -10,7 +10,8 @@ export default async(req, res) => {
   const getPosts = async function() {
     return await api.posts
       .browse({
-        limit: "all"
+        limit: "all",
+        include: "tags,authors"
       })
       .catch(err => {
         console.error(err);

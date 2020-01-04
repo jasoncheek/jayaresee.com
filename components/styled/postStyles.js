@@ -763,7 +763,8 @@ export default css.global`
         right: 0;
         left: 0;
         z-index: 1000;
-        background: color(var(--darkgrey) l(-5%));
+        // background: color(var(--darkgrey) l(-5%));
+        background: whitesmoke;
     }
 
     .site-nav {
@@ -772,8 +773,8 @@ export default css.global`
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        overflow-y: hidden;
-        height: 64px;
+        // overflow-y: hidden;
+        height: 48px;
         font-size: 1.3rem;
     }
 

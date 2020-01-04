@@ -185,7 +185,7 @@ const Home = (props) => {
 
         : null}
 
-        {/* <Posts className="order-3 order-4-l">
+        <Posts className="order-3 order-4-l">
           <PostsHeader>
             <PostsHeading>Writing</PostsHeading>
           </PostsHeader>
@@ -212,7 +212,7 @@ const Home = (props) => {
               </PostsListItemTitle>
             </PostsListItem>
           </PostsList>
-        </Posts> */}
+        </Posts>
 
         <Activity className="center-ns center-m center-none-l bg-white-40 black-70 b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
           <ActivityCaption><a href="https://twitter.com/cheekisme" className="link black-80" target="_blank">{props.tweet.text}</a></ActivityCaption>
