@@ -521,7 +521,7 @@ export default css.global`
 
     /* 1. Global - Set up the things
     /* ---------------------------------------------------------- */
-    @import "global.css";
+    /*@import "global.css";*/
 
     body {
         background: #fff;
@@ -1396,7 +1396,7 @@ export default css.global`
     .post-full-header {
         position: relative;
         margin: 0 auto;
-        padding: 70px 170px 50px;
+        padding: 12rem 170px 50px;
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
     }
@@ -1420,7 +1420,7 @@ export default css.global`
 
     @media (max-width: 1170px) {
         .post-full-header {
-            padding: 60px 11vw 50px;
+            padding: 12rem 11vw 50px;
         }
     }
 
@@ -1433,7 +1433,7 @@ export default css.global`
 
     @media (max-width: 500px) {
         .post-full-header {
-            padding: 20px 0 35px;
+            padding: 10rem 0 35px;
         }
     }
 

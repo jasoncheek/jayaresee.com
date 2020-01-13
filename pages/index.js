@@ -9,41 +9,22 @@ import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
 import '../public/css/global.css'
+import postStyles from '../components/styled/postStyles.js'
 import {
-    Page,
-    Intro,
-    Header, 
-    Vignette,
-    HeaderImage,
-    Welcome,
-    Work,
-    Heading, 
-    Project, 
-    ProjectWrap, 
-    ProjectHeader,
-    ProjectTitle,
-    ProjectList, 
-    ProjectListItem, 
     Activity,
     ActivityCaption,
     ActivityImage,
     ActivityInfo,
     ActivityTime,
-    Posts,
-    PostsHeader,
-    PostsHeading,
-    PostsList,
-    PostsListItem,
-    PostsListItemTitle,
-    Links,
-    LinksList,
-    LinksListItem
 } from '../components/styled/pageStyles.js'
 
 library.add(fab, faTimes, faEnvelope)
 
 const Home = (props) => {
   const [workOverlay, setWorkOverlay] = useState(false);
+  function createMarkup() {
+    return {__html: props.post.html};
+  }
   return (
     <>
       <Head>
@@ -59,161 +40,64 @@ const Home = (props) => {
           `}}
         />
       </Head>
-      <Page>
-        <Intro className="order-0"> 
-          <Header>
-            <Vignette />
-            <HeaderImage src="images/jason-cheek-photo-bw.jpg" />
-            {/* <div className="center ba b--gray" style={{width: "10rem", height: "10rem", background: "url(images/jason-cheek.jpg)", backgroundSize: "contain"}}>
-
-            </div> */}
-          </Header>
-          <Welcome>
-            <p className="f3 mt0 mb3">Hey, I'm Jason.</p>
-            <p className="mv3 pr4 pr4-m pr0-l">I'm a designer &amp; developer based in <span className="b">New Orleans</span> with 9 years professional experience building for the web.</p>
-            <p className="mv3 pr3 f5">Currently, I'm working on UIs and APIs for admin tools, e-commerce websites, and other things at <a href="https://donovanmarine.com" style={{color: "#32322e"}} className="link b bb dim" target="_blank" title="Donovan Marine">Donovan Marine</a>.</p>
-          </Welcome>
-        </Intro>
-        <Links className="order-1">
-          <LinksList>
-            <LinksListItem>
-              <a title="E-mail" className="white-90 dim" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{height: "1.5rem"}} /></a>
-            </LinksListItem>
-            <LinksListItem>
-              <a title="LinkedIn" className="white-90 dim" href="https://www.linkedin.com/in/jason-cheek/" target="_blank"><FontAwesomeIcon icon={['fab', 'linkedin']} style={{height: "1.5rem"}} /></a>
-            </LinksListItem>
-            <LinksListItem>
-              <a title="GitHub" className="white-90 dim" href="https://github.com/jasoncheek" target="_blank"><FontAwesomeIcon icon={['fab', 'github']} style={{height: "1.5rem"}} /></a>
-            </LinksListItem>
-            {/* <LinksListItem>
-              <FontAwesomeIcon icon={['fab', 'codepen']} style={{height: "1.5rem"}} />
-            </LinksListItem> */}
-            <LinksListItem>
-              <a title="Facebook" className="white-90 dim" href="https://www.facebook.com/jasoncheeek" target="_blank"><FontAwesomeIcon icon={['fab', 'facebook']} style={{height: "1.5rem"}} /></a>
-            </LinksListItem>
-            <LinksListItem>
-              <a title="Instagram" className="white-90 dim" href="https://www.instagram.com/jasoncheek" target="_blank"><FontAwesomeIcon icon={['fab', 'instagram']} style={{height: "1.5rem"}} /></a>
-            </LinksListItem>
-            <LinksListItem>
-              <a title="Twitter" className="white-90 dim" href="https://twitter.com/cheekisme" target="_blank"><FontAwesomeIcon icon={['fab', 'twitter']} style={{height: "1.5rem"}} /></a>
-            </LinksListItem>
-            {/* <LinksListItem>
-              <FontAwesomeIcon icon={['fab', 'tumblr']} style={{height: "1.5rem"}} />
-            </LinksListItem>
-            <LinksListItem>
-              <FontAwesomeIcon icon={['fab', 'pinterest']} style={{height: "1.5rem"}} />
-            </LinksListItem>
-            <LinksListItem>
-              <FontAwesomeIcon icon={['fab', 'soundcloud']} style={{height: "1.5rem"}} />
-            </LinksListItem> */}
-          </LinksList>
-        </Links>
-        <Work className="order-1 order-2-l">
-          <ProjectTitle>Recent Work</ProjectTitle>
-          <Project className="pointer" onClick={()=>{setWorkOverlay(true);window.scrollTo(0, 0);}}>
-            <ProjectHeader className="absolute">
-              <div className="fl">
-                <div className="mv1">Donovan Marine</div>
-                <div className="mv1">Events Application</div>
-              </div>
-              <div className="fr tr">
-                <div className="mv1">UI, Auth, REST API</div>
-                <div className="mv1">2017-2019</div>
-              </div>
-            </ProjectHeader>
-            <ProjectWrap>
-              <img className="fl" src="images/work.jpg" alt="Work" title="Work" />
-              {/* <ProjectTitle>Events Management Application</ProjectTitle> */}
-              <ProjectList>
-                <ProjectListItem>Registration</ProjectListItem>
-                <ProjectListItem>Check In</ProjectListItem>
-                <ProjectListItem>Ordering</ProjectListItem>
-                <ProjectListItem>Stats</ProjectListItem>
-                <ProjectListItem>API</ProjectListItem>
-              </ProjectList>
-            </ProjectWrap>
-          </Project>    
-        </Work>
-
-        {workOverlay ? 
-
-          <div style={{background: "#333"}} className="absolute z-1 left-0 top-0 w-100 h-100">
-            <ProjectTitle className="bg-black-80 white-90">Recent Work</ProjectTitle>
-            <div style={{maxWidth: "64rem"}} className="sans-serif center w-100 pb4 white-80 bg-black-20">
-            <ProjectHeader className={"bg-white-10 white-80 mb2"}>
-              <div className="fl">
-                <div className="mv1">Donovan Marine</div>
-                <div className="mv1">Events Application</div>
-              </div>
-
-              <div className="fr white-80">
-                <div className="pointer tc pt1" onClick={()=>{setWorkOverlay(false)}}>
-                  <FontAwesomeIcon icon={faTimes} style={{height: "1.25rem"}} />
-                  <div className="b" style={{marginTop: "-.125rem"}}>close</div>
+      <div className="site">
+        <div className="site-wrapper">
+            <header className="site-header">
+                <div className="outer site-nav-main">
+                    <div className="inner">
+                        <nav className="site-nav">
+                            <a 
+                                className="site-nav-logo" 
+                                style={{
+                                    background: "url(../images/jason-cheek-signature.png) no-repeat center", 
+                                    width: "200px", 
+                                    backgroundSize: "contain",
+                                    textIndent: "-9999px",
+                                    margin: "2rem auto 0",
+                                    padding: "0",
+                                    height: "52px",
+                                    position: "absolute",
+                                    bottom: "-2.25rem",
+                                    left: "0",
+                                    right: "0",
+                                    margin: "auto",
+                                }} 
+                                href="/"
+                            >
+                                {/* <img src="https://static.ghost.org/v1.0.0/images/ghost-logo.svg" alt="Jason Cheek" />  */}
+                                Jason Cheek
+                            </a>
+                        </nav>
+                    </div>
                 </div>
-              </div>
-              <div className="fr tr white-50 mr3 mr4-l">
-                <div className="mv1">UI, Auth, REST API</div>
-                <div className="mv1">2017-2019</div>
-              </div>
-            </ProjectHeader>
-
-            <div className="pb4 bb b--white-10">
-              <div className="fl f4 ph4 white-90 pt4 pb3">Event Registration</div>
-              <div className="fr-l lh-title f6 ph4 pt4 pb3 tr">Design, HTML, CSS, Javascript</div>
-              <div className="cl overflow-hidden">
-                <img className="mw-none mw-100-l" src="images/registration.jpg" alt="Event Registration" title="Event Registration" />
-              </div>
-            </div>
-            <div className="pb4 bb b--white-10">
-              <div className="fl f4 ph4 white-90 pt4 pb3">Events Admin</div>
-              <div className="fr-l lh-title f6 ph4 pt4 pb3 tr">Design, HTML, CSS, Javascript, React</div>
-              <div className="cl overflow-hidden">
-                <img className="mw-none mw-100-l" src="images/admin.jpg" alt="Event Admin" title="Event Admin" />
-              </div>
-            </div>
-            <div className="pb4 bb b--white-10">
-              <div className="fl f4 ph4 white-90 pt4 pb3">Events Data API</div>
-              <div className="fr-l lh-title f6 ph4 pt4 pb3 tr">C#, SQL, REST, JSON</div>
-              <div className="cl overflow-hidden">
-                <img className="mw-none mw-100-l" src="images/api.jpg" alt="Event Data API" title="Events Data API" />
-              </div>
-            </div>
-              <div className="white-80 pointer pa2 b mv3 tc ba db center w3 br1 bg-animate hover-bg-white-80 hover-black-90 " onClick={()=>{setWorkOverlay(false)}}>close</div>
-            </div>
-          </div>          
-
-        : null}
-
-        <Posts className="order-3 order-4-l">
-          <PostsHeader>
-            <PostsHeading>Writing</PostsHeading>
-          </PostsHeader>
-          <PostsList>
-            <PostsListItem className="bg-light-blue">
-              <PostsListItemTitle>
-                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
-                  <a className="db pv3 ph4 link near-black">{props.posts[0].title}</a>
-                </Link>
-              </PostsListItemTitle>
-            </PostsListItem>
-            <PostsListItem className="bg-light-green">
-              <PostsListItemTitle>
-                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
-                  <a className="db pv3 ph4 link near-black">{props.posts[1].title}</a>
-                </Link>
-              </PostsListItemTitle>
-            </PostsListItem>
-            <PostsListItem className="bg-light-red">
-              <PostsListItemTitle>
-                <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
-                  <a className="db pv3 ph4 link near-black">{props.posts[2].title}</a>
-                </Link>
-              </PostsListItemTitle>
-            </PostsListItem>
-          </PostsList>
-        </Posts>
-
+            </header>
+            <main id="site-main" className="site-main outer">
+            <div className="inner">
+              <article className="post-full post">
+                <header className="post-full-header">
+                    <ul className="list">
+                      <li>
+                        <div>
+                          <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
+                            <a className="db pv3 ph4 link near-black">{props.posts[0].title}</a>
+                          </Link>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
+                            <a className="db pv3 ph4 link near-black">{props.posts[1].title}</a>
+                          </Link>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
+                            <a className="db pv3 ph4 link near-black">{props.posts[2].title}</a>
+                          </Link>
+                        </div>
+                      </li>
+                    </ul>
         <Activity className="center-ns center-m center-none-l bg-white-40 black-70 b--black-90 order-4 order-4-l pv5 ph4 ph5-ns w-100 w-40-l">
           <ActivityCaption><a href="https://twitter.com/cheekisme" className="link black-80" target="_blank">{props.tweet.text}</a></ActivityCaption>
           <ActivityInfo>Posted on Twitter</ActivityInfo>
@@ -233,7 +117,17 @@ const Home = (props) => {
           </Activity>
         </div>
 
-      </Page>
+                </header>
+              </article>
+            </div>
+
+            </main>
+        </div> 
+      <style jsx global>
+          {postStyles}
+      </style>
+    
+      </div>
     </>
   ) 
 }

@@ -9,9 +9,8 @@ export default function Post(props) {
     return {__html: props.post.html};
   }
   return (
-    <div className="post">
-        {console.log(props.post)}
-      <div className="post-template tag-getting-started">
+    <div className="site">
+      <div className="site-template">
         <div className="site-wrapper">
             <header className="site-header">
                 <div className="outer site-nav-main">
@@ -42,8 +41,6 @@ export default function Post(props) {
                     </div>
                 </div>
             </header>
-
-
             <main id="site-main" className="site-main outer">
             <div className="inner">
 
@@ -52,7 +49,7 @@ export default function Post(props) {
                     <header className="post-full-header">
 
                         <section className="post-full-tags">
-                            <a href={`/tag/getting-started`}>{props.post.primary_tag !== undefined ? props.post.primary_tag.name : null}</a>
+                            <a href={`/tag/getting-started`}>{props.post.primary_tag !== undefined && props.post.primary_tag !== null ? props.post.primary_tag.name : null}</a>
                         </section>
                         <h1 className="post-full-title">{props.post.title}</h1>
 
@@ -119,94 +116,6 @@ export default function Post(props) {
 
             </div>
             </main>
-
-            <div className="inner">
-                <div className="read-next-feed">
-                        <article className="read-next-card">
-                            <header className="read-next-card-header">
-                                <h3><span>More in</span> <a href="/tag/getting-started/">Getting Started</a></h3>
-                            </header>
-                            <div className="read-next-card-content">
-                                <ul>
-                                    <li>
-                                        <h4><a href="/the-editor/">Writing posts with Ghost ✍️</a></h4>
-                                        <div className="read-next-card-meta">
-                                            <p><time dateTime="2019-11-16">16 Nov 2019</time> –
-                                               3 min read</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h4><a href="/publishing-options/">Publishing options</a></h4>
-                                        <div className="read-next-card-meta">
-                                            <p><time dateTime="2019-11-16">16 Nov 2019</time> –
-                                                2 min read</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h4><a href="/admin-settings/">Managing admin settings</a></h4>
-                                        <div className="read-next-card-meta">
-                                            <p><time dateTime="2019-11-16">16 Nov 2019</time> –
-                                                2 min read</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <footer className="read-next-card-footer">
-                                <a href="/tag/getting-started/">See all 6 posts
-                                    →</a>
-                            </footer>
-                        </article>
-
-
-                        <article className="post-card post tag-getting-started ">
-
-            <a className="post-card-image-link" href="/the-editor/">
-                <img className="post-card-image" srcSet="https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png 300w,
-                            https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png 600w,
-                            https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png 1000w,
-                            https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png 2000w" sizes="(max-width: 1000px) 400px, 700px" src="https://static.ghost.org/v3.0.0/images/writing-posts-with-ghost.png" alt="Writing posts with Ghost ✍️" />
-            </a>
-
-            <div className="post-card-content">
-
-                <a className="post-card-content-link" href="/the-editor/">
-
-                    <header className="post-card-header">
-                            <div className="post-card-primary-tag">Getting Started</div>
-                        <h2 className="post-card-title">Writing posts with Ghost ✍️</h2>
-                    </header>
-
-                    <section className="post-card-excerpt">
-                            <p>Discover familiar formatting options in a functional toolbar and the ability to add dynamic content seamlessly.</p>
-                    </section>
-
-                </a>
-
-                <footer className="post-card-meta">
-                    <ul className="author-list">
-                        <li className="author-list-item">
-                    
-                            <div className="author-name-tooltip">
-                                Ghost
-                            </div>
-                    
-                            <a href="/author/ghost/" className="static-avatar">
-                                <img className="author-profile-image" src="https://static.ghost.org/v3.0.0/images/ghost.png" alt="Ghost" />
-                            </a>
-                        </li>
-                    </ul>
-                    <div className="post-card-byline-content">
-                        <span><a href="/author/ghost/">Ghost</a></span>
-                        <span className="post-card-byline-date"><time dateTime="2019-11-16">16 Nov 2019</time> <span className="bull">•</span> 3 min read</span>
-                    </div>
-                </footer>
-
-            </div>
-
-            </article>
-        </div>
-        </div>
-    
         </div> 
     </div>
     <style jsx global>
@@ -233,7 +142,7 @@ Post.getInitialProps = async (req) => {
   const posts = await getPosts()
       .then((res)=>{
         post = res;
-        console.log(res);
+        //console.log(res);
       })
       .catch(err => {
         console.error(err);
