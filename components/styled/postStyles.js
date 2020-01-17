@@ -3505,4 +3505,9 @@ export default css.global`
         }
     }
       
+    .list-item-title {
+        font-size: 2.25rem
+    }
+
+
     `

@@ -1,7 +1,3 @@
-body {
-    position: relative;
-    background: #333
-}
 
 @media screen and (min-width: 60em) {
     .app-height-l {
