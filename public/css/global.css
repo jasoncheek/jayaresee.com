@@ -1,3 +1,14 @@
+html {
+    background: #444
+}
+
+.link {
+    color: #777
+}
+
+.list-item-title .link {
+    color: #444 
+}
 
 @media screen and (min-width: 60em) {
     .app-height-l {
