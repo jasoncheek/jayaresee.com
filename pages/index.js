@@ -69,8 +69,8 @@ const Home = (props) => {
                     <div className="pv2 ph3 f7 gray">
                         Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
                     </div>
-                    <div className="flex-ns center pt4 pb2" style={{maxWidth: "40rem"}}>
-                        <div className="w-80-ns pr4-ns">
+                    <div className="flex-ns center pt4 pb3" style={{maxWidth: "60rem"}}>
+                        <div className="w-90-ns pr4-ns">
                             <ul className="list ph0 mt0 mb4 f4">
                                 <li className="list-item-title">
                                     <div>
@@ -93,10 +93,24 @@ const Home = (props) => {
                                         </Link>
                                     </div>
                                 </li>
+                                <li className="list-item-title">
+                                    <div>
+                                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[3].slug}`}>
+                                            <a className="db pv3 ph4 link">{props.posts[3].title}</a>
+                                        </Link>
+                                    </div>
+                                </li>
+                                <li className="list-item-title">
+                                    <div>
+                                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[4].slug}`}>
+                                            <a className="db pv3 ph4 link">{props.posts[4].title}</a>
+                                        </Link>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
 
-                        <div className="w-20-ns tc">
+                        <div className="w-10-ns tc">
                             <ul className="list mv0 pl0 pv2">
                                 <li className="dib pv2 ph3">
                                     <a title="E-mail" className="link" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
@@ -149,8 +163,8 @@ const Home = (props) => {
                             </ul>
                         </div>
                     </div>
-                    <div className="tc bg-near-white">
-                        <div className="bl bt br b--gray dib w-50 pa3 bg-white" style={{marginRight:"-1px",maxWidth:"12rem"}}>
+                    <div className="tc">
+                        <div className="ba b--black-10 dib v-top w-50 pa3 bg-near-white" style={{marginRight:"-1px",maxWidth:"12rem"}}>
                             <a href={props.ig_post.link} className="link black-90 dim" target="_blank">
                                 <img className="w-100 mb3 o-90" src={props.ig_post.images.standard_resolution.url} />
                             </a>
@@ -159,7 +173,7 @@ const Home = (props) => {
                                 <div className="f7">{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</div>
                             </div>
                         </div>
-                        <div className="bl bt br b--gray dib w-50 pa3 bg-white" style={{maxWidth:"12rem"}}>
+                        <div className="ba b--black-10 dib v-top w-50 pa3 bg-near-white" style={{maxWidth:"12rem"}}>
                             <a
                                 href={props.spotify_data.items[0].track.external_urls.spotify ? props.spotify_data.items[0].track.external_urls.spotify : null}
                                 className="link white-90 dim db"
