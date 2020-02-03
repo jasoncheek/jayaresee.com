@@ -69,7 +69,7 @@ const Home = (props) => {
                     <div className="pv2 ph3 f7 gray">
                         Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
                     </div>
-                    <div className="flex-ns center pt4 pb3" style={{maxWidth: "60rem"}}>
+                    <div className="flex-ns center pt4 pb3" style={{maxWidth: "40rem"}}>
                         <div className="w-90-ns pr4-ns">
                             <ul className="list ph0 mt0 mb4 f4">
                                 <li className="list-item-title">
@@ -189,7 +189,7 @@ const Home = (props) => {
                     </div>
                 </div>
             </main>
-            <footer className="absolute bottom-0 left-0 right-0 white-50 tc f7 pt2 pb2">
+            <footer className="white-50 tc f7 pt2 pb2">
                 &copy; {props.year} Jason Cheek 
             </footer>
         </div>

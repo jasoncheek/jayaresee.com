@@ -1,14 +1,17 @@
 html {
-    background: #444
+    background: #222
 }
 
 .link {
-    color: #777
+    color: #222;
+    font-weight: bold;
 }
 
 .list-item-title .link {
-    color: #111 
+    color: #222 
 }
+
+
 
 @media screen and (min-width: 60em) {
     .app-height-l {

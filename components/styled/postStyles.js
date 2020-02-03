@@ -783,7 +783,7 @@ export default css.global`
     }
 
     .post-full-content figure {
-        margin: 0.8em 0 2.3em;
+        margin: 2.5rem 0 2.5rem
     }
 
     .post-full-content h1 + figure,
@@ -1035,6 +1035,43 @@ export default css.global`
         .kg-bookmark-content {
             order: 2;
         }
+    }
+    
+    .post-content div h2,
+    .post-content div h3 {
+        font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+    }
+
+    .post-content div h2 {
+        font-size: 1.5rem
+    }
+
+    .post-content div h3 {
+        font-size: 1.25rem
+    }
+    
+    .post-content div pre {
+        font-size: 1rem;
+        margin: 2.5rem 0 2.5rem;
+    }
+    
+    .post-content div ul,
+    .post-content div ol {
+        margin: 0 0 2rem;
+        padding-left: 1.5rem;
+    }
+    
+    .post-content div .kg-bookmark-title {
+        font-size: 1.25rem
+    }
+    
+    .post-content div .kg-bookmark-description, 
+    .post-content div .kg-bookmark-metadata {
+        font-size: 1rem
+    }
+
+    .post-content div h2, .post-content div h3, .post-content div p {
+        margin: 0 0 1rem
     }
 
     `
