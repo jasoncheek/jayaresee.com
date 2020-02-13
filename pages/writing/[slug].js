@@ -62,13 +62,13 @@ export default function Post(props) {
                             Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
                         </div>
                         <article className="post-full post center">
-                            <header className="post-full-header center pv5 ph3" style={{maxWidth: "40rem"}}>
+                            <header className="post-full-header center pv5 ph3 tc" style={{maxWidth: "40rem"}}>
 
                                 <section className="post-full-tags">
                                     <a href={`/tag/getting-started`}>{props.post.primary_tag !== undefined && props.post.primary_tag !== null ? props.post.primary_tag.name : null}</a>
                                 </section>
-                                <h1 className="post-full-title f3 f2-ns mt0 mb5">{props.post.title}</h1>
-                                <div className="f6 b near-black">2/10/2020</div>
+                                <h1 className="post-full-title f3 f2-ns mt0 mb3">{props.post.title}</h1>
+                                <div className="f5 gray mb5">2/10/2020</div>
 
                                 <p className="post-full-custom-excerpt f4 mb3 serif lh-copy gray">{props.post.excerpt}</p>
 
