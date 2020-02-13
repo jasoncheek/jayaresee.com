@@ -11,7 +11,18 @@ html {
     color: #222 
 }
 
+.list-item-title {
+    transition: all ease .2s;
+    border-bottom: .125rem solid whitesmoke 
+}
 
+.list-item-title:hover, .list-item-title:active {
+    border-bottom: .125rem solid #222 
+}
+
+.social-links .link {
+    color: white
+}
 
 @media screen and (min-width: 60em) {
     .app-height-l {

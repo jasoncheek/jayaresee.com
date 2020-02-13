@@ -3,9 +3,15 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 //import { Link } from 'next/link'
 import GhostContentAPI from "@tryghost/content-api"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
 import '../../public/css/global.css'
 import postStyles from '../../components/styled/postStyles.js'
+
+library.add(fab, faTimes, faEnvelope)
 
 export default function Post(props) {
   const router = useRouter();
@@ -61,7 +67,8 @@ export default function Post(props) {
                                 <section className="post-full-tags">
                                     <a href={`/tag/getting-started`}>{props.post.primary_tag !== undefined && props.post.primary_tag !== null ? props.post.primary_tag.name : null}</a>
                                 </section>
-                                <h1 className="post-full-title f3 f2-ns mt0 mb4">{props.post.title}</h1>
+                                <h1 className="post-full-title f3 f2-ns mt0 mb5">{props.post.title}</h1>
+                                <div className="f6 b near-black">2/10/2020</div>
 
                                 <p className="post-full-custom-excerpt f4 mb3 serif lh-copy gray">{props.post.excerpt}</p>
 
@@ -102,7 +109,7 @@ export default function Post(props) {
                                 </div>
                             </header>
                             {props.post.feature_image !== null ? 
-                                <figure className="post-full-image w-100 ma0 center tc" style={{maxWidth: "72rem"}}>
+                                <figure className="post-full-image w-100 ma0 center tc" style={{maxWidth: "75rem"}}>
                                     <img src={props.post.feature_image} alt={props.post.title} />
                                     {/* <img srcSet={`${props.post.feature_image} 300w,
                                                 ${props.post.feature_image} 600w,
@@ -114,13 +121,65 @@ export default function Post(props) {
                             }
                             <section className="post-full-content center">
                                 <div className="post-content">
-                                    {<div className="pv5 ph3 center lh-copy f4 serif" style={{maxWidth: "40rem"}} dangerouslySetInnerHTML={createMarkup()}></div>}
+                                    {<div className="pv5 ph3 center lh-copy f4-ns serif" style={{maxWidth: "40rem"}} dangerouslySetInnerHTML={createMarkup()}></div>}
                                 </div>
                             </section>
                         </article>
                     </div>
                 </main>
-                <footer className="white-50 tc f7 pt2 pb4">
+                <div className="tc">
+                    <ul className="social-links list mv0 pl0 pv2 bb b--gray">
+                        <li className="dib v-mid pv2 ph3">
+                            <a title="E-mail" className="link" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
+                                <FontAwesomeIcon icon={faEnvelope} style={{height: "1.25rem"}} />
+                                {/* E-mail     */}
+                            </a>
+                        </li>
+                        <li className="dib v-mid pv2 ph3">
+                            <a title="LinkedIn" className="link" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
+                                <FontAwesomeIcon icon={['fab', 'linkedin']} style={{height: "1.25rem"}} />
+                                {/* LinkedIn */}
+                            </a>
+                        </li>
+                        <li className="dib v-mid pv2 ph3">
+                            <a title="GitHub" className="link" href="https://github.com/jasoncheek" target="_blank">
+                                <FontAwesomeIcon icon={['fab', 'github']} style={{height: "1.25rem"}} />
+                                {/* GitHub  */}
+                            </a>
+                        </li>
+                        {/* <lINKSlISTiTEM>
+                        <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
+                        </lINKSlISTiTEM> */}
+                        <li className="dib v-mid pv2 ph3">
+                            <a title="facebook" className="link" href="https://www.facebook.com/jasoncheeek" target="_blank">
+                                <FontAwesomeIcon icon={['fab', 'facebook']} style={{height: "1.25rem"}} />
+                                {/* facebook */}
+                            </a>
+                        </li>
+                        <li className="dib v-mid pv2 ph3">
+                            <a title="instagram" className="link" href="https://www.instagram.com/jasoncheek" target="_blank">
+                                <FontAwesomeIcon icon={['fab', 'instagram']} style={{height: "1.25rem"}} />
+                                {/* Instagram */}
+                            </a>
+                        </li>
+                        <li className="dib v-mid pv2 ph3">
+                            <a title="twitter" className="link" href="https://twitter.com/cheekisme" target="_blank">
+                                <FontAwesomeIcon icon={['fab', 'twitter']} style={{height: "1.25rem"}} />
+                                {/* Twitter */}
+                            </a>
+                        </li>
+                        {/* <lINKSlISTiTEM>
+                        <fONTaWESOMEiCON ICON={['FAB', 'TUMBLR']} STYLE={{HEIGHT: "1.5REM"}} />
+                        </lINKSlISTiTEM>
+                        <lINKSlISTiTEM>
+                        <fONTaWESOMEiCON ICON={['FAB', 'PINTEREST']} STYLE={{HEIGHT: "1.5REM"}} />
+                        </lINKSlISTiTEM>
+                        <lINKSlISTiTEM>
+                        <fONTaWESOMEiCON ICON={['FAB', 'SOUNDCLOUD']} STYLE={{HEIGHT: "1.5REM"}} />
+                        </lINKSlISTiTEM> */}
+                    </ul>
+                </div>
+                <footer className="gray tc f7 pt2 pb5">
                     &copy; {props.year} Jason Cheek 
                 </footer>
             </div>

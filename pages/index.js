@@ -69,127 +69,118 @@ const Home = (props) => {
                     <div className="pv2 ph3 f7 gray">
                         Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
                     </div>
-                    <div className="flex-ns center pt4 pb3" style={{maxWidth: "40rem"}}>
-                        <div className="w-90-ns pr4-ns">
-                            <ul className="list ph0 mt0 mb4 f4">
-                                <li className="list-item-title">
-                                    <div>
+                    <div className="flex-ns pv4 center" style={{maxWidth: "75rem"}}>
+                        <div className="flex-ns center pv4 w-100">
+                            <div className="w-100 bw2 b--dark-gray">
+                                <ul className="list ph0 mt0 mb4 f4">
+                                    <li className="list-item-title">
                                         <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
-                                            <a className="db pv3 ph4 link">{props.posts[0].title}</a>
+                                            <a className="db pv3 ph3 link">{props.posts[0].title}</a>
                                         </Link>
-                                    </div>
-                                </li>
-                                <li className="list-item-title">
-                                    <div>
+                                    </li>
+                                    <li className="list-item-title">
                                         <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
-                                            <a className="db pv3 ph4 link">{props.posts[1].title}</a>
+                                            <a className="db pv3 ph3 link">{props.posts[1].title}</a>
                                         </Link>
-                                    </div>
-                                </li>
-                                <li className="list-item-title">
-                                    <div>
+                                    </li>
+                                    <li className="list-item-title">
                                         <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
-                                            <a className="db pv3 ph4 link">{props.posts[2].title}</a>
+                                            <a className="db pv3 ph3 link">{props.posts[2].title}</a>
                                         </Link>
-                                    </div>
-                                </li>
-                                <li className="list-item-title">
-                                    <div>
+                                    </li>
+                                    <li className="list-item-title">
                                         <Link href={`/writing/[slug]`} as={`/writing/${props.posts[3].slug}`}>
-                                            <a className="db pv3 ph4 link">{props.posts[3].title}</a>
+                                            <a className="db pv3 ph3 link">{props.posts[3].title}</a>
                                         </Link>
-                                    </div>
-                                </li>
-                                <li className="list-item-title">
-                                    <div>
+                                    </li>
+                                    <li className="list-item-title">
                                         <Link href={`/writing/[slug]`} as={`/writing/${props.posts[4].slug}`}>
-                                            <a className="db pv3 ph4 link">{props.posts[4].title}</a>
+                                            <a className="db pv3 ph3 link">{props.posts[4].title}</a>
                                         </Link>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="w-10-ns tc">
-                            <ul className="list mv0 pl0 pv2">
-                                <li className="dib pv2 ph3">
-                                    <a title="E-mail" className="link" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
-                                        <FontAwesomeIcon icon={faEnvelope} style={{height: "1.35rem"}} />
-                                        {/* E-mail     */}
-                                    </a>
-                                </li>
-                                <li className="dib pv2 ph3">
-                                    <a title="LinkedIn" className="link" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
-                                        <FontAwesomeIcon icon={['fab', 'linkedin']} style={{height: "1.35rem"}} />
-                                        {/* LinkedIn */}
-                                    </a>
-                                </li>
-                                <li className="dib pv2 ph3">
-                                    <a title="GitHub" className="link" href="https://github.com/jasoncheek" target="_blank">
-                                        <FontAwesomeIcon icon={['fab', 'github']} style={{height: "1.35rem"}} />
-                                        {/* GitHub  */}
-                                    </a>
-                                </li>
-                                {/* <lINKSlISTiTEM>
-                                <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
-                                </lINKSlISTiTEM> */}
-                                <li className="dib pv2 ph3">
-                                    <a title="facebook" className="link" href="https://www.facebook.com/jasoncheeek" target="_blank">
-                                        <FontAwesomeIcon icon={['fab', 'facebook']} style={{height: "1.35rem"}} />
-                                        {/* facebook */}
-                                    </a>
-                                </li>
-                                <li className="dib pv2 ph3">
-                                    <a title="instagram" className="link" href="https://www.instagram.com/jasoncheek" target="_blank">
-                                        <FontAwesomeIcon icon={['fab', 'instagram']} style={{height: "1.35rem"}} />
-                                        {/* Instagram */}
-                                    </a>
-                                </li>
-                                <li className="dib pv2 ph3">
-                                    <a title="twitter" className="link" href="https://twitter.com/cheekisme" target="_blank">
-                                        <FontAwesomeIcon icon={['fab', 'twitter']} style={{height: "1.35rem"}} />
-                                        {/* Twitter */}
-                                    </a>
-                                </li>
-                                {/* <lINKSlISTiTEM>
-                                <fONTaWESOMEiCON ICON={['FAB', 'TUMBLR']} STYLE={{HEIGHT: "1.5REM"}} />
-                                </lINKSlISTiTEM>
-                                <lINKSlISTiTEM>
-                                <fONTaWESOMEiCON ICON={['FAB', 'PINTEREST']} STYLE={{HEIGHT: "1.5REM"}} />
-                                </lINKSlISTiTEM>
-                                <lINKSlISTiTEM>
-                                <fONTaWESOMEiCON ICON={['FAB', 'SOUNDCLOUD']} STYLE={{HEIGHT: "1.5REM"}} />
-                                </lINKSlISTiTEM> */}
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="tc">
-                        <div className="ba b--black-10 dib v-top w-50 pa3 bg-near-white" style={{marginRight:"-1px",maxWidth:"12rem"}}>
-                            <a href={props.ig_post.link} className="link black-90 dim" target="_blank">
-                                <img className="w-100 mb3 o-90" src={props.ig_post.images.standard_resolution.url} />
-                            </a>
-                            <div className="tl near-black">
-                                <div className="f7 pb1">Posted on Instagram</div>
-                                <div className="f7">{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div className="ba b--black-10 dib v-top w-50 pa3 bg-near-white" style={{maxWidth:"12rem"}}>
-                            <a
-                                href={props.spotify_data.items[0].track.external_urls.spotify ? props.spotify_data.items[0].track.external_urls.spotify : null}
-                                className="link white-90 dim db"
-                                target="_blank"
-                            >
-                                <img className="w-100 mb3 o-90" src={props.spotify_data.items[0].track.album.images[0].url} />
-                            </a>
-                            <div className="tl near-black">
-                                <div className="pb1 f7">Played on Spotify</div>
-                                <div className="f7">{formatDistanceToNow(new Date(props.spotify_data.items[0].played_at))} ago</div>
+                        <div className="flex flex-row flex-column-ns w-100 w5-ns">
+                            <div className="b--black-10 dib v-top w-100 pa3 bg-near-white" style={{marginRight:"-1px",maxWidth:"12rem"}}>
+                                <a href={props.ig_post.link} className="link black-90 dim" target="_blank">
+                                    <img className="w-100 mb3 o-90" src={props.ig_post.images.standard_resolution.url} />
+                                </a>
+                                <div className="tl near-black">
+                                    <div className="f7 pb1">Posted on Instagram</div>
+                                    <div className="f7">{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</div>
+                                </div>
+                            </div>
+                            <div className="b--black-10 dib v-top w-100 pa3 bg-near-white" style={{maxWidth:"12rem"}}>
+                                <a
+                                    href={props.spotify_data.items[0].track.external_urls.spotify ? props.spotify_data.items[0].track.external_urls.spotify : null}
+                                    className="link white-90 dim db"
+                                    target="_blank"
+                                >
+                                    <img className="w-100 mb3 o-90" src={props.spotify_data.items[0].track.album.images[0].url} />
+                                </a>
+                                <div className="tl near-black">
+                                    <div className="pb1 f7">Played on Spotify</div>
+                                    <div className="f7">{formatDistanceToNow(new Date(props.spotify_data.items[0].played_at))} ago</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
-            <footer className="white-50 tc f7 pt2 pb2">
+            <div className="tc">
+                <ul className="social-links list mv0 pl0 pv2 bb b--gray">
+                    <li className="dib v-mid pv2 ph3">
+                        <a title="E-mail" className="link" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
+                            <FontAwesomeIcon icon={faEnvelope} style={{height: "1.25rem"}} />
+                            {/* E-mail     */}
+                        </a>
+                    </li>
+                    <li className="dib v-mid pv2 ph3">
+                        <a title="LinkedIn" className="link" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
+                            <FontAwesomeIcon icon={['fab', 'linkedin']} style={{height: "1.25rem"}} />
+                            {/* LinkedIn */}
+                        </a>
+                    </li>
+                    <li className="dib v-mid pv2 ph3">
+                        <a title="GitHub" className="link" href="https://github.com/jasoncheek" target="_blank">
+                            <FontAwesomeIcon icon={['fab', 'github']} style={{height: "1.25rem"}} />
+                            {/* GitHub  */}
+                        </a>
+                    </li>
+                    {/* <lINKSlISTiTEM>
+                    <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
+                    </lINKSlISTiTEM> */}
+                    <li className="dib v-mid pv2 ph3">
+                        <a title="facebook" className="link" href="https://www.facebook.com/jasoncheeek" target="_blank">
+                            <FontAwesomeIcon icon={['fab', 'facebook']} style={{height: "1.25rem"}} />
+                            {/* facebook */}
+                        </a>
+                    </li>
+                    <li className="dib v-mid pv2 ph3">
+                        <a title="instagram" className="link" href="https://www.instagram.com/jasoncheek" target="_blank">
+                            <FontAwesomeIcon icon={['fab', 'instagram']} style={{height: "1.25rem"}} />
+                            {/* Instagram */}
+                        </a>
+                    </li>
+                    <li className="dib v-mid pv2 ph3">
+                        <a title="twitter" className="link" href="https://twitter.com/cheekisme" target="_blank">
+                            <FontAwesomeIcon icon={['fab', 'twitter']} style={{height: "1.25rem"}} />
+                            {/* Twitter */}
+                        </a>
+                    </li>
+                    {/* <lINKSlISTiTEM>
+                    <fONTaWESOMEiCON ICON={['FAB', 'TUMBLR']} STYLE={{HEIGHT: "1.5REM"}} />
+                    </lINKSlISTiTEM>
+                    <lINKSlISTiTEM>
+                    <fONTaWESOMEiCON ICON={['FAB', 'PINTEREST']} STYLE={{HEIGHT: "1.5REM"}} />
+                    </lINKSlISTiTEM>
+                    <lINKSlISTiTEM>
+                    <fONTaWESOMEiCON ICON={['FAB', 'SOUNDCLOUD']} STYLE={{HEIGHT: "1.5REM"}} />
+                    </lINKSlISTiTEM> */}
+                </ul>
+            </div>
+            <footer className="gray tc f7 pt2 pb5">
                 &copy; {props.year} Jason Cheek 
             </footer>
         </div>

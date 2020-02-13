@@ -783,7 +783,8 @@ export default css.global`
     }
 
     .post-full-content figure {
-        margin: 2.5rem 0 2.5rem
+        margin: 2.5rem 0 2.5rem;
+        overflow: auto
     }
 
     .post-full-content h1 + figure,
@@ -1051,8 +1052,9 @@ export default css.global`
     }
     
     .post-content div pre {
-        font-size: 1rem;
+        font-size: .875rem;
         margin: 2.5rem 0 2.5rem;
+        overflow: auto;
     }
     
     .post-content div ul,
@@ -1070,8 +1072,18 @@ export default css.global`
         font-size: 1rem
     }
 
-    .post-content div h2, .post-content div h3, .post-content div p {
-        margin: 0 0 1rem
+    .post-full-header div p, .post-content div h2, .post-content div h3, .post-content div p {
+        margin: 0 0 1.5rem
     }
 
+    .post-content div h2, .post-content div h3 {
+        margin-top: 4rem
+    }
+    .post-full-content a:link, .post-full-content a:visited {
+        color: blue;
+        text-decoration: none;
+    }
+    .post-full-content a:hover, .post-full-content a:active {
+        border-bottom: 1px solid
+    }
     `
