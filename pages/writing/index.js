@@ -5,15 +5,15 @@ import fetch from 'isomorphic-unfetch';
 import { formatDistanceToNow, fromUnixTime, formatISO } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTimes, faEnvelope, faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
-import '../public/css/global.css'
+import '../../public/css/global.css'
 //import postStyles from '../components/styled/postStyles.js'
 
-library.add(fab, faTimes, faEnvelope, faArrowDown)
+library.add(fab, faTimes, faEnvelope)
 
-const Home = (props) => {
+const Writing = (props) => {
   return (
     <>
       <Head>
@@ -100,16 +100,6 @@ const Home = (props) => {
                         </Link>
                       </li>
                     </ul>
-                    <div className="tc w4 pointer">
-                        <Link href={`/writing`}>
-                          <a className="db pv3 ph3 link">
-                            <div className="f7">More Writing</div>
-                            <div className="tc pa1">
-                                <FontAwesomeIcon icon={faArrowDown} style={{ height: ".875rem" }} />
-                            </div>
-                          </a>
-                        </Link>
-                    </div>
                   </div>
                 </div>
                 <div className="social-feeds flex flex-row flex-column-ns w-100 w5-ns">
@@ -204,11 +194,14 @@ const Home = (props) => {
   )
 }
 
-Home.getInitialProps = async ({ req }) => {
+Writing.getInitialProps = async ({ req }) => {
 
   let serverDateTime = null;
 
   if (req) {
+    serverDateTime = new Date();
+  }
+  else {
     serverDateTime = new Date();
   }
 
@@ -235,4 +228,4 @@ Home.getInitialProps = async ({ req }) => {
   };
 };
 
-export default Home
+export default Writing
