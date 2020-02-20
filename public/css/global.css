@@ -24,6 +24,17 @@ html {
     color: white
 }
 
+.writing .list-item-title {
+    margin: 0 1rem;
+    display: inline-block;
+    transition: all ease .2s;
+    border-bottom: .125rem solid whitesmoke 
+}
+
+.writing .list-item-title:hover, .list-item-title:active {
+    border-bottom: .125rem solid #222 
+}
+
 @media screen and (min-width: 60em) {
     .app-height-l {
         max-height: 900px;

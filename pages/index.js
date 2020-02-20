@@ -100,13 +100,10 @@ const Home = (props) => {
                         </Link>
                       </li>
                     </ul>
-                    <div className="tc w4 pointer">
+                    <div className="dib pointer">
                         <Link href={`/writing`}>
-                          <a className="db pv3 ph3 link">
-                            <div className="f7">More Writing</div>
-                            <div className="tc pa1">
-                                <FontAwesomeIcon icon={faArrowDown} style={{ height: ".875rem" }} />
-                            </div>
+                          <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
+                            View All Posts
                           </a>
                         </Link>
                     </div>
@@ -117,7 +114,7 @@ const Home = (props) => {
                     <a href={props.ig_post.link} className="link black-90 dim" target="_blank">
                       <img className="w-100 mb3 o-90" src={props.ig_post.images.standard_resolution.url} />
                     </a>
-                    <div className="tl near-black">
+                    <div className="tl" style={{color: "#222"}}>
                       <div className="f7 pb1">Posted on Instagram</div>
                       <div className="f7">{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</div>
                     </div>
@@ -130,7 +127,7 @@ const Home = (props) => {
                     >
                       <img className="w-100 mb3 o-90" src={props.spotify_data.items[0].track.album.images[0].url} />
                     </a>
-                    <div className="tl near-black">
+                    <div className="tl near-black" style={{color: "#222"}}>
                       <div className="pb1 f7">Played on Spotify</div>
                       <div className="f7">{formatDistanceToNow(new Date(props.spotify_data.items[0].played_at))} ago</div>
                     </div>

@@ -15,8 +15,8 @@ library.add(fab, faTimes, faEnvelope)
 
 const Writing = (props) => {
 
-  const tagsList = props.tags.map(index, tag => {
-    return <li key={index}>tag</li> 
+  const tagsList = props.tags.map(tag => {
+    return <li className="mh1 pa2 f7 ba bw1 dib br3 pointer" title={tag.name} key={tag.id}>{tag.name}</li>
   });
 
   return (
@@ -67,7 +67,7 @@ const Writing = (props) => {
               </div>
             </div>
           </header>
-          <main id="site-main" className="site-main outer bg-white">
+          <main id="site-main" className="writing site-main outer bg-white">
             <div className="inner">
               <div className="author-location pv2 ph3 f7 gray fr">
                 New Orleans, LA
@@ -76,8 +76,12 @@ const Writing = (props) => {
                 Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
               </div>
               <div className="tags tc mt4">
-                <div className="pa2 f7 ba bw1 dib br3 pointer">
-                  {props.tags.length > 0 ? tagsList : null}
+                  {props.tags.length > 0 ? 
+                    <ul className="list mv0 pl0">
+                      {tagsList}
+                    </ul>
+                    : null
+                  }
                 </div>
               </div>
               <div className="posts flex-ns pv4 center" style={{ maxWidth: "75rem" }}>
@@ -85,7 +89,7 @@ const Writing = (props) => {
 
 
                   <div className="w-100 bw2 b--dark-gray">
-                    <ul className="list ph0 mt0 mb4 f4">
+                    <ul className="list ph0 mt0 mb4 f5 tc">
                       <li className="list-item-title">
                         <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
                           <a className="db pv3 ph3 link">{props.posts[0].title}</a>
@@ -114,7 +118,6 @@ const Writing = (props) => {
                     </ul>
                   </div>
                 </div>
-            </div>
             </div>
           </main>
           <div className="social-links tc">
