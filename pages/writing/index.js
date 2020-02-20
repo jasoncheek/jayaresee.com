@@ -14,6 +14,11 @@ import '../../public/css/global.css'
 library.add(fab, faTimes, faEnvelope)
 
 const Writing = (props) => {
+
+  const tagsList = props.tags.map(index, tag => {
+    return <li key={index}>tag</li> 
+  });
+
   return (
     <>
       <Head>
@@ -70,8 +75,15 @@ const Writing = (props) => {
               <div className="author-description pv2 ph3 f7 gray">
                 Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
               </div>
+              <div className="tags tc mt4">
+                <div className="pa2 f7 ba bw1 dib br3 pointer">
+                  {props.tags.length > 0 ? tagsList : null}
+                </div>
+              </div>
               <div className="posts flex-ns pv4 center" style={{ maxWidth: "75rem" }}>
                 <div className="flex-ns center w-100">
+
+
                   <div className="w-100 bw2 b--dark-gray">
                     <ul className="list ph0 mt0 mb4 f4">
                       <li className="list-item-title">
@@ -102,31 +114,7 @@ const Writing = (props) => {
                     </ul>
                   </div>
                 </div>
-                <div className="social-feeds flex flex-row flex-column-ns w-100 w5-ns">
-                  <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ marginRight: "-1px", maxWidth: "12rem" }}>
-                    <a href={props.ig_post.link} className="link black-90 dim" target="_blank">
-                      <img className="w-100 mb3 o-90" src={props.ig_post.images.standard_resolution.url} />
-                    </a>
-                    <div className="tl near-black">
-                      <div className="f7 pb1">Posted on Instagram</div>
-                      <div className="f7">{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</div>
-                    </div>
-                  </div>
-                  <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ maxWidth: "12rem" }}>
-                    <a
-                      href={props.spotify_data.items[0].track.external_urls.spotify ? props.spotify_data.items[0].track.external_urls.spotify : null}
-                      className="link white-90 dim db"
-                      target="_blank"
-                    >
-                      <img className="w-100 mb3 o-90" src={props.spotify_data.items[0].track.album.images[0].url} />
-                    </a>
-                    <div className="tl near-black">
-                      <div className="pb1 f7">Played on Spotify</div>
-                      <div className="f7">{formatDistanceToNow(new Date(props.spotify_data.items[0].played_at))} ago</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
             </div>
           </main>
           <div className="social-links tc">
@@ -219,12 +207,16 @@ Writing.getInitialProps = async ({ req }) => {
   const tweet_res = await fetch(`${baseUrl}/api/tweet`);
   const tweet = await tweet_res.json();
 
+  const tags_res = await fetch(`${baseUrl}/api/tags`);
+  const tags = await tags_res.json();
+  
   return {
     spotify_data: spotify_data,
     ig_post: ig_post,
     tweet: tweet,
     posts: posts,
-    year: serverDateTime.getFullYear()
+    year: serverDateTime.getFullYear(),
+    tags: tags
   };
 };
 

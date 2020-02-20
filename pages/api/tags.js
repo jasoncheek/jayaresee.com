@@ -5,16 +5,13 @@ export default async(req, res) => {
     key: process.env.NEXT_SERVER_BLOG_KEY,
     version: "v3"
   });
-  const getPosts = async function() {
-    return await api.posts
-      .browse({
-        limit: "all",
-        include: "tags,authors"
-      })
+  const getTags = async function() {
+    return await api.tags
+      .browse()
       .catch(err => {
         console.error(err);
       });
   }
-  const posts = await getPosts();
-  res.status(200).json(posts)
+  const tags = await getTags();
+  res.status(200).json(tags)
 }
