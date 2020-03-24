@@ -70,7 +70,7 @@ const Home = (props) => {
               <div className="author-description pv2 ph3 f7 gray">
                 Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
               </div>
-              <div className="posts flex-ns pv4 center" style={{ maxWidth: "75rem" }}>
+              <div className="posts flex-ns pv4 center" style={{ maxWidth: "64rem" }}>
                 <div className="flex-ns center w-100">
                   <div className="w-100 bw2 b--dark-gray">
                     <ul className="list ph0 mt0 mb4 f4">
