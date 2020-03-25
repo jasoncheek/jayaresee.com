@@ -100,7 +100,7 @@ const Home = (props) => {
                         </Link>
                       </li>
                     </ul>
-                    <div className="dib pointer">
+                    <div className="dib pointer mb2">
                         <Link href={`/writing`}>
                           <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
                             View All Posts

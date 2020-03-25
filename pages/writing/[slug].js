@@ -68,9 +68,9 @@ export default function Post(props) {
                 </section>
                 <h1 className="post-full-title f3 f2-ns mt0 mb3">{props.post.title}</h1>
                 {/* <div className="f5 gray mb5">{format(parse(props.post.published_at, 'MM/dd/yyyy', new Date()), 'MM/dd/yyyy')}</div> */}
-                <div className="f5 gray mb5">{format(new Date(props.post.published_at), 'MM/dd/yyyy')}</div>
+                <div className="f5 mb5 courier">{format(new Date(props.post.published_at), 'MM/dd/yyyy')}</div>
 
-                <p className="post-full-custom-excerpt f4 mb3 serif lh-copy gray tl">{props.post.excerpt}</p>
+                <p className="post-full-custom-excerpt f4 mb3 system-serif lh-copy gray tl">{props.post.excerpt}</p>
 
                 <div className="post-full-byline">
 
@@ -121,7 +121,7 @@ export default function Post(props) {
               }
               <section className="post-full-content center">
                 <div className="post-content">
-                  {<div className="pv5 ph3 center lh-copy f4-ns serif" style={{ maxWidth: "40rem" }} dangerouslySetInnerHTML={createMarkup()}></div>}
+                  {<div className="pv5 ph3 center lh-copy f4-ns system-serif" style={{ maxWidth: "40rem" }} dangerouslySetInnerHTML={createMarkup()}></div>}
                 </div>
               </section>
             </article>

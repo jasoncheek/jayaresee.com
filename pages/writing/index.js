@@ -15,8 +15,20 @@ library.add(fab, faTimes, faEnvelope)
 
 const Writing = (props) => {
 
+  const [selectedTags, setSelectedTags] = useState();
+
   const tagsList = props.tags.map(tag => {
     return <li className="mh1 pa2 f7 ba bw1 dib br3 pointer" title={tag.name} key={tag.id}>{tag.name}</li>
+  });
+
+  const postsList = props.posts.map(post => {
+      return (
+        <li className="list-item-title">
+          <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
+            <a className="db pv3 ph3 link">{post.title}</a>
+          </Link>
+        </li>
+      )
   });
 
   return (
@@ -84,37 +96,14 @@ const Writing = (props) => {
                   }
                 </div>
               </div>
-              <div className="posts flex-ns pv4 center" style={{ maxWidth: "75rem" }}>
+              <div className="posts flex-ns pv4 center" style={{ maxWidth: "64rem" }}>
                 <div className="flex-ns center w-100">
 
 
                   <div className="w-100 bw2 b--dark-gray">
-                    <ul className="list ph0 mt0 mb4 f5 tc">
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[0].title}</a>
-                        </Link>
-                      </li>
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[1].title}</a>
-                        </Link>
-                      </li>
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[2].title}</a>
-                        </Link>
-                      </li>
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[3].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[3].title}</a>
-                        </Link>
-                      </li>
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[4].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[4].title}</a>
-                        </Link>
-                      </li>
+
+                    <ul className="list ph0 mt0 mb4 f5">
+                      {postsList}
                     </ul>
                   </div>
                 </div>
