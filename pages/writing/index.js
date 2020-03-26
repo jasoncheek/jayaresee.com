@@ -9,6 +9,8 @@ import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
 import '../../public/css/global.css'
+import { groupBy } from 'lodash'
+import format from 'date-fns/format'
 //import postStyles from '../components/styled/postStyles.js'
 
 library.add(fab, faTimes, faEnvelope)
@@ -23,13 +25,24 @@ const Writing = (props) => {
 
   const postsList = props.posts.map(post => {
       return (
-        <li className="list-item-title">
-          <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
-            <a className="db pv3 ph3 link">{post.title}</a>
-          </Link>
-        </li>
+        <>
+          <h2 className="tc f7 gray normal">March 2020</h2>
+          <li className="list-item-title">
+            <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
+              <a className="db pv3 ph3 link">{post.title}</a>
+            </Link>
+          </li>
+        </>
       )
   });
+
+ const postsFormatted = props.posts.map((post) => {
+    post.published_at_formatted = format(new Date(post.published_at), "MM/dd/yyyy");
+    return post;
+  });
+  const postsGrouped = groupBy(postsFormatted, "published_at_formatted");
+  
+  console.log(postsGrouped);
 
   return (
     <>

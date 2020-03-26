@@ -1,4 +1,5 @@
 import GhostContentAPI from "@tryghost/content-api"
+import { format } from 'date-fns/format'
 export default async(req, res) => {
   const api = new GhostContentAPI({
     url: process.env.NEXT_SERVER_BLOG_URL,
@@ -16,5 +17,6 @@ export default async(req, res) => {
       });
   }
   const posts = await getPosts();
+
   res.status(200).json(posts)
 }
