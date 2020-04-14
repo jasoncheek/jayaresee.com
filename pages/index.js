@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
-import { formatDistanceToNow, fromUnixTime, formatISO } from 'date-fns';
+import { formatDistanceToNow, fromUnixTime, formatISO, format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTimes, faEnvelope, faArrowDown } from '@fortawesome/free-solid-svg-icons'
@@ -12,8 +12,53 @@ import '../public/css/global.css'
 //import postStyles from '../components/styled/postStyles.js'
 
 library.add(fab, faTimes, faEnvelope, faArrowDown)
-
+//{format(new Date(props.post.published_at), 'MMMM M, yyyy')}
+// const toArrayWithKey = (obj, keyAs) => 
+//   _values(_mapValues(obj, (value, key) => { 
+//     value[keyAs] = key; 
+//     return value; 
+//   }));
+// const postsGroupedArray = toArrayWithKey(props.postsGrouped, "group_published_at_month");
+// const posts = postsGroupedArray.map(group => {
+//   const postsGroupMonth = group[0].published_at_month;
+//   const postsGroupYear = group[0].published_at_year;
+//   const postsList = group.map(post => {
+//       return (
+//           <li key={post.id} className="list-item-title">
+//             <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
+//               <div>
+//                 <a className="dib v-mid pv3 ph2 link mw5 mw-none-ns lh-copy mr2">{post.title}</a>
+//                 <span className="dib courier light-silver f7 pr3 lh-copy">03/26/2020</span>
+//               </div>
+//             </Link>
+//           </li>
+//       )
+//   });
+//   return (
+//     <div key={group.group_published_at_month} >
+//       <h2 className="tr f7 gray normal b--silver bb pb1 center mv3">{postsGroupYear}</h2>
+//       <ul className="list ph0 mt0 mb4 f5">
+//         {postsList}
+//       </ul>
+//     </div>
+//   )
+// });
 const Home = (props) => {
+
+  const posts = props.posts.map((post) => {
+    return (
+      <li key={post.id} className="list-item-title">
+        <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
+          <div>
+            <a className="dib v-mid pv3 ph2 link mw5 mw-none-ns lh-copy mr2">{post.title}</a>
+            <span className="dib courier light-silver f7 pr3 lh-copy">{format(new Date(post.published_at), 'MMMM Mo')}</span>
+          </div>
+        </Link>
+      </li>
+    )
+  });
+
+
   return (
     <>
       <Head>
@@ -70,43 +115,12 @@ const Home = (props) => {
               <div className="author-description pv2 ph3 f7 gray">
                 Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
               </div>
-              <div className="posts flex-ns pv4 center" style={{ maxWidth: "64rem" }}>
+              <div className="posts flex-ns pv4 center" style={{ maxWidth: "48rem" }}>
                 <div className="flex-ns center w-100">
                   <div className="w-100 bw2 b--dark-gray">
                     <ul className="list ph0 mt0 mb4 f4">
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[0].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[0].title}</a>
-                        </Link>
-                      </li>
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[1].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[1].title}</a>
-                        </Link>
-                      </li>
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[2].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[2].title}</a>
-                        </Link>
-                      </li>
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[3].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[3].title}</a>
-                        </Link>
-                      </li>
-                      <li className="list-item-title">
-                        <Link href={`/writing/[slug]`} as={`/writing/${props.posts[4].slug}`}>
-                          <a className="db pv3 ph3 link">{props.posts[4].title}</a>
-                        </Link>
-                      </li>
+                      {posts}
                     </ul>
-                    <div className="dib pointer mb2">
-                        <Link href={`/writing`}>
-                          <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
-                            View All Posts
-                          </a>
-                        </Link>
-                    </div>
                   </div>
                 </div>
                 <div className="social-feeds flex flex-row flex-column-ns w-100 w5-ns">
@@ -134,24 +148,31 @@ const Home = (props) => {
                   </div>
                 </div>
               </div>
+              <div className="more-posts dib w-100 tc">
+                  <Link href={`/writing`}>
+                    <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
+                      View More Posts
+                    </a>
+                  </Link>
+              </div>
             </div>
           </main>
-          <div className="social-links tc">
-            <ul className="list mv0 pl0 pv2 bb b--gray">
-              <li className="dib v-mid pv2 ph3">
-                <a title="E-mail" className="link" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
+          <div className="social-links tc bb b--gray">
+            <ul className="list dib mv0 pl0 pv2">
+              <li className="list-item dib v-mid">
+                <a title="E-mail" className="dib v-mid link pv2 ph3" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
                   <FontAwesomeIcon icon={faEnvelope} style={{ height: "1.25rem" }} />
                   {/* E-mail     */}
                 </a>
               </li>
-              <li className="dib v-mid pv2 ph3">
-                <a title="LinkedIn" className="link" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="LinkedIn" className="dib v-mid link pv2 ph3" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'linkedin']} style={{ height: "1.25rem" }} />
                   {/* LinkedIn */}
                 </a>
               </li>
-              <li className="dib v-mid pv2 ph3">
-                <a title="GitHub" className="link" href="https://github.com/jasoncheek" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="GitHub" className="dib v-mid link pv2 ph3" href="https://github.com/jasoncheek" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'github']} style={{ height: "1.25rem" }} />
                   {/* GitHub  */}
                 </a>
@@ -159,20 +180,20 @@ const Home = (props) => {
               {/* <lINKSlISTiTEM>
                     <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
                     </lINKSlISTiTEM> */}
-              <li className="dib v-mid pv2 ph3">
-                <a title="facebook" className="link" href="https://www.facebook.com/jasoncheeek" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="facebook" className="dib v-mid link pv2 ph3" href="https://www.facebook.com/jasoncheeek" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'facebook']} style={{ height: "1.25rem" }} />
                   {/* facebook */}
                 </a>
               </li>
-              <li className="dib v-mid pv2 ph3">
-                <a title="instagram" className="link" href="https://www.instagram.com/jasoncheek" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="instagram" className="dib v-mid link pv2 ph3" href="https://www.instagram.com/jasoncheek" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'instagram']} style={{ height: "1.25rem" }} />
                   {/* Instagram */}
                 </a>
               </li>
-              <li className="dib v-mid pv2 ph3">
-                <a title="twitter" className="link" href="https://twitter.com/cheekisme" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="twitter" className="dib v-mid link pv2 ph3" href="https://twitter.com/cheekisme" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'twitter']} style={{ height: "1.25rem" }} />
                   {/* Twitter */}
                 </a>

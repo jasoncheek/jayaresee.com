@@ -7,13 +7,24 @@ html {
     font-weight: bold;
 }
 
+.tags:hover .tag:not(:hover) {
+    opacity: .4;
+    transition: opacity .2s ease-in-out;
+}
+
+/* .tag:not(:hover) {
+    opacity: .2;
+    transition: opacity .2s ease;
+} */
+
 .list-item-title .link {
     color: #222 
 }
 
 .list-item-title {
     transition: all ease .2s;
-    border-bottom: .125rem solid whitesmoke 
+    border-bottom: .125rem solid whitesmoke;
+    cursor: pointer;
 }
 
 .list-item-title:hover, .list-item-title:active {
@@ -25,14 +36,28 @@ html {
 }
 
 .writing .list-item-title {
-    margin: 0 1rem;
     display: inline-block;
-    transition: all ease .2s;
-    border-bottom: .125rem solid whitesmoke 
+    transition: all ease-in-out .2s;
+    border-bottom: .125rem solid whitesmoke;
+    /* width: 320px; */
 }
 
 .writing .list-item-title:hover, .list-item-title:active {
     border-bottom: .125rem solid #222 
+}
+
+.post-content pre code {
+
+}
+
+.social-links .list:hover .list-item:not(:hover) {
+    opacity: .4;
+    transition: opacity .2s ease-in-out;
+}
+
+.more-posts:hover {
+    background: #f4f4f4;
+    transition: background-color .2s ease-in-out;
 }
 
 @media screen and (min-width: 60em) {

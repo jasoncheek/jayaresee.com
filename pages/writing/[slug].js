@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import Link from 'next/link';
 import { useRouter } from 'next/router'
 //import { Link } from 'next/link'
 import GhostContentAPI from "@tryghost/content-api"
@@ -60,15 +61,22 @@ export default function Post(props) {
             <div className="pv2 ph3 f7 gray">
               Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
             </div>
+            <div className="more-posts fl mt2">
+                <Link href={`/writing`}>
+                  <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
+                    <span className="dib v-mid mr1">{"<"}</span>
+                    <span className="dib v-mid">Posts</span>
+                  </a>
+                </Link>
+            </div>
             <article className="post-full post center">
               <header className="post-full-header center pv5 ph3 tc" style={{ maxWidth: "40rem" }}>
-
                 <section className="post-full-tags">
                   <a href={`/tag/getting-started`}>{props.post.primary_tag !== undefined && props.post.primary_tag !== null ? props.post.primary_tag.name : null}</a>
                 </section>
                 <h1 className="post-full-title f3 f2-ns mt0 mb3">{props.post.title}</h1>
                 {/* <div className="f5 gray mb5">{format(parse(props.post.published_at, 'MM/dd/yyyy', new Date()), 'MM/dd/yyyy')}</div> */}
-                <div className="f5 mb5 courier">{format(new Date(props.post.published_at), 'MM/dd/yyyy')}</div>
+                <div className="f6 mb5 courier gray">{format(new Date(props.post.published_at), 'MMMM M, yyyy')}</div>
 
                 <p className="post-full-custom-excerpt f4 mb3 system-serif lh-copy gray tl">{props.post.excerpt}</p>
 
@@ -125,58 +133,65 @@ export default function Post(props) {
                 </div>
               </section>
             </article>
+            <div className="more-posts dib w-100 tc">
+                <Link href={`/writing`}>
+                  <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
+                    View More Posts
+                  </a>
+                </Link>
+            </div>
           </div>
         </main>
-        <div className="social-links tc">
-          <ul className="list mv0 pl0 pv2 bb b--gray">
-            <li className="dib v-mid pv2 ph3">
-              <a title="E-mail" className="link" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
+        <div className="social-links tc bb b--gray">
+          <ul className="list dib mv0 pl0 pv2">
+            <li className="list-item dib v-mid">
+              <a title="E-mail" className="dib v-mid link pv2 ph3" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
                 <FontAwesomeIcon icon={faEnvelope} style={{ height: "1.25rem" }} />
                 {/* E-mail     */}
               </a>
             </li>
-            <li className="dib v-mid pv2 ph3">
-              <a title="LinkedIn" className="link" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
+            <li className="list-item dib v-mid">
+              <a title="LinkedIn" className="dib v-mid link pv2 ph3" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
                 <FontAwesomeIcon icon={['fab', 'linkedin']} style={{ height: "1.25rem" }} />
                 {/* LinkedIn */}
               </a>
             </li>
-            <li className="dib v-mid pv2 ph3">
-              <a title="GitHub" className="link" href="https://github.com/jasoncheek" target="_blank">
+            <li className="list-item dib v-mid">
+              <a title="GitHub" className="dib v-mid link pv2 ph3" href="https://github.com/jasoncheek" target="_blank">
                 <FontAwesomeIcon icon={['fab', 'github']} style={{ height: "1.25rem" }} />
                 {/* GitHub  */}
               </a>
             </li>
             {/* <lINKSlISTiTEM>
-                        <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
-                        </lINKSlISTiTEM> */}
-            <li className="dib v-mid pv2 ph3">
-              <a title="facebook" className="link" href="https://www.facebook.com/jasoncheeek" target="_blank">
+                  <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
+                  </lINKSlISTiTEM> */}
+            <li className="list-item dib v-mid">
+              <a title="facebook" className="dib v-mid link pv2 ph3" href="https://www.facebook.com/jasoncheeek" target="_blank">
                 <FontAwesomeIcon icon={['fab', 'facebook']} style={{ height: "1.25rem" }} />
                 {/* facebook */}
               </a>
             </li>
-            <li className="dib v-mid pv2 ph3">
-              <a title="instagram" className="link" href="https://www.instagram.com/jasoncheek" target="_blank">
+            <li className="list-item dib v-mid">
+              <a title="instagram" className="dib v-mid link pv2 ph3" href="https://www.instagram.com/jasoncheek" target="_blank">
                 <FontAwesomeIcon icon={['fab', 'instagram']} style={{ height: "1.25rem" }} />
                 {/* Instagram */}
               </a>
             </li>
-            <li className="dib v-mid pv2 ph3">
-              <a title="twitter" className="link" href="https://twitter.com/cheekisme" target="_blank">
+            <li className="list-item dib v-mid">
+              <a title="twitter" className="dib v-mid link pv2 ph3" href="https://twitter.com/cheekisme" target="_blank">
                 <FontAwesomeIcon icon={['fab', 'twitter']} style={{ height: "1.25rem" }} />
                 {/* Twitter */}
               </a>
             </li>
             {/* <lINKSlISTiTEM>
-                        <fONTaWESOMEiCON ICON={['FAB', 'TUMBLR']} STYLE={{HEIGHT: "1.5REM"}} />
-                        </lINKSlISTiTEM>
-                        <lINKSlISTiTEM>
-                        <fONTaWESOMEiCON ICON={['FAB', 'PINTEREST']} STYLE={{HEIGHT: "1.5REM"}} />
-                        </lINKSlISTiTEM>
-                        <lINKSlISTiTEM>
-                        <fONTaWESOMEiCON ICON={['FAB', 'SOUNDCLOUD']} STYLE={{HEIGHT: "1.5REM"}} />
-                        </lINKSlISTiTEM> */}
+                  <fONTaWESOMEiCON ICON={['FAB', 'TUMBLR']} STYLE={{HEIGHT: "1.5REM"}} />
+                  </lINKSlISTiTEM>
+                  <lINKSlISTiTEM>
+                  <fONTaWESOMEiCON ICON={['FAB', 'PINTEREST']} STYLE={{HEIGHT: "1.5REM"}} />
+                  </lINKSlISTiTEM>
+                  <lINKSlISTiTEM>
+                  <fONTaWESOMEiCON ICON={['FAB', 'SOUNDCLOUD']} STYLE={{HEIGHT: "1.5REM"}} />
+                  </lINKSlISTiTEM> */}
           </ul>
         </div>
         <footer className="gray tc f7 pt2 pb5">

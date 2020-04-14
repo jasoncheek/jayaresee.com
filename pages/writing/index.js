@@ -9,8 +9,9 @@ import { faTimes, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import 'tachyons'
 import '../../public/css/global.css'
-import { groupBy } from 'lodash'
+import { groupBy as _groupBy, values as _values, mapValues as _mapValues } from 'lodash'
 import format from 'date-fns/format'
+import getMonth from 'date-fns/getMonth'
 //import postStyles from '../components/styled/postStyles.js'
 
 library.add(fab, faTimes, faEnvelope)
@@ -18,31 +19,40 @@ library.add(fab, faTimes, faEnvelope)
 const Writing = (props) => {
 
   const [selectedTags, setSelectedTags] = useState();
-
   const tagsList = props.tags.map(tag => {
-    return <li className="mh1 pa2 f7 ba bw1 dib br3 pointer" title={tag.name} key={tag.id}>{tag.name}</li>
+    return <li className="tag mh1 pa2 f7 ba bw1 dib br3 pointer" title={tag.name} key={tag.id}>{tag.name}</li>
   });
 
-  const postsList = props.posts.map(post => {
-      return (
-        <>
-          <h2 className="tc f7 gray normal">March 2020</h2>
-          <li className="list-item-title">
-            <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
-              <a className="db pv3 ph3 link">{post.title}</a>
-            </Link>
-          </li>
-        </>
-      )
-  });
+  const toArrayWithKey = (obj, keyAs) => 
+    _values(_mapValues(obj, (value, key) => { 
+      value[keyAs] = key; 
+      return value; 
+    }));
+  const postsGroupedArray = toArrayWithKey(props.postsGrouped, "group_published_at_month");
+  const posts = postsGroupedArray.map(group => {
+    const postsGroupYear = group[0].published_at_year;
+    const postsList = group.map(post => {
+        return (
+            <li key={post.id} className="list-item-title w-100 w-50-ns">
+              <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
+                <div>
+                  <a className="dib v-mid pv3 ph2 link mw5 mw-none-ns lh-copy mr2">{post.title}</a>
+                  <span className="dib courier light-silver f7 pr3 lh-copy">{format(new Date(post.published_at), 'MMMM Mo')}</span>
+                </div>
+              </Link>
+            </li>
+        )
+    });
 
- const postsFormatted = props.posts.map((post) => {
-    post.published_at_formatted = format(new Date(post.published_at), "MM/dd/yyyy");
-    return post;
+    return (
+      <div key={group.group_published_at_month} >
+        <h2 className="tr f7 gray normal b--silver bb pr2 pb1 center mv3">{postsGroupYear}</h2>
+        <ul className="list ph0 mt0 mb4 f5">
+          {postsList}
+        </ul>
+      </div>
+    )
   });
-  const postsGrouped = groupBy(postsFormatted, "published_at_formatted");
-  
-  console.log(postsGrouped);
 
   return (
     <>
@@ -100,44 +110,39 @@ const Writing = (props) => {
               <div className="author-description pv2 ph3 f7 gray">
                 Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
               </div>
-              <div className="tags tc mt4">
+              <div className="tags-wrap tc mt4">
                   {props.tags.length > 0 ? 
-                    <ul className="list mv0 pl0">
+                    <ul className="tags dib list mv0 pl0">
                       {tagsList}
                     </ul>
                     : null
                   }
                 </div>
               </div>
-              <div className="posts flex-ns pv4 center" style={{ maxWidth: "64rem" }}>
+              <div className="posts flex-ns pv4 center" style={{ maxWidth: "48rem" }}>
                 <div className="flex-ns center w-100">
-
-
                   <div className="w-100 bw2 b--dark-gray">
-
-                    <ul className="list ph0 mt0 mb4 f5">
-                      {postsList}
-                    </ul>
+                    {posts}
                   </div>
                 </div>
             </div>
           </main>
-          <div className="social-links tc">
-            <ul className="list mv0 pl0 pv2 bb b--gray">
-              <li className="dib v-mid pv2 ph3">
-                <a title="E-mail" className="link" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
+          <div className="social-links tc bb b--gray">
+            <ul className="list dib mv0 pl0 pv2">
+              <li className="list-item dib v-mid">
+                <a title="E-mail" className="dib v-mid link pv2 ph3" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
                   <FontAwesomeIcon icon={faEnvelope} style={{ height: "1.25rem" }} />
                   {/* E-mail     */}
                 </a>
               </li>
-              <li className="dib v-mid pv2 ph3">
-                <a title="LinkedIn" className="link" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="LinkedIn" className="dib v-mid link pv2 ph3" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'linkedin']} style={{ height: "1.25rem" }} />
                   {/* LinkedIn */}
                 </a>
               </li>
-              <li className="dib v-mid pv2 ph3">
-                <a title="GitHub" className="link" href="https://github.com/jasoncheek" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="GitHub" className="dib v-mid link pv2 ph3" href="https://github.com/jasoncheek" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'github']} style={{ height: "1.25rem" }} />
                   {/* GitHub  */}
                 </a>
@@ -145,20 +150,20 @@ const Writing = (props) => {
               {/* <lINKSlISTiTEM>
                     <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
                     </lINKSlISTiTEM> */}
-              <li className="dib v-mid pv2 ph3">
-                <a title="facebook" className="link" href="https://www.facebook.com/jasoncheeek" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="facebook" className="dib v-mid link pv2 ph3" href="https://www.facebook.com/jasoncheeek" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'facebook']} style={{ height: "1.25rem" }} />
                   {/* facebook */}
                 </a>
               </li>
-              <li className="dib v-mid pv2 ph3">
-                <a title="instagram" className="link" href="https://www.instagram.com/jasoncheek" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="instagram" className="dib v-mid link pv2 ph3" href="https://www.instagram.com/jasoncheek" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'instagram']} style={{ height: "1.25rem" }} />
                   {/* Instagram */}
                 </a>
               </li>
-              <li className="dib v-mid pv2 ph3">
-                <a title="twitter" className="link" href="https://twitter.com/cheekisme" target="_blank">
+              <li className="list-item dib v-mid">
+                <a title="twitter" className="dib v-mid link pv2 ph3" href="https://twitter.com/cheekisme" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'twitter']} style={{ height: "1.25rem" }} />
                   {/* Twitter */}
                 </a>
@@ -202,6 +207,17 @@ Writing.getInitialProps = async ({ req }) => {
 
   const posts_res = await fetch(`${baseUrl}/api/posts`);
   const posts = await posts_res.json();
+  const postsUpdated = posts.map((post) => {
+      post.published_at_formatted = format(new Date(post.published_at), "MM/dd/yyyy");
+      const date = new Date(post.published_at);  // 2009-11-10
+      const year = new Date(post.published_at).getFullYear();  // 2009-11-10
+      const month = date.toLocaleString('default', { month: 'long' });
+      post.published_at_month = month;
+      post.published_at_year = year;
+      return post;
+  });
+  const postsGrouped = _groupBy(postsUpdated, "published_at_month");
+
 
   const ig_post_res = await fetch(`${baseUrl}/api/ig_post`);
   const ig_post = await ig_post_res.json();
@@ -219,7 +235,7 @@ Writing.getInitialProps = async ({ req }) => {
     spotify_data: spotify_data,
     ig_post: ig_post,
     tweet: tweet,
-    posts: posts,
+    postsGrouped: postsGrouped,
     year: serverDateTime.getFullYear(),
     tags: tags
   };
