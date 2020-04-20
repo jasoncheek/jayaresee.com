@@ -1,4 +1,8 @@
 {
+  "env": {
+      "NEXT_SERVER_BLOG_URL": "@blog_url",
+      "NEXT_SERVER_BlOG_KEY": "@blog_key"
+  },
   "build": {
     "env": {
       "NEXT_SERVER_IG_ACCESS_TOKEN": "@instagram",
