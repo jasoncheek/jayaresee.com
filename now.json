@@ -1,14 +1,4 @@
 {
-  "env": {
-      "NEXT_SERVER_IG_ACCESS_TOKEN": "@instagram",
-      "NEXT_SERVER_TWITTER_ACCESS_TOKEN": "@twitter",
-      "NEXT_SERVER_SPOTIFY_CLIENT_ID": "@spotify_client_id",
-      "NEXT_SERVER_SPOTIFY_CLIENT_SECRET": "@spotify_client_secret",
-      "NEXT_SERVER_SPOTIFY_REFRESH_TOKEN": "@spotify_refresh_token",
-      "NEXT_SERVER_URL": "@url",
-      "NEXT_SERVER_BLOG_URL": "@blog_url",
-      "NEXT_SERVER_BlOG_KEY": "@blog_key"
-  },
   "build": {
     "env": {
       "NEXT_SERVER_IG_ACCESS_TOKEN": "@instagram",
@@ -18,7 +8,7 @@
       "NEXT_SERVER_SPOTIFY_REFRESH_TOKEN": "@spotify_refresh_token",
       "NEXT_SERVER_URL": "@url",
       "NEXT_SERVER_BLOG_URL": "@blog_url",
-      "NEXT_SERVER_BlOG_KEY": "@blog_key"
+      "NEXT_SERVER_BLOG_KEY": "@blog_key"
     }
   }
 }
