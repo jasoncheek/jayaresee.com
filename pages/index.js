@@ -109,22 +109,27 @@ const Home = (props) => {
           </header>
           <main id="site-main" className="site-main outer bg-white">
             <div className="inner">
-              <div className="author-location pv2 ph3 f7 gray fr">
-                New Orleans, LA
-                    </div>
-              <div className="author-description pv2 ph3 f7 gray">
-                Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
+              <div className="dib w-100">
+                <div className="fl w-20 author-description pv2 ph3 f7 gray">
+                  <span className="dn di-ns">Songwriter &amp; Musician</span>
+                </div>
+                <div className="fl w-60">
+                  <div className="h1"></div>
+                </div>
+                <div className="fl tr w-20 author-location pv2 ph3 f7 gray">
+                  New Orleans, Louisiana
+                </div>
               </div>
-              <div className="posts flex-ns pv4 center" style={{ maxWidth: "48rem" }}>
+              <div className="cf posts flex-ns pv4 center" style={{ maxWidth: "64rem" }}>
                 <div className="flex-ns center w-100">
-                  <div className="w-100 bw2 b--dark-gray">
+                  <div className="center w-two-thirds-ns bw2 b--dark-gray">
                     <ul className="list ph0 mt0 mb4 f4">
                       {posts}
                     </ul>
                   </div>
                 </div>
                 <div className="social-feeds flex flex-row flex-column-ns w-100 w5-ns">
-                  <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ marginRight: "-1px", maxWidth: "12rem" }}>
+                  {/* <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ marginRight: "-1px", maxWidth: "12rem" }}>
                     <a href={props.ig_post.link} className="link black-90 dim" target="_blank">
                       <img className="w-100 mb3 o-90" src={props.ig_post.images.standard_resolution.url} />
                     </a>
@@ -132,8 +137,8 @@ const Home = (props) => {
                       <div className="f7 pb1">Posted on Instagram</div>
                       <div className="f7">{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</div>
                     </div>
-                  </div>
-                  <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ maxWidth: "12rem" }}>
+                  </div> */}
+                  {/* <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ maxWidth: "12rem" }}>
                     <a
                       href={props.spotify_data.items[0].track.external_urls.spotify ? props.spotify_data.items[0].track.external_urls.spotify : null}
                       className="link white-90 dim db"
@@ -145,7 +150,7 @@ const Home = (props) => {
                       <div className="pb1 f7">Played on Spotify</div>
                       <div className="f7">{formatDistanceToNow(new Date(props.spotify_data.items[0].played_at))} ago</div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="more-posts dib w-100 tc">
@@ -235,18 +240,18 @@ Home.getInitialProps = async ({ req }) => {
   const posts_res = await fetch(`${baseUrl}/api/posts`);
   const posts = await posts_res.json();
 
-  const ig_post_res = await fetch(`${baseUrl}/api/ig_post`);
-  const ig_post = await ig_post_res.json();
+  // const ig_post_res = await fetch(`${baseUrl}/api/ig_post`);
+  // const ig_post = await ig_post_res.json();
 
-  const spotify_data_res = await fetch(`${baseUrl}/api/spotify_data`);
-  const spotify_data = await spotify_data_res.json();
+  // const spotify_data_res = await fetch(`${baseUrl}/api/spotify_data`);
+  // const spotify_data = await spotify_data_res.json();
 
   const tweet_res = await fetch(`${baseUrl}/api/tweet`);
   const tweet = await tweet_res.json();
 
   return {
-    spotify_data: spotify_data,
-    ig_post: ig_post,
+    // spotify_data: spotify_data,
+    // ig_post: ig_post,
     tweet: tweet,
     posts: posts,
     year: serverDateTime.getFullYear()

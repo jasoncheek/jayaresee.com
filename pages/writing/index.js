@@ -18,6 +18,8 @@ library.add(fab, faTimes, faEnvelope)
 
 const Writing = (props) => {
 
+  console.log(props.postsGrouped);
+
   const [selectedTags, setSelectedTags] = useState();
   const tagsList = props.tags.map(tag => {
     return <li className="tag mh1 pa2 f7 ba bw1 dib br3 pointer" title={tag.name} key={tag.id}>{tag.name}</li>
@@ -28,7 +30,7 @@ const Writing = (props) => {
       value[keyAs] = key; 
       return value; 
     }));
-  const postsGroupedArray = toArrayWithKey(props.postsGrouped, "group_published_at_month");
+  const postsGroupedArray = toArrayWithKey(props.posts, "group_published_at_month");
   const posts = postsGroupedArray.map(group => {
     const postsGroupYear = group[0].published_at_year;
     const postsList = group.map(post => {
@@ -219,23 +221,23 @@ Writing.getInitialProps = async ({ req }) => {
   const postsGrouped = _groupBy(postsUpdated, "published_at_month");
 
 
-  const ig_post_res = await fetch(`${baseUrl}/api/ig_post`);
-  const ig_post = await ig_post_res.json();
+  // const ig_post_res = await fetch(`${baseUrl}/api/ig_post`);
+  // const ig_post = await ig_post_res.json();
 
-  const spotify_data_res = await fetch(`${baseUrl}/api/spotify_data`);
-  const spotify_data = await spotify_data_res.json();
+  // const spotify_data_res = await fetch(`${baseUrl}/api/spotify_data`);
+  // const spotify_data = await spotify_data_res.json();
 
-  const tweet_res = await fetch(`${baseUrl}/api/tweet`);
-  const tweet = await tweet_res.json();
+  // const tweet_res = await fetch(`${baseUrl}/api/tweet`);
+  // const tweet = await tweet_res.json();
 
   const tags_res = await fetch(`${baseUrl}/api/tags`);
   const tags = await tags_res.json();
   
   return {
-    spotify_data: spotify_data,
-    ig_post: ig_post,
-    tweet: tweet,
-    postsGrouped: postsGrouped,
+    // spotify_data: spotify_data,
+    // ig_post: ig_post,
+    // tweet: tweet,
+    posts: postsGrouped,
     year: serverDateTime.getFullYear(),
     tags: tags
   };
