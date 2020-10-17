@@ -111,7 +111,7 @@ const Home = (props) => {
             <div className="inner">
               <div className="dib w-100">
                 <div className="fl w-20 author-description pv2 ph3 f7 gray">
-                  <span className="dn di-ns">Songwriter &amp; Musician</span>
+                  <span className="dn di-ns">Developer &amp; Musician</span>
                 </div>
                 <div className="fl w-60">
                   <div className="h1"></div>
