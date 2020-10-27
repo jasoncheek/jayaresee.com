@@ -110,7 +110,7 @@ const Writing = (props) => {
                 New Orleans, LA
                     </div>
               <div className="author-description pv2 ph3 f7 gray">
-                Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
+                    Musician
               </div>
               <div className="tags-wrap tc mt4">
                   {props.tags.length > 0 ? 
