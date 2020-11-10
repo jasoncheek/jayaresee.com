@@ -46,10 +46,6 @@ html {
     border-bottom: .125rem solid #222 
 }
 
-.post-content pre code {
-
-}
-
 .social-links .list:hover .list-item:not(:hover) {
     opacity: .4;
     transition: opacity .2s ease-in-out;

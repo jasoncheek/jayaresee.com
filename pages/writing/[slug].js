@@ -55,28 +55,25 @@ export default function Post(props) {
         </header>
         <main id="site-main" className="site-main outer bg-white">
           <div className="inner">
-            <div className="pv2 ph3 f7 gray fr">
-              New Orleans, LA
-                        </div>
-            <div className="pv2 ph3 f7 gray">
-              Developer<span className="dn di-ns">&nbsp;&amp; Musician</span>
-            </div>
-            <div className="more-posts fl mt2">
-                <Link href={`/writing`}>
-                  <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
-                    <span className="dib v-mid mr1">{"<"}</span>
-                    <span className="dib v-mid">Posts</span>
-                  </a>
-                </Link>
+            <div className="dib w-100">
+              <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
+                Music &amp; Writing
+              </div>
+              <div className="fl w-60-ns">
+                <div className="h1"></div>
+              </div>
+              <div className="fr fl-ns tl tr-ns w-20 author-location pv2 ph3-ns f7 gray lh-title">
+                New Orleans, Louisiana
+              </div>
             </div>
             <article className="post-full post center">
-              <header className="post-full-header center pv5 ph3 tc" style={{ maxWidth: "40rem" }}>
+              <header className="post-full-header center pv4 ph3 tc" style={{ maxWidth: "40rem" }}>
                 <section className="post-full-tags">
                   <a href={`/tag/getting-started`}>{props.post.primary_tag !== undefined && props.post.primary_tag !== null ? props.post.primary_tag.name : null}</a>
                 </section>
                 <h1 className="post-full-title f3 f2-ns mt0 mb3">{props.post.title}</h1>
                 {/* <div className="f5 gray mb5">{format(parse(props.post.published_at, 'MM/dd/yyyy', new Date()), 'MM/dd/yyyy')}</div> */}
-                <div className="f6 mb5 courier gray">{format(new Date(props.post.published_at), 'MMMM M, yyyy')}</div>
+                <div className="f7 mb4 gray">{format(new Date(props.post.published_at), 'MMMM M, yyyy')}</div>
 
                 <p className="post-full-custom-excerpt f4 mb3 system-serif lh-copy gray tl">{props.post.excerpt}</p>
 
@@ -129,11 +126,11 @@ export default function Post(props) {
               }
               <section className="post-full-content center">
                 <div className="post-content">
-                  {<div className="pv5 ph3 center lh-copy f4-ns system-serif" style={{ maxWidth: "40rem" }} dangerouslySetInnerHTML={createMarkup()}></div>}
+                  {<div className="pv4 ph3 center lh-copy f4-ns system-serif" style={{ maxWidth: "40rem" }} dangerouslySetInnerHTML={createMarkup()}></div>}
                 </div>
               </section>
             </article>
-            <div className="more-posts dib w-100 tc">
+            <div className="more-posts db center tc bt bl bt br b--gray" style={{width: "10rem"}}>
                 <Link href={`/writing`}>
                   <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
                     View More Posts

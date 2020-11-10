@@ -38,7 +38,7 @@ const Writing = (props) => {
             <li key={post.id} className="list-item-title w-100 w-50-ns">
               <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
                 <div>
-                  <a className="dib v-mid pv3 ph2 link mw5 mw-none-ns lh-copy mr2">{post.title}</a>
+                  <a className="dib v-mid pv3 ph3 link mw5 mw-none-ns lh-copy mr2">{post.title}</a>
                   <span className="dib courier light-silver f7 pr3 lh-copy">{format(new Date(post.published_at), 'MMMM Mo')}</span>
                 </div>
               </Link>
@@ -48,7 +48,7 @@ const Writing = (props) => {
 
     return (
       <div key={group.group_published_at_month} >
-        <h2 className="tr f7 gray normal b--silver bb pr2 pb1 center mv3">{postsGroupYear}</h2>
+        <h2 className="tr f7 gray normal b--silver bb pr3 pb1 center mv0">{postsGroupYear}</h2>
         <ul className="list ph0 mt0 mb4 f5">
           {postsList}
         </ul>
@@ -106,11 +106,16 @@ const Writing = (props) => {
           </header>
           <main id="site-main" className="writing site-main outer bg-white">
             <div className="inner">
-              <div className="author-location pv2 ph3 f7 gray fr">
-                New Orleans, LA
-                    </div>
-              <div className="author-description pv2 ph3 f7 gray">
-                    Musician
+              <div className="dib w-100">
+                <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
+                  Music &amp; Writing
+                </div>
+                <div className="fl w-60-ns">
+                  <div className="h1"></div>
+                </div>
+                <div className="fr fl-ns tl tr-ns w-20 author-location pv2 ph3-ns f7 gray lh-title">
+                  New Orleans, Louisiana
+                </div>
               </div>
               <div className="tags-wrap tc mt4">
                   {props.tags.length > 0 ? 

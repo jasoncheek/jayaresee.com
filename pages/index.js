@@ -44,21 +44,29 @@ library.add(fab, faTimes, faEnvelope, faArrowDown)
 //   )
 // });
 const Home = (props) => {
-
+  // const toArrayWithKey = (obj, keyAs) => 
+  //   _values(_mapValues(obj, (value, key) => { 
+  //     value[keyAs] = key; 
+  //     return value; 
+  //   }));
+  // const postsGroupedArray = toArrayWithKey(props.posts, "group_published_at_month");
+  // const postsGrouped = postsGroupedArray.map(group => {
+  //   const postsGroupYear = group[0].published_at_year;
+  // });
   const posts = props.posts.map((post) => {
     return (
       <li key={post.id} className="list-item-title">
         <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
           <div className="cf">
               <a 
-                className="fl v-mid pv3 ph3 link mw-none-ns lh-copy"
+                className="fl v-mid pv3 ph3 link lh-copy"
                 style={{
-                  maxWidth: "15rem"
+                  width: "24rem"
                 }}
               >
                 {post.title}
               </a>
-            <span className="fr tr mt2 pv3 ph3 courier light-silver f7 lh-copy">{format(new Date(post.published_at), 'MMMM Mo')}</span>
+            <span className="fr tr mt2 pv3 ph3 gray f7 lh-copy">{format(new Date(post.published_at), 'MMMM Mo')}</span>
           </div>
         </Link>
       </li>
@@ -117,25 +125,21 @@ const Home = (props) => {
           <main id="site-main" className="site-main outer bg-white">
             <div className="inner">
               <div className="dib w-100">
-                <div className="fl w-20 author-description pv2 ph3 f7 gray">
-                  Writing &amp; Music
+                <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
+                  Music &amp; Writing
                 </div>
                 <div className="fl w-60-ns">
                   <div className="h1"></div>
                 </div>
-                <div className="fr fl-ns tl tr-ns w-20 author-location pv2 ph3-ns f7 gray">
+                <div className="fr fl-ns tl tr-ns w-20 author-location pv2 ph3-ns f7 gray lh-title">
                   New Orleans, Louisiana
                 </div>
               </div>
               <div className="cf posts flex-ns pv4 center" style={{ maxWidth: "64rem" }}>
-                <div className="flex-ns center w-100">
-                  <div className="center w-two-thirds-ns bw2 b--dark-gray">
-                    <ul className="list ph0 mt0 mb4 f4">
-                      {posts}
-                    </ul>
+                <div className="social-feeds flex flex-row flex-column-ns w-100 w-50-ns">
+                  <div className="w-100">
+                    <div className="tc f7 gray normal b--silver bb pr3 pb2 center mv0">Music</div>
                   </div>
-                </div>
-                <div className="social-feeds flex flex-row flex-column-ns w-100 w5-ns">
                   {/* <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ marginRight: "-1px", maxWidth: "12rem" }}>
                     <a href={props.ig_post.link} className="link black-90 dim" target="_blank">
                       <img className="w-100 mb3 o-90" src={props.ig_post.images.standard_resolution.url} />
@@ -159,8 +163,16 @@ const Home = (props) => {
                     </div>
                   </div> */}
                 </div>
+                <div className="flex-ns center w-50-ns">
+                  <div className="w-100 center bw2 b--dark-gray">
+                    <div className="tc f7 gray normal b--silver bb pr3 pb2 center mv0">Writing</div>
+                    <ul className="list ph0 mt0 mb4 f4">
+                      {posts}
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div className="more-posts dib w-100 tc">
+              <div className="more-posts db center tc bt bl bt br b--gray" style={{width: "10rem"}}>
                   <Link href={`/writing`}>
                     <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
                       View More Posts
