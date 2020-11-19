@@ -139,6 +139,12 @@ const Home = (props) => {
                 <div className="social-feeds flex flex-row flex-column-ns w-100 w-50-ns">
                   <div className="w-100">
                     <div className="tc f7 gray normal b--silver bb pr3 pb2 center mv0">Music</div>
+                    <div className="mb3">
+                      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/688813137&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style={{fontSize: "10px", color: "#cccccc", lineBreak: "anywhere", wordBreak: "normal", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis", fontFamily: "Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif", fontWeight: "100"}}><a href="https://soundcloud.com/jasoncheekmusic" title="Jason Cheek" target="_blank" style={{color: "#cccccc", textDecoration: "none"}}>Jason Cheek</a> · <a href="https://soundcloud.com/jasoncheekmusic/sets/pa-ep" title="Pa" target="_blank" style={{color: "#cccccc", textDecoration: "none"}}>Pa</a></div>
+                    </div>
+                    <div className="">
+                      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/234560187&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style={{fontSize: "10px", color: "#cccccc", lineBreak: "anywhere", wordBreak: "normal", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis", fontFamily: "Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif", fontWeight: "100"}}><a href="https://soundcloud.com/jasoncheekmusic" title="Jason Cheek" target="_blank" style={{color: "#cccccc", textDecoration: "none"}}>Jason Cheek</a> · <a href="https://soundcloud.com/jasoncheekmusic/sets/stay-1" title="STAY" target="_blank" style={{color: "#cccccc", textDecoration: "none"}}>STAY</a></div>
+                    </div>
                   </div>
                   {/* <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ marginRight: "-1px", maxWidth: "12rem" }}>
                     <a href={props.ig_post.link} className="link black-90 dim" target="_blank">
