@@ -44,29 +44,20 @@ library.add(fab, faTimes, faEnvelope, faArrowDown)
 //   )
 // });
 const Home = (props) => {
-  // const toArrayWithKey = (obj, keyAs) => 
-  //   _values(_mapValues(obj, (value, key) => { 
-  //     value[keyAs] = key; 
-  //     return value; 
-  //   }));
-  // const postsGroupedArray = toArrayWithKey(props.posts, "group_published_at_month");
-  // const postsGrouped = postsGroupedArray.map(group => {
-  //   const postsGroupYear = group[0].published_at_year;
-  // });
   const posts = props.posts.map((post) => {
     return (
       <li key={post.id} className="list-item-title">
         <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
           <div className="cf">
               <a 
-                className="fl v-mid pv3 ph3 link lh-copy"
+                className="fl v-mid pv3 link lh-copy"
                 style={{
                   width: "24rem"
                 }}
               >
                 {post.title}
               </a>
-            <span className="fr tr mt2 pv3 ph3 gray f7 lh-copy">{format(new Date(post.published_at), 'MMMM Mo')}</span>
+            <span className="fr tr mt2 pv3 gray f7 lh-copy">{format(new Date(post.published_at), 'MMMM Mo')}</span>
           </div>
         </Link>
       </li>
@@ -114,9 +105,8 @@ const Home = (props) => {
                     }}
                     href="/"
                   >
-                    {/* <img src="https://static.ghost.org/v1.0.0/images/ghost-logo.svg" alt="Jason Cheek" />  */}
                     Jason Cheek
-                            </a>
+                  </a>
 
                 </nav>
               </div>
@@ -126,7 +116,7 @@ const Home = (props) => {
             <div className="inner">
               <div className="dib w-100">
                 <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
-                  Music &amp; Writing
+                    Music &amp; Code
                 </div>
                 <div className="fl w-60-ns">
                   <div className="h1"></div>
@@ -136,49 +126,15 @@ const Home = (props) => {
                 </div>
               </div>
               <div className="cf posts flex-ns pv4 center" style={{ maxWidth: "64rem" }}>
-                <div className="social-feeds flex flex-row flex-column-ns w-100 w-50-ns">
-                  <div className="w-100">
-                    <div className="tc f7 gray normal b--silver bb pr3 pb2 center mv0">Music</div>
-                    <div className="mb3">
-                      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/688813137&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style={{fontSize: "10px", color: "#cccccc", lineBreak: "anywhere", wordBreak: "normal", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis", fontFamily: "Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif", fontWeight: "100"}}><a href="https://soundcloud.com/jasoncheekmusic" title="Jason Cheek" target="_blank" style={{color: "#cccccc", textDecoration: "none"}}>Jason Cheek</a> · <a href="https://soundcloud.com/jasoncheekmusic/sets/pa-ep" title="Pa" target="_blank" style={{color: "#cccccc", textDecoration: "none"}}>Pa</a></div>
-                    </div>
-                    <div className="">
-                      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/234560187&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style={{fontSize: "10px", color: "#cccccc", lineBreak: "anywhere", wordBreak: "normal", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis", fontFamily: "Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif", fontWeight: "100"}}><a href="https://soundcloud.com/jasoncheekmusic" title="Jason Cheek" target="_blank" style={{color: "#cccccc", textDecoration: "none"}}>Jason Cheek</a> · <a href="https://soundcloud.com/jasoncheekmusic/sets/stay-1" title="STAY" target="_blank" style={{color: "#cccccc", textDecoration: "none"}}>STAY</a></div>
-                    </div>
-                  </div>
-                  {/* <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ marginRight: "-1px", maxWidth: "12rem" }}>
-                    <a href={props.ig_post.link} className="link black-90 dim" target="_blank">
-                      <img className="w-100 mb3 o-90" src={props.ig_post.images.standard_resolution.url} />
-                    </a>
-                    <div className="tl" style={{color: "#222"}}>
-                      <div className="f7 pb1">Posted on Instagram</div>
-                      <div className="f7">{formatDistanceToNow(fromUnixTime(props.ig_post.created_time))} ago</div>
-                    </div>
-                  </div> */}
-                  {/* <div className="social-feeds-item b--black-10 dib v-top w-100 pa3 bg-near-white" style={{ maxWidth: "12rem" }}>
-                    <a
-                      href={props.spotify_data.items[0].track.external_urls.spotify ? props.spotify_data.items[0].track.external_urls.spotify : null}
-                      className="link white-90 dim db"
-                      target="_blank"
-                    >
-                      <img className="w-100 mb3 o-90" src={props.spotify_data.items[0].track.album.images[0].url} />
-                    </a>
-                    <div className="tl near-black" style={{color: "#222"}}>
-                      <div className="pb1 f7">Played on Spotify</div>
-                      <div className="f7">{formatDistanceToNow(new Date(props.spotify_data.items[0].played_at))} ago</div>
-                    </div>
-                  </div> */}
-                </div>
-                <div className="flex-ns center w-50-ns">
+                <div className="flex-ns center">
                   <div className="w-100 center bw2 b--dark-gray">
-                    <div className="tc f7 gray normal b--silver bb pr3 pb2 center mv0">Writing</div>
                     <ul className="list ph0 mt0 mb4 f4">
                       {posts}
                     </ul>
                   </div>
                 </div>
               </div>
-              <div className="more-posts db center tc bt bl bt br b--gray" style={{width: "10rem"}}>
+              <div className="more-posts db center tc" style={{width: "10rem"}}>
                   <Link href={`/writing`}>
                     <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
                       View More Posts
@@ -190,63 +146,64 @@ const Home = (props) => {
           <div className="social-links tc bb b--gray">
             <ul className="list dib mv0 pl0 pv2">
               <li className="list-item dib v-mid">
-                <a title="E-mail" className="dib v-mid link pv2 ph3" href="mailto:jrcheek@gmail.com" title="jrcheek@gmail.com">
-                  <FontAwesomeIcon icon={faEnvelope} style={{ height: "1.25rem" }} />
-                  {/* E-mail     */}
-                </a>
-              </li>
-              <li className="list-item dib v-mid">
-                <a title="LinkedIn" className="dib v-mid link pv2 ph3" href="https://www.linkedin.com/in/jason-cheek/" target="_blank">
-                  <FontAwesomeIcon icon={['fab', 'linkedin']} style={{ height: "1.25rem" }} />
-                  {/* LinkedIn */}
-                </a>
-              </li>
-              <li className="list-item dib v-mid">
                 <a title="GitHub" className="dib v-mid link pv2 ph3" href="https://github.com/jasoncheek" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'github']} style={{ height: "1.25rem" }} />
                   {/* GitHub  */}
                 </a>
               </li>
-              {/* <lINKSlISTiTEM>
-                    <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
-                    </lINKSlISTiTEM> */}
+              {/* <LinksListItem>
+                    <FontAwesomeIcon icon={['fab', 'codepen']} style={{height: "1.5rem"}} />
+                  </LinksListItem> */}
               <li className="list-item dib v-mid">
-                <a title="facebook" className="dib v-mid link pv2 ph3" href="https://www.facebook.com/jasoncheeek" target="_blank">
-                  <FontAwesomeIcon icon={['fab', 'facebook']} style={{ height: "1.25rem" }} />
-                  {/* facebook */}
+                <a title="Codepen" className="dib v-mid link pv2 ph3" href="https://www.codepen.io/jasoncheek" target="_blank">
+                  <FontAwesomeIcon icon={['fab', 'codepen']} style={{ height: "1.25rem" }} />
+                  {/* Instagram */}
                 </a>
               </li>
               <li className="list-item dib v-mid">
-                <a title="instagram" className="dib v-mid link pv2 ph3" href="https://www.instagram.com/jasoncheek" target="_blank">
+                <a title="Instagram" className="dib v-mid link pv2 ph3" href="https://www.instagram.com/jasoncheek" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'instagram']} style={{ height: "1.25rem" }} />
                   {/* Instagram */}
                 </a>
               </li>
               <li className="list-item dib v-mid">
-                <a title="twitter" className="dib v-mid link pv2 ph3" href="https://twitter.com/cheekisme" target="_blank">
+                <a title="Twitter" className="dib v-mid link pv2 ph3" href="https://twitter.com/cheekisme" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'twitter']} style={{ height: "1.25rem" }} />
                   {/* Twitter */}
                 </a>
               </li>
-              {/* <lINKSlISTiTEM>
-                    <fONTaWESOMEiCON ICON={['FAB', 'TUMBLR']} STYLE={{HEIGHT: "1.5REM"}} />
-                    </lINKSlISTiTEM>
-                    <lINKSlISTiTEM>
-                    <fONTaWESOMEiCON ICON={['FAB', 'PINTEREST']} STYLE={{HEIGHT: "1.5REM"}} />
-                    </lINKSlISTiTEM>
-                    <lINKSlISTiTEM>
-                    <fONTaWESOMEiCON ICON={['FAB', 'SOUNDCLOUD']} STYLE={{HEIGHT: "1.5REM"}} />
-                    </lINKSlISTiTEM> */}
+              <li className="list-item dib v-mid">
+                <a title="Tumblr" className="dib v-mid link pv2 ph3" href="https://jayaresee.tumblr.com" target="_blank">
+                  <FontAwesomeIcon icon={['fab', 'tumblr']} style={{ height: "1.25rem" }} />
+                  {/* Twitter */}
+                </a>
+              </li>
+              <li className="list-item dib v-mid">
+                <a title="Soundcloud" className="dib v-mid link pv2 ph3" href="https://soundcloud.com/jasoncheekmusic" target="_blank">
+                  <FontAwesomeIcon icon={['fab', 'soundcloud']} style={{ height: "1.25rem" }} />
+                  {/* Twitter */}
+                </a>
+              </li>
+              {/* 
+                    <LinksListItem>
+                      <FontAwesomeIcon icon={['fab', 'tumblr']} style={{height: "1.5rem"}} />
+                    </LinksListItem>
+                    <LinksListItem>
+                      <FontAwesomeIcon icon={['fab', 'pinterest']} style={{height: "1.5rem"}} />
+                    </LinksListItem>
+                    <LinksListItem>
+                      <FontAwesomeIcon icon={['fab', 'soundcloud']} style={{height: "1.5rem"}} />
+                    </LinksListItem> 
+              */}
             </ul>
           </div>
           <footer className="gray tc f7 pt2 pb5">
             &copy; {props.year} Jason Cheek
-            </footer>
+          </footer>
         </div>
         {/* <style jsx global>
           {postStyles}
-      </style> */}
-
+        </style> */}
       </div>
     </>
   )

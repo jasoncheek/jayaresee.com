@@ -57,7 +57,7 @@ export default function Post(props) {
           <div className="inner">
             <div className="dib w-100">
               <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
-                Music &amp; Writing
+                Music &amp; Code
               </div>
               <div className="fl w-60-ns">
                 <div className="h1"></div>
@@ -130,7 +130,7 @@ export default function Post(props) {
                 </div>
               </section>
             </article>
-            <div className="more-posts db center tc bt bl bt br b--gray" style={{width: "10rem"}}>
+            <div className="more-posts db center tc" style={{width: "10rem"}}>
                 <Link href={`/writing`}>
                   <a className="db f7 gray pv3 ph3 link" style={{fontWeight: "normal", color: "#777"}}>
                     View More Posts

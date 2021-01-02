@@ -35,11 +35,11 @@ const Writing = (props) => {
     const postsGroupYear = group[0].published_at_year;
     const postsList = group.map(post => {
         return (
-            <li key={post.id} className="list-item-title w-100 w-50-ns">
+            <li key={post.id} className="list-item-title w-100 w-50-ns mh3">
               <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
                 <div>
-                  <a className="dib v-mid pv3 ph3 link mw5 mw-none-ns lh-copy mr2">{post.title}</a>
-                  <span className="dib courier light-silver f7 pr3 lh-copy">{format(new Date(post.published_at), 'MMMM Mo')}</span>
+                  <a className="fl v-mid pv3 link mw5 mw-none-ns lh-copy mr2">{post.title}</a>
+                  <span className="fr pv3 mt1 courier light-silver f7 lh-copy">{format(new Date(post.published_at), 'MMMM Mo')}</span>
                 </div>
               </Link>
             </li>
@@ -108,7 +108,7 @@ const Writing = (props) => {
             <div className="inner">
               <div className="dib w-100">
                 <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
-                  Music &amp; Writing
+                    Music &amp; Code
                 </div>
                 <div className="fl w-60-ns">
                   <div className="h1"></div>
