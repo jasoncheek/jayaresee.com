@@ -57,7 +57,7 @@ export default function Post(props) {
           <div className="inner">
             <div className="dib w-100">
               <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
-                Music &amp; Code
+                  Writing music and code 
               </div>
               <div className="fl w-60-ns">
                 <div className="h1"></div>
