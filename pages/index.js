@@ -90,24 +90,24 @@ const Home = (props) => {
                   <a
                     className="site-nav-logo"
                     style={{
-                      background: "url(../images/jason-cheek-signature.png) no-repeat center",
+                      //background: "url(../images/jason-cheek-signature.png) no-repeat center",
+                      background: "url(https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg) no-repeat center",
                       width: "200px",
                       backgroundSize: "contain",
                       textIndent: "-9999px",
                       margin: "2rem auto 0",
                       padding: "0",
-                      height: "52px",
+                      height: "48px",
                       position: "absolute",
-                      bottom: "-1.35rem",
+                      bottom: "-1.5rem",
                       left: "0",
                       right: "0",
                       margin: "auto",
                     }}
                     href="/"
                   >
-                    Jason Cheek
+                    {/* <img src="https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg" alt="JAY ARE SEE" /> */}
                   </a>
-
                 </nav>
               </div>
             </div>
@@ -116,7 +116,7 @@ const Home = (props) => {
             <div className="inner">
               <div className="dib w-100">
                 <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
-                    Writing music and code 
+                   Alter Ego 
                 </div>
                 <div className="fl w-60-ns">
                   <div className="h1"></div>
@@ -145,21 +145,6 @@ const Home = (props) => {
           </main>
           <div className="social-links tc bb b--gray">
             <ul className="list dib mv0 pl0 pv2">
-              <li className="list-item dib v-mid">
-                <a title="GitHub" className="dib v-mid link pv2 ph3" href="https://github.com/jasoncheek" target="_blank">
-                  <FontAwesomeIcon icon={['fab', 'github']} style={{ height: "1.25rem" }} />
-                  {/* GitHub  */}
-                </a>
-              </li>
-              {/* <LinksListItem>
-                    <FontAwesomeIcon icon={['fab', 'codepen']} style={{height: "1.5rem"}} />
-                  </LinksListItem> */}
-              <li className="list-item dib v-mid">
-                <a title="Codepen" className="dib v-mid link pv2 ph3" href="https://www.codepen.io/jasoncheek" target="_blank">
-                  <FontAwesomeIcon icon={['fab', 'codepen']} style={{ height: "1.25rem" }} />
-                  {/* Instagram */}
-                </a>
-              </li>
               <li className="list-item dib v-mid">
                 <a title="Instagram" className="dib v-mid link pv2 ph3" href="https://www.instagram.com/jasoncheek" target="_blank">
                   <FontAwesomeIcon icon={['fab', 'instagram']} style={{ height: "1.25rem" }} />
@@ -197,8 +182,8 @@ const Home = (props) => {
               */}
             </ul>
           </div>
-          <footer className="gray tc f7 pt2 pb5">
-            &copy; {props.year} Jason Cheek
+          <footer className="gray tc f7 pt3 pb5">
+            &copy; {props.year} JAY ARE SEE 
           </footer>
         </div>
         {/* <style jsx global>
