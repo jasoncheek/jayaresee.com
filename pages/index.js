@@ -117,6 +117,7 @@ const Home = (props) => {
                       left: "0",
                       right: "0",
                       margin: "auto",
+                      opacity: .85
                     }}
                     href="/"
                   >

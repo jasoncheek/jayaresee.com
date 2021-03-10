@@ -110,8 +110,7 @@ const Writing = (props) => {
                     className="site-nav-logo"
                     style={{
                       //background: "url(../images/jason-cheek-signature.png) no-repeat center",
-                      background:
-                        "url(https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg) no-repeat center",
+                      background: "url(https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg) no-repeat center",
                       width: "200px",
                       backgroundSize: "contain",
                       textIndent: "-9999px",
@@ -123,6 +122,7 @@ const Writing = (props) => {
                       left: "0",
                       right: "0",
                       margin: "auto",
+                      opacity: .85
                     }}
                     href="/"
                   >

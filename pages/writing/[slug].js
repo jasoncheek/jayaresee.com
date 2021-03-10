@@ -30,30 +30,30 @@ export default function Post(props) {
         >
           <div className="outer site-nav-main">
             <div className="inner">
-              <nav className="site-nav bg-near-white">
-                <a
-                  className="site-nav-logo"
-                  style={{
-                    //background: "url(../images/jason-cheek-signature.png) no-repeat center",
-                    background:
-                      "url(https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg) no-repeat center",
-                    width: "200px",
-                    backgroundSize: "contain",
-                    textIndent: "-9999px",
-                    margin: "2rem auto 0",
-                    padding: "0",
-                    height: "48px",
-                    position: "absolute",
-                    bottom: "-1.5rem",
-                    left: "0",
-                    right: "0",
-                    margin: "auto",
-                  }}
-                  href="/"
-                >
-                  JAY ARE SEE
-                </a>
-              </nav>
+                <nav className="site-nav bg-near-white">
+                  <a
+                    className="site-nav-logo"
+                    style={{
+                      //background: "url(../images/jason-cheek-signature.png) no-repeat center",
+                      background: "url(https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg) no-repeat center",
+                      width: "200px",
+                      backgroundSize: "contain",
+                      textIndent: "-9999px",
+                      margin: "2rem auto 0",
+                      padding: "0",
+                      height: "48px",
+                      position: "absolute",
+                      bottom: "-1.5rem",
+                      left: "0",
+                      right: "0",
+                      margin: "auto",
+                      opacity: .85
+                    }}
+                    href="/"
+                  >
+                    JAY ARE SEE
+                  </a>
+                </nav>
             </div>
           </div>
         </header>
