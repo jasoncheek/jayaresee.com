@@ -79,7 +79,7 @@ const Writing = (props) => {
   return (
     <>
       <Head>
-        <title>Jason Cheek</title>
+        <title>JAY ARE SEE</title>
         <link rel="icon" href="/favicon.ico" />
         <script
           async

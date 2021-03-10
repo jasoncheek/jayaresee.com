@@ -73,7 +73,7 @@ const Home = (props) => {
   return (
     <>
       <Head>
-        <title>Jason Cheek</title>
+        <title>JAY ARE SEE</title>
         <link rel="icon" href="/favicon.ico" />
         <script
           async
@@ -171,7 +171,7 @@ const Home = (props) => {
                 <a
                   title="Instagram"
                   className="dib v-mid link pv2 ph3"
-                  href="https://www.instagram.com/jasoncheek"
+                  href="https://www.instagram.com/jayareseemusic"
                   target="_blank"
                 >
                   <FontAwesomeIcon
@@ -185,7 +185,7 @@ const Home = (props) => {
                 <a
                   title="Twitter"
                   className="dib v-mid link pv2 ph3"
-                  href="https://twitter.com/cheekisme"
+                  href="https://twitter.com/jayareseemusic"
                   target="_blank"
                 >
                   <FontAwesomeIcon
@@ -213,7 +213,7 @@ const Home = (props) => {
                 <a
                   title="Soundcloud"
                   className="dib v-mid link pv2 ph3"
-                  href="https://soundcloud.com/jasoncheekmusic"
+                  href="https://soundcloud.com/jayareseemusic"
                   target="_blank"
                 >
                   <FontAwesomeIcon
