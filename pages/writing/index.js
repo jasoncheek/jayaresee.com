@@ -13,6 +13,7 @@ import {
   groupBy as _groupBy,
   values as _values,
   mapValues as _mapValues,
+  orderBy as _orderBy,
 } from "lodash";
 import format from "date-fns/format";
 import getMonth from "date-fns/getMonth";
@@ -47,17 +48,22 @@ const Writing = (props) => {
     props.posts,
     "group_published_at_month"
   );
-  const posts = postsGroupedArray.map((group) => {
+  const postsGroupedSorted = _orderBy(
+    postsGroupedArray,
+    "group_published_at_month",
+    "desc"
+  );
+  const posts = postsGroupedSorted.map((group) => {
     const postsGroupYear = group[0].published_at_year;
     const postsList = group.map((post) => {
       return (
-        <li key={post.id} className="list-item-title w-100 w-50-ns mh3">
+        <li key={post.id} className="list-item-title w-100">
           <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
             <div>
               <a className="fl v-mid pv3 link mw5 mw-none-ns lh-copy mr2">
                 {post.title}
               </a>
-              <span className="fr pv3 mt1 courier light-silver f7 lh-copy">
+              <span className="fr pv3 mt1 light-silver f7 lh-copy">
                 {format(new Date(post.published_at), "MMMM Mo")}
               </span>
             </div>
@@ -68,10 +74,10 @@ const Writing = (props) => {
 
     return (
       <div key={group.group_published_at_month}>
-        <h2 className="tr f7 gray normal b--silver bb pr3 pb1 center mv0">
+        <h2 className="tc f7 gray normal b--silver bb bw1 pb1 center mv0">
           {postsGroupYear}
         </h2>
-        <ul className="list ph0 mt0 mb4 f5">{postsList}</ul>
+        <ul className="list tc ph0 mt0 mb4 f5">{postsList}</ul>
       </div>
     );
   });
@@ -110,19 +116,20 @@ const Writing = (props) => {
                     className="site-nav-logo"
                     style={{
                       //background: "url(../images/jason-cheek-signature.png) no-repeat center",
-                      background: "url(https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg) no-repeat center",
+                      background:
+                        "url(https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg) no-repeat center",
                       width: "200px",
                       backgroundSize: "contain",
                       textIndent: "-9999px",
                       margin: "2rem auto 0",
                       padding: "0",
-                      height: "48px",
+                      height: "44px",
                       position: "absolute",
-                      bottom: "-1.5rem",
+                      bottom: "-1.35rem",
                       left: "0",
                       right: "0",
                       margin: "auto",
-                      opacity: .9
+                      opacity: 0.9,
                     }}
                     href="/"
                   >
@@ -145,15 +152,15 @@ const Writing = (props) => {
                   New Orleans, Louisiana
                 </div>
               </div>
-              <div className="tags-wrap tc mt4">
-                {props.tags.length > 0 ? (
-                  <ul className="tags dib list mv0 pl0">{tagsList}</ul>
-                ) : null}
-              </div>
+            </div>
+            <div className="tags-wrap tc mt4 mb3">
+              {props.tags.length > 0 ? (
+                <ul className="tags dib list mv0 pl0">{tagsList}</ul>
+              ) : null}
             </div>
             <div
               className="posts flex-ns pv4 center"
-              style={{ maxWidth: "48rem" }}
+              style={{ maxWidth: "32rem" }}
             >
               <div className="flex-ns center w-100">
                 <div className="w-100 bw2 b--dark-gray">{posts}</div>
@@ -164,68 +171,9 @@ const Writing = (props) => {
             <ul className="list dib mv0 pl0 pv2">
               <li className="list-item dib v-mid">
                 <a
-                  title="E-mail"
+                  title="Instagram"
                   className="dib v-mid link pv2 ph3"
-                  href="mailto:jrcheek@gmail.com"
-                  title="jrcheek@gmail.com"
-                >
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    style={{ height: "1.25rem" }}
-                  />
-                  {/* E-mail     */}
-                </a>
-              </li>
-              <li className="list-item dib v-mid">
-                <a
-                  title="LinkedIn"
-                  className="dib v-mid link pv2 ph3"
-                  href="https://www.linkedin.com/in/jason-cheek/"
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    icon={["fab", "linkedin"]}
-                    style={{ height: "1.25rem" }}
-                  />
-                  {/* LinkedIn */}
-                </a>
-              </li>
-              <li className="list-item dib v-mid">
-                <a
-                  title="GitHub"
-                  className="dib v-mid link pv2 ph3"
-                  href="https://github.com/jasoncheek"
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    icon={["fab", "github"]}
-                    style={{ height: "1.25rem" }}
-                  />
-                  {/* GitHub  */}
-                </a>
-              </li>
-              {/* <lINKSlISTiTEM>
-                    <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
-                    </lINKSlISTiTEM> */}
-              <li className="list-item dib v-mid">
-                <a
-                  title="facebook"
-                  className="dib v-mid link pv2 ph3"
-                  href="https://www.facebook.com/jasoncheeek"
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    icon={["fab", "facebook"]}
-                    style={{ height: "1.25rem" }}
-                  />
-                  {/* facebook */}
-                </a>
-              </li>
-              <li className="list-item dib v-mid">
-                <a
-                  title="instagram"
-                  className="dib v-mid link pv2 ph3"
-                  href="https://www.instagram.com/jasoncheek"
+                  href="https://www.instagram.com/jayareseemusic"
                   target="_blank"
                 >
                   <FontAwesomeIcon
@@ -237,9 +185,9 @@ const Writing = (props) => {
               </li>
               <li className="list-item dib v-mid">
                 <a
-                  title="twitter"
+                  title="Twitter"
                   className="dib v-mid link pv2 ph3"
-                  href="https://twitter.com/cheekisme"
+                  href="https://twitter.com/jayareseemusic"
                   target="_blank"
                 >
                   <FontAwesomeIcon
@@ -249,15 +197,33 @@ const Writing = (props) => {
                   {/* Twitter */}
                 </a>
               </li>
-              {/* <lINKSlISTiTEM>
-                    <fONTaWESOMEiCON ICON={['FAB', 'TUMBLR']} STYLE={{HEIGHT: "1.5REM"}} />
-                    </lINKSlISTiTEM>
-                    <lINKSlISTiTEM>
-                    <fONTaWESOMEiCON ICON={['FAB', 'PINTEREST']} STYLE={{HEIGHT: "1.5REM"}} />
-                    </lINKSlISTiTEM>
-                    <lINKSlISTiTEM>
-                    <fONTaWESOMEiCON ICON={['FAB', 'SOUNDCLOUD']} STYLE={{HEIGHT: "1.5REM"}} />
-                    </lINKSlISTiTEM> */}
+              <li className="list-item dib v-mid">
+                <a
+                  title="Tumblr"
+                  className="dib v-mid link pv2 ph3"
+                  href="https://jayaresee.tumblr.com"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon
+                    icon={["fab", "tumblr"]}
+                    style={{ height: "1.25rem" }}
+                  />
+                  {/* Twitter */}
+                </a>
+              </li>
+              <li className="list-item dib v-mid">
+                <a
+                  title="Soundcloud"
+                  className="dib v-mid link pv2 ph3"
+                  href="https://soundcloud.com/jayareseemusic"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon
+                    icon={["fab", "soundcloud"]}
+                    style={{ height: "1.25rem" }}
+                  />
+                </a>
+              </li>
             </ul>
           </div>
           <footer className="gray tc f7 pt2 pb5">
@@ -297,8 +263,7 @@ Writing.getInitialProps = async ({ req }) => {
     post.published_at_year = year;
     return post;
   });
-  const postsGrouped = _groupBy(postsUpdated, "published_at_month");
-
+  const postsGrouped = _groupBy(postsUpdated, "published_at_year");
   // const ig_post_res = await fetch(`${baseUrl}/api/ig_post`);
   // const ig_post = await ig_post_res.json();
 

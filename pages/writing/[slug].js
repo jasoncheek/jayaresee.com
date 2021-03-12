@@ -30,30 +30,31 @@ export default function Post(props) {
         >
           <div className="outer site-nav-main">
             <div className="inner">
-                <nav className="site-nav bg-near-white">
-                  <a
-                    className="site-nav-logo"
-                    style={{
-                      //background: "url(../images/jason-cheek-signature.png) no-repeat center",
-                      background: "url(https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg) no-repeat center",
-                      width: "200px",
-                      backgroundSize: "contain",
-                      textIndent: "-9999px",
-                      margin: "2rem auto 0",
-                      padding: "0",
-                      height: "48px",
-                      position: "absolute",
-                      bottom: "-1.5rem",
-                      left: "0",
-                      right: "0",
-                      margin: "auto",
-                      opacity: .85
-                    }}
-                    href="/"
-                  >
-                    JAY ARE SEE
-                  </a>
-                </nav>
+              <nav className="site-nav bg-near-white">
+                <a
+                  className="site-nav-logo"
+                  style={{
+                    //background: "url(../images/jason-cheek-signature.png) no-repeat center",
+                    background:
+                      "url(https://s3.us-east-2.amazonaws.com/www.jayaresee.com/jayaresee-dark.svg) no-repeat center",
+                    width: "200px",
+                    backgroundSize: "contain",
+                    textIndent: "-9999px",
+                    margin: "2rem auto 0",
+                    padding: "0",
+                    height: "44px",
+                    position: "absolute",
+                    bottom: "-1.35rem",
+                    left: "0",
+                    right: "0",
+                    margin: "auto",
+                    opacity: 0.85,
+                  }}
+                  href="/"
+                >
+                  JAY ARE SEE
+                </a>
+              </nav>
             </div>
           </div>
         </header>
@@ -61,7 +62,7 @@ export default function Post(props) {
           <div className="inner">
             <div className="dib w-100">
               <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
-                  Observe, Create
+                Observe, Create
               </div>
               <div className="fl w-60-ns">
                 <div className="h1"></div>
@@ -72,91 +73,34 @@ export default function Post(props) {
             </div>
             <article className="post-full post center">
               <header
-                className="post-full-header center pv4 ph3 tc"
+                className="post-full-header center pt5 pb4 ph3 tc"
                 style={{ maxWidth: "40rem" }}
               >
                 <section className="post-full-tags">
-                  <a href={`/tag/getting-started`}>
+                  <a
+                    href={
+                      props.post.primary_tag !== undefined &&
+                      props.post.primary_tag !== null
+                        ? props.post.primary_tag.url
+                        : null
+                    }
+                  >
                     {props.post.primary_tag !== undefined &&
                     props.post.primary_tag !== null
                       ? props.post.primary_tag.name
                       : null}
                   </a>
                 </section>
-                <h1 className="post-full-title f3 f2-ns mt0 mb3">
+                <h1 className="post-full-title f3 mt0 mb3">
                   {props.post.title}
                 </h1>
-                <div className="f7 mb4 gray">
+                <div className="f7 gray">
                   {format(new Date(props.post.published_at), "MMMM M, yyyy")}
-                </div>
-                <div className="post-full-byline">
-                  {props.post.primary_author !== null &&
-                  props.post.primary_author !== undefined ? (
-                    <section className="post-full-byline-content">
-                      <ul className="author-list">
-                        <li className="author-list-item">
-                          <div className="author-card">
-                            <img
-                              className="author-profile-image"
-                              src={props.post.primary_author.profile_image}
-                              alt={props.post.primary_author.name}
-                            />
-                            <div className="author-info">
-                              <div className="bio">
-                                <h2>{props.post.primary_author.name}</h2>
-                                <p>{props.post.primary_author.bio}</p>
-                                <p>
-                                  <a
-                                    href={`/author/${props.post.primary_author.slug}/`}
-                                  >
-                                    More posts
-                                  </a>{" "}
-                                  by {props.post.primary_author.name}.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-
-                          <a
-                            href={`/author/${props.post.primary_author.slug}/`}
-                            className="author-avatar"
-                          >
-                            <img
-                              className="author-profile-image"
-                              src={props.post.primary_author.profile_image}
-                              alt={props.post.primary_author.name}
-                            />
-                          </a>
-                        </li>
-                      </ul>
-                      <section className="post-full-byline-meta">
-                        <h4 className="author-name">
-                          <a
-                            href={`/author/${props.post.primary_author.slug}/`}
-                          >
-                            {props.post.primary_author.name}
-                          </a>
-                        </h4>
-                        <div className="byline-meta-content">
-                          <time
-                            className="byline-meta-date"
-                            dateTime={props.post.published_at}
-                          >
-                            {props.post.published_at}
-                          </time>
-                          <span className="byline-reading-time">
-                            <span className="bull">•</span>{" "}
-                            {props.post.reading_time} min read
-                          </span>
-                        </div>
-                      </section>
-                    </section>
-                  ) : null}
                 </div>
               </header>
               {props.post.feature_image !== null ? (
                 <figure
-                  className="post-full-image w-100 ma0 center tc"
+                  className="post-full-image w-100 ma0 center tc mb5"
                   style={{ maxWidth: "75rem" }}
                 >
                   <img src={props.post.feature_image} alt={props.post.title} />
@@ -172,7 +116,7 @@ export default function Post(props) {
                 <div className="post-content">
                   {
                     <div
-                      className="pv4 ph3 center lh-copy f4-ns system-serif"
+                      className="pb4 ph3 center lh-copy f4-ns system-serif"
                       style={{ maxWidth: "40rem" }}
                       dangerouslySetInnerHTML={createMarkup()}
                     ></div>
@@ -196,68 +140,9 @@ export default function Post(props) {
           <ul className="list dib mv0 pl0 pv2">
             <li className="list-item dib v-mid">
               <a
-                title="E-mail"
+                title="Instagram"
                 className="dib v-mid link pv2 ph3"
-                href="mailto:jrcheek@gmail.com"
-                title="jrcheek@gmail.com"
-              >
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  style={{ height: "1.25rem" }}
-                />
-                {/* E-mail     */}
-              </a>
-            </li>
-            <li className="list-item dib v-mid">
-              <a
-                title="LinkedIn"
-                className="dib v-mid link pv2 ph3"
-                href="https://www.linkedin.com/in/jason-cheek/"
-                target="_blank"
-              >
-                <FontAwesomeIcon
-                  icon={["fab", "linkedin"]}
-                  style={{ height: "1.25rem" }}
-                />
-                {/* LinkedIn */}
-              </a>
-            </li>
-            <li className="list-item dib v-mid">
-              <a
-                title="GitHub"
-                className="dib v-mid link pv2 ph3"
-                href="https://github.com/jasoncheek"
-                target="_blank"
-              >
-                <FontAwesomeIcon
-                  icon={["fab", "github"]}
-                  style={{ height: "1.25rem" }}
-                />
-                {/* GitHub  */}
-              </a>
-            </li>
-            {/* <lINKSlISTiTEM>
-                  <fONTaWESOMEiCON ICON={['FAB', 'CODEPEN']} STYLE={{HEIGHT: "1.5REM"}} />
-                  </lINKSlISTiTEM> */}
-            <li className="list-item dib v-mid">
-              <a
-                title="facebook"
-                className="dib v-mid link pv2 ph3"
-                href="https://www.facebook.com/jasoncheeek"
-                target="_blank"
-              >
-                <FontAwesomeIcon
-                  icon={["fab", "facebook"]}
-                  style={{ height: "1.25rem" }}
-                />
-                {/* facebook */}
-              </a>
-            </li>
-            <li className="list-item dib v-mid">
-              <a
-                title="instagram"
-                className="dib v-mid link pv2 ph3"
-                href="https://www.instagram.com/jasoncheek"
+                href="https://www.instagram.com/jayareseemusic"
                 target="_blank"
               >
                 <FontAwesomeIcon
@@ -269,9 +154,9 @@ export default function Post(props) {
             </li>
             <li className="list-item dib v-mid">
               <a
-                title="twitter"
+                title="Twitter"
                 className="dib v-mid link pv2 ph3"
-                href="https://twitter.com/cheekisme"
+                href="https://twitter.com/jayareseemusic"
                 target="_blank"
               >
                 <FontAwesomeIcon
@@ -281,15 +166,33 @@ export default function Post(props) {
                 {/* Twitter */}
               </a>
             </li>
-            {/* <lINKSlISTiTEM>
-                  <fONTaWESOMEiCON ICON={['FAB', 'TUMBLR']} STYLE={{HEIGHT: "1.5REM"}} />
-                  </lINKSlISTiTEM>
-                  <lINKSlISTiTEM>
-                  <fONTaWESOMEiCON ICON={['FAB', 'PINTEREST']} STYLE={{HEIGHT: "1.5REM"}} />
-                  </lINKSlISTiTEM>
-                  <lINKSlISTiTEM>
-                  <fONTaWESOMEiCON ICON={['FAB', 'SOUNDCLOUD']} STYLE={{HEIGHT: "1.5REM"}} />
-                  </lINKSlISTiTEM> */}
+            <li className="list-item dib v-mid">
+              <a
+                title="Tumblr"
+                className="dib v-mid link pv2 ph3"
+                href="https://jayaresee.tumblr.com"
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "tumblr"]}
+                  style={{ height: "1.25rem" }}
+                />
+                {/* Twitter */}
+              </a>
+            </li>
+            <li className="list-item dib v-mid">
+              <a
+                title="Soundcloud"
+                className="dib v-mid link pv2 ph3"
+                href="https://soundcloud.com/jayareseemusic"
+                target="_blank"
+              >
+                <FontAwesomeIcon
+                  icon={["fab", "soundcloud"]}
+                  style={{ height: "1.25rem" }}
+                />
+              </a>
+            </li>
           </ul>
         </div>
         <footer className="gray tc f7 pt2 pb5">

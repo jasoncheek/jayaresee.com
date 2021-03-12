@@ -111,13 +111,13 @@ const Home = (props) => {
                       textIndent: "-9999px",
                       margin: "2rem auto 0",
                       padding: "0",
-                      height: "48px",
+                      height: "44px",
                       position: "absolute",
-                      bottom: "-1.5rem",
+                      bottom: "-1.35rem",
                       left: "0",
                       right: "0",
                       margin: "auto",
-                      opacity: .85
+                      opacity: 0.85,
                     }}
                     href="/"
                   >
@@ -141,7 +141,7 @@ const Home = (props) => {
                 </div>
               </div>
               <div
-                className="cf posts flex-ns pv4 center"
+                className="cf posts flex-ns pv5 center"
                 style={{ maxWidth: "64rem" }}
               >
                 <div className="flex-ns center">

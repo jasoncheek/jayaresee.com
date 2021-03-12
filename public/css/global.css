@@ -1,15 +1,15 @@
 html {
-    background: #222
+  background: #222;
 }
 
 .link {
-    color: #222;
-    font-weight: bold;
+  color: #222;
+  font-weight: bold;
 }
 
 .tags:hover .tag:not(:hover) {
-    opacity: .4;
-    transition: opacity .2s ease-in-out;
+  opacity: 0.4;
+  transition: opacity 0.2s ease-in-out;
 }
 
 /* .tag:not(:hover) {
@@ -18,127 +18,142 @@ html {
 } */
 
 .list-item-title .link {
-    color: #222 
+  color: #222;
+  font-weight: 400;
 }
 
 .list-item-title {
-    transition: all ease .2s;
-    border-bottom: .125rem solid whitesmoke;
-    cursor: pointer;
+  transition: all ease 0.2s;
+  border-bottom: 0.125rem solid whitesmoke;
+  cursor: pointer;
 }
 
-.list-item-title:hover, .list-item-title:active {
-    border-bottom: .125rem solid #222 
+.list-item-title:hover,
+.list-item-title:active {
+  border-bottom: 0.125rem solid #222;
 }
 
 .social-links .link {
-    color: white
+  color: white;
 }
 
 .writing .list-item-title {
-    display: inline-block;
-    transition: all ease-in-out .2s;
-    border-bottom: .125rem solid whitesmoke;
-    /* width: 320px; */
+  display: inline-block;
+  transition: all ease-in-out 0.2s;
+  border-bottom: 0.125rem solid whitesmoke;
+  /* width: 320px; */
 }
 
-.writing .list-item-title:hover, .list-item-title:active {
-    border-bottom: .125rem solid #222 
+.writing .list-item-title:hover,
+.list-item-title:active {
+  border-bottom: 0.125rem solid #222;
 }
 
 .social-links .list:hover .list-item:not(:hover) {
-    opacity: .4;
-    transition: opacity .2s ease-in-out;
+  opacity: 0.4;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .more-posts:hover {
-    background: #f4f4f4;
-    transition: background-color .2s ease-in-out;
+  background: #f4f4f4;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.post-full-content .Currently a:hover {
+  border-bottom: none;
+}
+
+.post-full-content .Currently a:link,
+.post-full-content .Currently a:visited {
+  color: #222;
 }
 
 .Currently {
-    max-width: 72rem;
-    background: whitesmoke
+  margin: 0 auto 2rem;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
 }
 
 .Currently-info-activity {
-    font-size: .75rem;
-    font-weight: 400;
-    /*color: gray;*/
-    text-transform: uppercase;
-    display: inline-block;
-    vertical-align: middle;
-    letter-spacing: .03rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03rem;
 }
 
 .Currently-content {
-    display: flex;
+  display: flex;
+  height: 8.25rem;
+  background: whitesmoke;
+  box-shadow: 1px 1px 8px rgb(0, 0, 0, 0.1);
 }
 
 .Currently-image-wrap {
-    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .Currently-image {
-    display: block;
-    max-width: 100%;
-    width: 160px;
-    height: 160px
+  display: block;
+  width: 132px;
+  height: 132px;
 }
 
 .Currently-info {
-    font-size: 1.125rem;
-    padding-top: 1.75rem
+  font-size: 1.125rem;
+  padding-top: 1.5rem;
 }
 
 .Currently-info-icon {
-    padding: .25rem .25rem .25rem;
-    display: inline-block;
-    vertical-align: middle;
-    width: 1.5rem;
-    opacity: .5;
+  padding: 0.25rem 0.25rem 0.25rem;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.5rem;
+  opacity: 0.5;
 }
 
 .Currently-info-bullet {
-    font-size: 1.25rem;
-    display: inline-block;
-    vertical-align: middle;
-    color: blue;
+  font-size: 1.25rem;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .Currently-info-icon svg {
-    display: block;
-    width: 24px;
+  display: block;
+  width: 24px;
 }
 
 .Currently-info-list {
-    list-style: none;
-    padding: .5rem 1.5rem;
-    margin: 0
+  list-style: none;
+  padding: 0 1.5rem;
+  margin: 0;
 }
 
 .Currently-info-title {
-    color: gray;
-    margin-bottom: .25rem;
-    margin-top: .25rem;
+  color: gray;
 }
 
 .Currently-info-link {
-    display: block;
-    text-decoration: none;
-    color: gray
+  display: block;
+  text-decoration: none;
+  color: gray;
+}
+
+.Currently-info-title .Currently-info-link {
 }
 
 .Currently-info-author {
-    font-size: .875rem;
+  font-size: 0.875rem;
 }
 
 @media screen and (min-width: 60em) {
-    .app-height-l {
-        max-height: 900px;
-    }
-    .center-none-l {
-        margin-left: initial;
-        margin-right: initial;
-    }
+  .app-height-l {
+    max-height: 900px;
+  }
+  .center-none-l {
+    margin-left: initial;
+    margin-right: initial;
+  }
 }
