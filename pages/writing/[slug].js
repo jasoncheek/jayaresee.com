@@ -86,15 +86,9 @@ export default function Post(props) {
                 <h1 className="post-full-title f3 f2-ns mt0 mb3">
                   {props.post.title}
                 </h1>
-                {/* <div className="f5 gray mb5">{format(parse(props.post.published_at, 'MM/dd/yyyy', new Date()), 'MM/dd/yyyy')}</div> */}
                 <div className="f7 mb4 gray">
                   {format(new Date(props.post.published_at), "MMMM M, yyyy")}
                 </div>
-
-                <p className="post-full-custom-excerpt f4 mb3 system-serif lh-copy gray tl">
-                  {props.post.excerpt}
-                </p>
-
                 <div className="post-full-byline">
                   {props.post.primary_author !== null &&
                   props.post.primary_author !== undefined ? (
