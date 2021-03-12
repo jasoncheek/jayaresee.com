@@ -1,2 +1,3 @@
-# jasoncheek.me
-Personal website built with React and Next.js
+# jayaresee.com
+
+Built with Next.js
