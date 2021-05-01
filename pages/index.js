@@ -13,40 +13,8 @@ import {
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import "tachyons";
 import "../public/css/global.css";
-//import postStyles from '../components/styled/postStyles.js'
 
 library.add(fab, faTimes, faEnvelope, faArrowDown);
-//{format(new Date(props.post.published_at), 'MMMM M, yyyy')}
-// const toArrayWithKey = (obj, keyAs) =>
-//   _values(_mapValues(obj, (value, key) => {
-//     value[keyAs] = key;
-//     return value;
-//   }));
-// const postsGroupedArray = toArrayWithKey(props.postsGrouped, "group_published_at_month");
-// const posts = postsGroupedArray.map(group => {
-//   const postsGroupMonth = group[0].published_at_month;
-//   const postsGroupYear = group[0].published_at_year;
-//   const postsList = group.map(post => {
-//       return (
-//           <li key={post.id} className="list-item-title">
-//             <Link href={`/writing/[slug]`} as={`/writing/${post.slug}`}>
-//               <div>
-//                 <a className="dib v-mid pv3 ph2 link mw5 mw-none-ns lh-copy mr2">{post.title}</a>
-//                 <span className="dib courier light-silver f7 pr3 lh-copy">03/26/2020</span>
-//               </div>
-//             </Link>
-//           </li>
-//       )
-//   });
-//   return (
-//     <div key={group.group_published_at_month} >
-//       <h2 className="tr f7 gray normal b--silver bb pb1 center mv3">{postsGroupYear}</h2>
-//       <ul className="list ph0 mt0 mb4 f5">
-//         {postsList}
-//       </ul>
-//     </div>
-//   )
-// });
 const Home = (props) => {
   const posts = props.posts.map((post) => {
     return (
@@ -131,7 +99,7 @@ const Home = (props) => {
             <div className="inner">
               <div className="dib w-100">
                 <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
-                  Observe, Create
+                  Seek. Grow. Share.
                 </div>
                 <div className="fl w-60-ns">
                   <div className="h1"></div>
@@ -240,9 +208,6 @@ const Home = (props) => {
             &copy; {props.year} JAY ARE SEE
           </footer>
         </div>
-        {/* <style jsx global>
-          {postStyles}
-        </style> */}
       </div>
     </>
   );
@@ -266,13 +231,13 @@ Home.getInitialProps = async ({ req }) => {
   // const spotify_data_res = await fetch(`${baseUrl}/api/spotify_data`);
   // const spotify_data = await spotify_data_res.json();
 
-  const tweet_res = await fetch(`${baseUrl}/api/tweet`);
-  const tweet = await tweet_res.json();
+  // const tweet_res = await fetch(`${baseUrl}/api/tweet`);
+  // const tweet = await tweet_res.json();
 
   return {
     // spotify_data: spotify_data,
     // ig_post: ig_post,
-    tweet: tweet,
+    // tweet: tweet,
     posts: posts,
     year: serverDateTime.getFullYear(),
   };
