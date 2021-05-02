@@ -99,7 +99,7 @@ const Home = (props) => {
             <div className="inner">
               <div className="dib w-100">
                 <div className="fl w-20 author-description pv2 ph3 f7 gray lh-title">
-                  Seek. Grow. Share.
+                  Seek &amp; Grow &amp; Share.
                 </div>
                 <div className="fl w-60-ns">
                   <div className="h1"></div>
